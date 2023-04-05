@@ -1,0 +1,15 @@
+:root {
+    --text-default: #3C414E;
+    --text-light: #8590AB;
+    --text-light-white: #D0D9E4;
+
+    --primary: #2361FF;
+    --primary-medium: #1852e3;
+    --primary-dark: #164acc;
+
+    --background-dark: #2F3352;
+    --background-lighter: #EFF2F8;
+
+    --neutral-light-gray: #D0D9E4;
+    --neutral-dark: #8590AB;
+}

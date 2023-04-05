@@ -18,7 +18,7 @@ body {
     align-items: flex-start;
     width: 100vw;
     height: 100vh;
-    margin-left: -0px;
+    margin: 0px;
 
     color: var(--text-default);
     background: #FFFFFF;
@@ -340,7 +340,7 @@ body {
 
 .num {
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .review-container {
@@ -566,6 +566,7 @@ body {
     color: white;
     font-size: 120%;
     font-weight: 600;
+    text-decoration: none;
 
     cursor: pointer;
 }

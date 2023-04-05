@@ -4,6 +4,7 @@
     background-size: contain;
 }
 
+/* Size */
 .icon.size40px{
     width: 40px;
     height: 40px;
@@ -22,6 +23,18 @@
     background-size: cover;
 }
 
+/* Filter */
+.icon.white
+{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(103%) contrast(102%);;
+}
+
+.icon.primary
+{
+    filter: invert(33%) sepia(99%) saturate(5729%) hue-rotate(226deg) brightness(114%) contrast(101%);
+}
+
+/* Name */
 .icon#search {
     background-image: url('/icons/search.svg');
 }
@@ -34,12 +47,7 @@
     background-image: url('/icons/plus.svg');
 }
 
-.icon.white
+.icon#arrow-right
 {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(103%) contrast(102%);;
-}
-
-.icon.primary
-{
-    filter: invert(33%) sepia(99%) saturate(5729%) hue-rotate(226deg) brightness(114%) contrast(101%);
+    background-image: url('/icons/arrow\ right.svg')
 }

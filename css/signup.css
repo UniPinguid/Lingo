@@ -1,0 +1,160 @@
+* {
+    font-family: Inter;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: flex-start;
+
+    padding: 32px 64px;
+    box-sizing: border-box;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+
+    color: var(--text-default);
+
+    background-image: url("/images/signup\ background.png");
+    background-size: cover;
+    background-position: 10%;
+    background-attachment: fixed;
+}
+
+.logo {
+    width: 100%;
+    color: white;
+    padding-bottom: 16px;
+}
+
+/* Form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 24px;
+
+    padding: 24px 48px;
+    box-sizing: border-box;
+
+    width: 540px;
+    height: max-content;
+    background-color: white;
+}
+
+.form .title {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Text input */
+.input-field {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+.input-field .label {
+    position: absolute;
+    margin: 24px 8px;
+    font-size: 20px;
+    font-weight: 600;
+    pointer-events: none;
+    
+    color: var(--text-light);
+}
+
+.input-field input:valid ~ .label,
+.input-field input:focus ~ .label
+{
+    position: absolute;
+    margin: 12px 8px;
+    font-size: 16px;
+    font-weight: 600;
+    
+    color: var(--text-default);
+}
+
+input {
+    width: 100%;
+    padding: 24px 24px;
+
+    background-color: var(--neutral-white);
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    outline: none;
+    border: none;
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-default);
+    font-weight: 500;
+}
+
+input:focus, input:focus:hover {
+    padding: 36px 24px 12px 8px;
+    background-color: white;
+    outline: 2px solid var(--text-default);
+}
+
+input:hover {
+    background-color: #e3e8f2;
+}
+
+input:empty ~ .label {
+    margin: 24px;
+}
+
+input:valid {
+    padding: 36px 24px 12px 8px;
+}
+
+/* Alternative Registration */
+.alt-registration
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: 8px;
+
+    width: 100%;
+}
+
+.register-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--neutral-white);
+    padding: 8px 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.continue-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    padding: 8px;
+    box-sizing: border-box;
+
+    background-color: var(--primary);
+    border-radius: 99px;
+}

@@ -49,5 +49,24 @@
 
 .icon#arrow-right
 {
-    background-image: url('/icons/arrow\ right.svg')
+    background-image: url('/icons/arrow\ right.svg');
+}
+
+.icon#google
+{
+    background-image: url('/icons/Google.svg');
+}
+
+.icon#twitter {
+    background-image: url('/icons/Twitter.svg');
+}
+
+.icon#facebook
+{
+    background-image: url('/icons/Facebook.svg');
+}
+
+.icon#github
+{
+    background-image: url('/icons/GitHub.svg');
 }

@@ -43,12 +43,18 @@ body {
     justify-items: center;
     gap: 24px;
 
-    padding: 24px 48px;
+    padding: 48px 48px;
     box-sizing: border-box;
 
     width: 540px;
     height: max-content;
     background-color: white;
+}
+
+.form a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary);
 }
 
 .form .title {
@@ -99,6 +105,9 @@ input {
 
     font-size: 22px;
     font-weight: 800;
+
+    
+    transition: background-color 0.2s ease;
 }
 
 input[type="text"]::placeholder {
@@ -140,10 +149,15 @@ input:valid {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--neutral-white);
     padding: 8px 16px;
     box-sizing: border-box;
     width: 100%;
+    border-radius: 8px;
+}
+
+.register-button:hover
+{
+    filter: brightness(90%);
 }
 
 .continue-button {
@@ -152,9 +166,57 @@ input:valid {
     justify-content: center;
     width: 80px;
     height: 80px;
+
+    margin-top: 32px;
     padding: 8px;
     box-sizing: border-box;
 
     background-color: var(--primary);
     border-radius: 99px;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+    width: 100%;
+
+    margin-top: 24px;
+    padding: 36px 0px;
+    color: white;
+    box-sizing: border-box;
+
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.footer .links {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    font-weight: 600;
+}
+
+.footer .links .language {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: max-content;
+}
+
+.footer .links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.footer .copyright {
+    font-weight: 400;
 }

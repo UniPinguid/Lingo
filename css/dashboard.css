@@ -1,0 +1,166 @@
+* {
+    font-family: Inter;
+}
+
+::-webkit-scrollbar 
+{
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+
+    color: var(--text-default);
+    background: #FFFFFF;
+    overflow-x: hidden;
+}
+
+.page-layout {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height:max-content;
+}
+
+.sidebar {
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 280px;
+    height: 100%;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    background-color: var(--neutral-white);
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 280px;
+    height: max-content;
+
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Collapsible */
+.collapsible {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-default);
+}
+
+.toggle {
+    outline: none;
+    border: none;
+    background: none;
+
+    cursor: pointer;
+}
+
+.content {
+    display: none;
+}
+
+.group-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* Project item */
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.project-color {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 8px;
+    background-color: red;
+}
+
+.project-name {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+hr {
+    width: 100%;
+    border: 0px;
+    border-bottom: 2px solid var(--neutral-light-gray);
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.pagename {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.functions {
+    display: flex;
+    flex-direction: row;
+
+    gap: 24px;
+}
+
+.avatar img {
+    width: 40px;
+}
+
+/* Search bar */
+.search-bar {
+    position: relative;
+}
+
+input {
+    outline: none;
+    padding: 8px 16px;
+    padding-left: 40px;
+
+    font-size: 16px;
+    border: 2px solid var(--neutral-dark);
+    border-radius: 16px;
+}
+
+.search-bar .icon {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+}

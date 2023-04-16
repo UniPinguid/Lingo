@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="/css/dashboard.css" rel="stylesheet" />
+    <link href="/css/components/button.css" rel="stylesheet" />
+    <link href="/css/icon.css" rel="stylesheet" />
+    <link href="/css/root.css" rel="stylesheet" />
+    <title>Dashboard | LingoLab</title>
+</head>
+
+<body>
+    <div class="page-layout">
+        <div class="sidebar">
+            <div>LingoLab</div>
+            <button class="button" id="icon">
+                <div class="icon white size40px" id="plus"></div>Create Project
+            </button>
+            <div class="collapsible">
+                My Project
+                <button class="toggle" onclick="toggleCollapsible()">
+                    <div class="icon" id="search"></div>
+                </button>
+            </div>
+            <div class="content">
+                <div class="group-items">
+                    <div class="item">
+                        <div class="project-color"></div>
+                        <a class="project-name" href="#">Project 1</a>
+                    </div>
+                    <div class="item">
+                        <div class="project-color"></div>
+                        <a class="project-name" href="#">Project 2</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                Toolbox
+                <button class="toggle" onclick="toggleCollapsible()">
+                    <div class="icon" id="search"></div>
+                </button>
+            </div>
+            <div class="content">
+                <div class="group-items">
+                    <div class="item">
+                        <div class="icon" id="search"></div>
+                        <a class="project-name" href="#">Categorization</a>
+                    </div>
+                    <div class="item">
+                        <div class="icon" id="search"></div>
+                        <a class="project-name" href="#">Questions & Answers</a>
+                    </div>
+                    <div class="item">
+                        <div class="icon" id="search"></div>
+                        <a class="project-name" href="#">Translation</a>
+                    </div>
+                    <div class="item">
+                        <div class="icon" id="search"></div>
+                        <a class="project-name" href="#">Equivalency</a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="group-items">
+                <div class="item">
+                    <div class="icon" id="search"></div>
+                    <a class="project-name" href="#">Dark Mode</a>
+                </div>
+                <div class="item">
+                    <div class="icon" id="search"></div>
+                    <a class="project-name" href="#">Settings</a>
+                </div>
+                <div class="item">
+                    <div class="icon" id="search"></div>
+                    <a class="project-name" href="/index.html">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="header">
+                <div class="pagename">Dashboard</div>
+                <div class="functions">
+                    <div class="search-bar">
+                        <input placeholder="Search">
+                        <div class="icon" id="search"></div>
+                    </div>
+                        <div class="icon" id="check"></div>
+                        <div class="icon" id="check"></div>
+                        <div class="avatar"><img src="/images/sample avatar.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/collapsible.js"></script>
+</body>
+
+</html>

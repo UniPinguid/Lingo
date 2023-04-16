@@ -1,0 +1,105 @@
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+  }
+  
+  .user-info {
+    margin-right: 10px;
+    color:yellow;
+  }
+
+  a[href]{
+    color:yellow;
+  }
+  
+  nav {
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+    font-size:20px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  /* CSS cho liên kết được chọn */
+  .active {
+    background-color: #4CAF50;
+  }
+.content{
+    margin-bottom: 30px;
+}
+  .description{
+    border-style: solid;
+    width: 60%;
+    text-align: justify;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 12px;
+    border-color: gray;
+    margin-bottom: 20px;
+  }
+
+  .heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .heading .resultperpage{
+    display:inline;
+  }
+.dataset {
+    border-style: solid;
+    border-radius: 12px;
+}
+
+.data-label{
+    display: flex;
+    width:auto;
+    height: auto;
+    border-color: dimgray;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.data-label:first-child{
+    margin-top: 20px;
+}
+
+.data-label .data{
+    width:70%;
+    border-right-style: solid;
+    border-color: rgb(157, 151, 151);
+    padding: 10px;
+}
+
+.data-label .label{
+    display: flex;
+    float:right;
+    /* justify-content: center; */
+    padding: 10px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="site-name">LingoLab</div>
+        <div class="user-info">
+           <a href="#">Info</a>
+           <a href="#">Notice</a>
+        </div>
+      </header>
+      <heading>
+        <h2>New Project</h2>
+      </heading>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Main</a></li>
+          <li><a href="#">Member</a></li>
+          <li><a href="#">Labels</a></li>
+          <li><a href="#">Tasks</a></li>
+        </ul>
+      </nav>
+      <div class="description">
+        <h3>Description</h3>
+        <p>
+            Our autonomous vehicle company is looking for individuals to help identify objects in footage captured by our vehicles. As a data labeling specialist, you will be responsible for reviewing video footage and identifying various objects, such as other vehicles, pedestrians, traffic signs, and road markings. The data you provide will be used to improve the accuracy and reliability of our vehicle's object detection and recognition systems.</p>
+        <p>
+            Responsibilities:</p>
+            <li>Review video footage and identify objects such as vehicles, pedestrians, traffic signs, and road markings</li></br>
+            <li>Ensure accuracy and consistency in object identification</li></br>
+            <li>Communicate any issues or concerns related to the data labeling process</li></br>
+
+            <p>Requirements:</p>
+            <li>Attention to detail and ability to work independently</li></br>
+            <li>Basic computer skills and familiarity with web-based applications</li></br>
+            <li>Comfortable working with video footage of varying quality and resolution</li></br>
+            <li>Ability to meet deadlines and work within a team environment</li></br>
+
+            <p>This is a remote, part-time position with flexible hours. If you are interested in contributing to the development of autonomous vehicle technology and have a keen eye for detail, we encourage you to apply.
+        </p>
+      </div>
+    <div class="content">
+        <div class="heading">
+            <h2>Dataset</h2>
+            <div class="resultperpage">
+                <label for="resultperpage">Results per page</label>
+                <select name="numberOfdata">
+                    <option value=5 selected>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                </select>
+            </div>
+        </div>
+        <form class="search">
+            <input type="text" id="search" name="search" style="width:80%;height:20px;margin:10px" value="Search...">
+            <button onclick="addData()" style="font-size: 15px;color:blue; margin:10px">New dataset</button>
+        </form>
+        <div class="dataset">
+            <div class="data-label">
+                <div class="data">
+                    <p>Example data</p>
+                </div>
+                <div class="label">
+                    <p>Label 1</p>
+                </div>
+            </div>
+            <div class="data-label">
+                <div class="data">
+                    <p>Example data 2</p>
+                </div>
+                <div class="label">
+                    <p>Label 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

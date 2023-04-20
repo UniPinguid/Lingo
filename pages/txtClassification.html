@@ -8,227 +8,212 @@
     </head>
     <body>
         <div class="header">
-            <table>
-                <tr>
-                    <td>
-                        <img src="../icons/arrow right.svg" alt="back" id = "back">
-                    </td>
-                    <td id="app">
-                        LingoLab
-                    </td>
-                    <td>
-                        <table id="header_element">
-                            <tr>
-                                <td>
-                                    <img src="../icons/arrow right.svg" alt="" id="global">
-                                </td>
-                                <td>
-                                    <img src="../icons/arrow right.svg" alt="" id="noti">
-                                </td>
-                                <td>
-                                    <img src="../icons/arrow right.svg" alt="" id="user">
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <form action="unknown">
-            <div class="general">
+            <img src="../icons/arrow right.svg" alt="back" id = "back">
+            <h1>
+                LingoLab
+            </h1>
+            <div class="header_element">
+                <img src="../icons/arrow right.svg" alt="" id="global">
+                <img src="../icons/arrow right.svg" alt="" id="noti">
+                <img src="../icons/arrow right.svg" alt="" id="user">
+            </div>
             
-                <table>
-                    <tr></tr>
-                    <tr>
-                        <td>
-                            <img src="../icons/arrow right.svg" alt="" id="project-icon">
-                        </td>
-                        <td>
-                            <h1 id="newpj">
-                                New Project
-                            </h1>
-                        </td>
-                        <td>
-                            <img src="../icons/search.svg" alt="" id="'search">
-                            
-                        </td>
-                        <td>
-                            <select name="visibility" id="dropVisibility">
-                                <option value="Private">
-                                    Private
-                                </option>
-                                <option value="Public">
-                                    Public
-                                </option>
-                            </select>
-                        </td>
-                        <td>
-                            <img src="../icons/arrow right.svg" alt="" id="more">
-                        </td>
-                    </tr>
-                    <tr></tr>
-                    <tr>
-                        <td id="main">
-                            Main
-                        </td>
-                        <td id="mem">
-                            Member
-                        </td>
-                        <td id="lab">
-                            Labels
-                        </td>
-                        <td id="task">
-                            Tasks
-                        </td>
-                    </tr>
-                </table>
+        </div>
+        <div class="general">
+            <div class="gen_left">
+                <img src="../icons/arrow right.svg" alt="" id="project-icon">
+                <h1 id="newpj">
+                    New Project
+                </h1>
             </div>
-            <div class="ProjectInfo">
-                <table>
-                    <tr>
-                        <td>
-                            <img src="../icons/check.svg" alt="" id="paste">
-                        </td>
-                        <td>
-                            <h1>
-                                Identifying objects in images for computer vision training
-                            </h1>
-                            <p>
-                                #PMD-123984
-                            </p>
-                        </td>
-                    </tr>
-                </table>
+            <div class="gen_right">
+                <img src="../icons/search.svg" alt="" id="'search">
+                <select name="visibility" id="dropVisibility">
+                    <option value="Private">
+                        Private
+                    </option>
+                    <option value="Public">
+                        Public
+                    </option>
+                </select>
+                <select name="ellipsesProj" id="ellipsesProj">
+                    <option value="Private">
+                        Edit Task
+                    </option>
+                    <option value="Favourite">
+                        Add to Favourite
+                    </option>
+                    <option value="Share">
+                        Share
+                    </option>
+                    <option value="DelTask">
+                        Delete Task
+                    </option>
+                </select>
             </div>
-            <div class="main">
+            <div class="gen_cen">
+                <ul>
+                    <li>
+                        Main
+                    </li>
+                    <li>
+                        Members
+                    </li>
+                    <li>
+                        Labels
+                    </li>
+                    <li>
+                        Tasks
+                    </li>
+                </ul>
+
+            </div>            
+        </div>
+        <div class="ProjectInfo">
+            <img src="../icons/check.svg" alt="" id="paste">
+            <h1>
+                Identifying objects in images for computer vision training
+            </h1>
+            <p>
+                #PMD-123984
+            </p>
+        </div>
+        <div class="main">
+            <div class="des">
                 <h2>
                     Description
                 </h2>
                 <p>
                     I dont know anything to describe.
                 </p>
+
+            </div>
+            <div class="usedLabel">
                 <h2>
                     Used Labels
                 </h2>
-                <table>
-                    <tr>
-                        <td>
-                            Computer Science
-                        </td>
-                        <td>
-                            Technology
-                        </td>
-                        <td>
-                            application
-                        </td>
-                        <td>
-                            Entity
-                        </td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td>
-                            Dataset
-                        </td>
-                        <td>
-                            8
-                        </td>
-                        <td>
-                            Results for page: 
-                        </td>
-                        <td>
-                            <select name="pageResults" id="pageResult">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </td>
-                        <td>
-                            <img src="../icons/arrow right.svg" alt="" id="straight">
-                        </td>
-                        <td>
-                            <img src="../icons/arrow right.svg" alt="" id="idontknowhuhu">
-                        </td>
-                        <td>
-                            <img src="../icons/arrow right.svg" alt="" id="filter">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="search" name="searchBox" id="searchbox">
-                        </td>
-                        <td>
-                            New Dataset
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Showing 1 to 5 of total 8 results
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img src="../icons/arrow right.svg" alt="datasetID">
-                                    </td>
-                                    <td>
-                                        From rawdata.txt
-                                    </td>
-                                    <td>
-                                        Edit
-                                    </td>
-                                </tr>
-                                <tr>
-                                    Label
-                                </tr>
-                                <tr>
-                                    <p>
-                                        Paragraph
-                                    </p>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Recent Contributor
-                                    </td>
-                                    <td>
-                                        <img src="../icons/check.svg" alt="userIcon">
-                                    </td>
-                                    <td>
-                                        Time
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                <ul>
+                    <li>
+                        Computer Science
+                    </li>
+                    <li>
+                        Technology
+                    </li>
+                    <li>
+                        application
+                    </li>
+                </ul>
             </div>
-        </form>
-        <div>
-            <table>
-                <tr>
-                    <td>
-                        Copyright
-                    </td>
-                    <td>
-                        Support
-                    </td>
-                    <td>
-                        Privacy
-                    </td>
-                    <td>
-                        Contact Us
-                    </td>
-                    <td>
-                        About
-                    </td>
-                </tr>
-            </table>
+            <div class="Dataset">
+                <div class="Dataset_Action">
+                    <h2>
+                        Dataset
+                    </h2>
+                    <p>
+                        8
+                    </p>
+                    <p>
+                        Results for page: 
+                    </p>
+                    <select name="pageResults" id="pageResult">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input type="button" name="sort" id="sort" value="Sort">
+                    <input type="button" name="filter" id="filter" value="Filter">
+                    <input type="text" name="searchBox" id="searchBox">
+                    <input type="button" name="newDS" id="newDS" value="New Dataset">
+                    <p>
+                        Showing 1 to 5 of total 8 results
+                    </p>
+                </div>
+                <div class="list_dataset">
+                    <ol class="list_dataset">
+                        <ul>
+                            <div class="dataset_detail">
+                                <div class="DatasetInfo">
+                                    <img src="../icons/arrow right.svg" alt="datasetIcon">
+                                    <h3>
+                                        Dataset ID
+                                    </h3>
+                                    <p>
+                                        Level 1
+                                    </p>
+                                    <p>
+                                        From rawdata.txt
+                                    </p>
+                                    <select name="edit" id="edit">
+                                        <option value="Edit">
+                                            Edit
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="DatasetLabel">
+                                    <ul class="DatasetLabel">
+                                        <li>
+                                            Computer
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="datasetContent">
+                                    <p>
+                                        Content.
+                                    </p>
+                                </div>
+                                <div class="datasetFooter">
+                                    <p>
+                                        Recent contributor
+                                    </p>
+                                    <img src="../images/sample avatar.png" alt="labeler" id="labeler">
+                                    <p>
+                                        <p>
+                                            ltngan
+                                        </p>
+                                        <p>
+                                            2 hours ago
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                        </ul>
+                    </ol>
+                    <div class="pages">
+                        <input type="button" name="first" id="first" value="first">
+                        <input type="button" name="prev" id="prev" value="prev">
+                        <input type="button" name="current" id="curr" value="cur">
+                        <input type="button" name="next" id="next" value="next">
+                        <input type="button" name="last" id="last" value="last">
+                        <p>
+                            Go to page:
+                        </p>
+                        <input type="text" name="pageNum" id="pageNum" value="2">
+                        <input type="button" name="pageGo" id="pageGo" value="->">
+                    </div>
+                </div>
+            </div>
+            
         </div>
-        
+        <div class="footer">
+            <ul>
+                <li>
+                    Copyright
+                </li>
+                <li>
+                    Support
+                </li>
+                <li>
+                    Privacy
+                </li>
+                <li>
+                    Contact Us
+                </li>
+                <li>
+                    About
+                </li>
+            </ul>
+        </div>
     </body>
 </html>

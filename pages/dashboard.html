@@ -5,6 +5,7 @@
 <head>
     <link href="/css/dashboard.css" rel="stylesheet" />
     <link href="/css/components/button.css" rel="stylesheet" />
+    <link href="/css/components/format.css" rel="stylesheet" />
     <link href="/css/icon.css" rel="stylesheet" />
     <link href="/css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -86,11 +87,278 @@
                         <input placeholder="Search">
                         <div class="icon" id="search"></div>
                     </div>
-                        <div class="icon" id="check"></div>
-                        <div class="icon" id="check"></div>
-                        <div class="avatar"><img src="/images/sample avatar.png"></div>
+                    <div class="icon" id="check"></div>
+                    <div class="icon" id="check"></div>
+                    <div class="avatar"><img src="/images/sample avatar.png"></div>
                 </div>
             </div>
+            <div class="container">
+                <div class="left-section">
+                    <h1>My Work</h1>
+                    <div class="graph-container">
+                        <div class="graph">
+                            <h2>My Projects</h2>
+                            <div style="display: flex;flex-direction: row; gap: 16px">
+                                <div class="stat">4</div>
+                                <div class="change">+2<br>last month</div>
+                            </div>
+                            <div class="chart">Insert Chart.js code</div>
+                        </div>
+                        <div class="graph">
+                            <h2>Community Projects</h2>
+                            <div style="display: flex;flex-direction: row; gap: 16px">
+                                <div class="stat">4</div>
+                                <div class="change">+2<br>last month</div>
+                            </div>
+                            <div class="chart">Insert Chart.js code</div>
+                        </div>
+                        <div class="graph">
+                            <h2>Total Score</h2>
+                            <div style="display: flex;flex-direction: row; gap: 16px">
+                                <div class="stat">4</div>
+                                <div class="change">+2<br>last month</div>
+                            </div>
+                            <div class="chart">Insert Chart.js code</div>
+                        </div>
+                    </div>
+                    <h1>Activity</h1>
+                    <div class="activity-container">
+                        <h2>April 20th, 2023</h2>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+
+                        <h2>April 19th, 2023</h2>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+                        <div class="activity">
+                            <div class="icon" id="search"></div>
+                            <div class="time">8:45</div>
+                            <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
+                                contributor.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <h1>Today</h1>
+                    <h2>
+                        <script src="/js/date.js"></script>
+                    </h2>
+                    <div class="calendar">
+                        <div class="month">
+                            <button id="prev">
+                                <div class="icon light" id="arrow-left"></div>
+                            </button>
+                            <div id="month-year">April 2023</div>
+                            <button id="next">
+                                <div class="icon light" id="arrow-right"></div>
+                            </button>
+                        </div>
+                        <div class="days">
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                            <div>Sun</div>
+                        </div>
+                        <div class="dates" id="dates">
+                            <script src="/js/calendar.js"></script>
+                        </div>
+                    </div>
+                    <div class="task-deadline">
+                        <h3>Upcoming Task Deadline</h3>
+                        <div class="deadline">
+                            <div class="icon" id="search"></div>
+                            <div class="content">Task <a class="task" href="#">Label Animal Species</a> on <a
+                                    class="project" href="#">Pokémon Species Recognition</a> needs to be done before
+                                07:24.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1>Recent Projects</h1>
+            <div class="projects-container">
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="header">
+                        <div class="title">
+                            <a class="name" href="/pages/projects/#">Book Content Based</a>
+                            <div class="category">Categorization</div>
+                        </div>
+                        <div class="participants">
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                            <div class="avatar"><img src="/images/sample avatar.png"></div>
+                        </div>
+                    </div>
+                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
+                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
+                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <div class="tasks">
+                            <div class="icon light" id="search"></div>4/27
+                        </div>
+                        <div class="time">1 day ago</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h1>Tasks</h1>
         </div>
     </div>
 

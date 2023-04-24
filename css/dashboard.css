@@ -2,8 +2,7 @@
     font-family: Inter;
 }
 
-::-webkit-scrollbar 
-{
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -25,7 +24,7 @@ body {
     flex-direction: row;
 
     width: 100%;
-    height:max-content;
+    height: max-content;
 }
 
 .sidebar {
@@ -163,4 +162,324 @@ input {
     position: absolute;
     left: 8px;
     bottom: 8px;
+}
+
+/* Body content */
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    padding: 16px 0px;
+
+    width: 100%;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.container h2 {
+    margin: 0px;
+
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.left-section {
+    width: 70%;
+}
+
+.right-section {
+    width: 30%;
+}
+
+/* Graphs */
+.graph-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    margin-bottom: 32px;
+    width: 100%;
+
+    color: var(--text-default);
+}
+
+.graph {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+
+    padding: 8px 16px;
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+}
+
+.stat {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+/* Activity */
+.activity-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-container h2 {
+    margin: 8px 0px;
+}
+
+.activity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 4px 0px;
+}
+
+.activity .time {
+    color: var(--text-light);
+}
+
+.activity .instance {}
+
+/* Calendar */
+.calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 8px;
+    margin: 8px 0px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+}
+
+.calendar .month {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 4px;
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.calendar .month button {
+    padding: 4px;
+
+    outline: none;
+    border: none;
+    border-radius: 99px;
+
+    background: none;
+
+    cursor: pointer;
+}
+
+.calendar .month button:hover {
+    background-color: var(--neutral-white);
+}
+
+.calendar .days {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.calendar .days div {
+    width: 48px;
+    text-align: center;
+
+    margin: 8px 0px;
+}
+
+.calendar .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/** Date **/
+
+.calendar .dates button {
+    justify-self: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 15px;
+    color: var(--text-default);
+
+    background: none;
+    border-radius: 8px;
+}
+
+.calendar .dates button:hover {
+    background-color: var(--neutral-white);
+
+    cursor: pointer;
+}
+
+.calendar .dates button.date {
+
+    border: none;
+    outline: none;
+}
+
+.calendar .dates button#outside {
+    color: var(--text-light-white);
+}
+
+.calendar .dates button#today {
+    font-weight: 600;
+    color: white;
+    background-color: var(--primary);
+}
+
+/* Task Deadline */
+.task-deadline {
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+}
+
+.task-deadline .deadline {
+    display: flex;
+    flex-direction: row;
+
+    gap: 8px;
+}
+
+.task-deadline .deadline .content {
+    display: block;
+    width: 100%;
+}
+
+.task-deadline h3 {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-light);
+
+    margin-bottom: 8px;
+}
+
+/* Project Card */
+.projects-container {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    gap: 16px;
+
+    box-sizing: border-box;
+}
+
+.projects-container .project {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 32.33%;
+    gap: 8px;
+
+    padding: 8px 16px;
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+.project .header {
+    display: flex;
+    flex-direction: row;
+
+    padding-top: 4px;
+}
+
+.project .header .title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.project .header .participants {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    isolation: isolate;
+}
+
+.project .header .participants .avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-left: -16px;
+    overflow: hidden;
+
+    border: 2px solid white;
+    border-radius: 99px;
+}
+
+.project .header .participants .avatar img {
+    width: 48px;
+    height: 48px;
+}
+
+.projects-container .project .name {
+    font-weight: 700;
+    font-size: 18px;
+
+    text-decoration: none;
+    color: var(--text-default);
+}
+
+.projects-container .project .category {
+    font-weight: 500;
+    font-size: 15px;
+
+    padding: 8px 12px;
+    width: max-content;
+
+    color: var(--primary);
+    background-color: var(--fill-primary);
+    border-radius: 8px;
+}
+
+.projects-container .project .description {
+    color: var(--text-light);
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.project .stats {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--text-light);
+}
+
+.project .stats .tasks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-weight: 600;
 }

@@ -13,6 +13,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+
 }
 .projectInfo{
     font-family: 'Inter';
@@ -31,4 +32,62 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
+}
+.general{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 0px 0px;
+    gap: 32px;
+
+    height: 176px;
+    background: #F3F8FF;
+    border-bottom: 1px solid #8590AB;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.project_icon{
+    width: 48px;
+    height: 48px;
+    background: #70D640;
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+#newpj{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+
+/* Neutral/Black */
+
+color: #3C414E;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.header h1{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+/* Neutral/White */
+
+color: #FFFFFF;
+
 }

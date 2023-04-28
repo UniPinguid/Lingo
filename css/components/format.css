@@ -1,0 +1,10 @@
+a.task {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-default);
+}
+
+a.project {
+    color: var(--primary);
+    text-decoration: none;
+}

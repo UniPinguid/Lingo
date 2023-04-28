@@ -34,6 +34,10 @@
     filter: invert(33%) sepia(99%) saturate(5729%) hue-rotate(226deg) brightness(114%) contrast(101%);
 }
 
+.icon.light {
+    filter: invert(60%) sepia(9%) saturate(827%) hue-rotate(185deg) brightness(93%) contrast(86%);
+}
+
 /* Name */
 .icon#search {
     background-image: url('/icons/search.svg');
@@ -45,6 +49,12 @@
 
 .icon#plus {
     background-image: url('/icons/plus.svg');
+}
+
+.icon#arrow-left
+{
+    background-image: url('/icons/arrow\ right.svg');
+    transform: scaleX(-1);
 }
 
 .icon#arrow-right

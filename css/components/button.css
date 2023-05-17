@@ -20,12 +20,12 @@
     cursor: pointer;
 }
 
-.button:hover
+.button:hover, .button-small:hover
 {
     background-color: var(--primary-medium);
 }
 
-.button:active
+.button:active, .button-small:active
 {
     background-color: var(--primary-dark);
 }
@@ -37,4 +37,27 @@
 .button div {
     margin-right: 4px;
     margin-left: -12px;
+}
+
+/* Small variant */
+
+.button-small {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 24px;
+
+    width: max-content;
+    height: max-content;
+
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 100%;
+    font-weight: 600;
+    text-decoration: none;
+
+    cursor: pointer;
 }

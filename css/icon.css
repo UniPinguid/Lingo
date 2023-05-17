@@ -1,7 +1,7 @@
 .icon {
     width: 32px;
     height: 32px;
-    background-size: contain;
+    background-size: cover;
 }
 
 /* Size */
@@ -79,4 +79,16 @@
 .icon#github
 {
     background-image: url('/icons/GitHub.svg');
+}
+
+.icon#more-horizontal {
+    background-image: url('/icons/more\ horizontal.svg');
+}
+
+.icon#upload {
+    background-image: url('/icons/upload.svg');
+}
+
+.icon#close {
+    background-image: url('/icons/close.svg');
 }

@@ -6,6 +6,8 @@
     <link href="/css/dashboard.css" rel="stylesheet" />
     <link href="/css/components/button.css" rel="stylesheet" />
     <link href="/css/components/format.css" rel="stylesheet" />
+    <link href="/css/components/popup.css" rel="stylesheet" />
+    <link href="/css/components/radio.css" rel="stylesheet" />
     <link href="/css/icon.css" rel="stylesheet" />
     <link href="/css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -15,7 +17,7 @@
     <div class="page-layout">
         <div class="sidebar">
             <div>LingoLab</div>
-            <button class="button" id="icon">
+            <button class="button" id="popupButton">
                 <div class="icon white size40px" id="plus"></div>Create Project
             </button>
             <div class="collapsible">
@@ -558,8 +560,80 @@
             </div>
         </div>
     </div>
+    <div id="popup">
+        <div class="header">
+            <div class="title">Create a new task</div>
+            <button id="closeButton">
+                <div class="icon size48px" id="close"></div>
+            </button>
+        </div>
+        <hr>
+        <div style="display: flex; flex-direction: row; gap: 32px;">
+            <!-- Left -->
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <h1>Basic Info</h1>
+                <label>Project Name</label>
+                <input class="input-field" type="text" placeholder="e.g. Specifying Formal Languages">
 
+                <label>Tags</label>
+                <input class="input-field" type="text">
+
+                <label>Description</label>
+                <input class="input-field" type="text" style="height: 60px;">
+
+                <label>Color</label>
+                <div>
+                    <button class="color"></button>
+                </div>
+            </div>
+            <!-- Right -->
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <h1>Visibility</h1>
+                <label class="radio">
+                    <input type="radio" name="visibility">
+                    <div class="visibility">
+                        <div>
+                            <div class="name">Private</div>
+                            <div class="description">This project is only be visible to assigned users.</div>
+                        </div>
+                    </div>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="visibility">
+                    <div class="visibility">
+                        <div>
+                            <div class="name">Protected</div>
+                            <div class="description">This project is only accessible via shared links and invitation.</div>
+                        </div>
+                    </div>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="visibility">
+                    <div class="visibility">
+                        <div>
+                            <div class="name">Public</div>
+                            <div class="description">This project can be seen by any users.</div>
+                        </div>
+                    </div>
+                </label>
+                <label>Assign Members</label>
+                <input class="input-field" type="text">
+
+                <div class="participants">
+                    <div class="avatar"><img src="/images/sample avatar.png"></div>
+                    <div class="avatar"><img src="/images/sample avatar.png"></div>
+                    <div class="avatar"><img src="/images/sample avatar.png"></div>
+                    <div class="avatar"><img src="/images/sample avatar.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="button" id="ghost">Cancel</button>
+            <button class="button">Done</button>
+        </div>
+    </div>
     <script src="/js/collapsible.js"></script>
+    <script src="/js/popup.js"></script>
 </body>
 
 </html>

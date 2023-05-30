@@ -39,6 +39,14 @@
     margin-left: -12px;
 }
 
+.button#ghost {
+    border: 2px solid var(--neutral-light-gray);
+    background: none;
+
+    font-weight: 500;
+    color: var(--text-light);
+}
+
 /* Small variant */
 
 .button-small {

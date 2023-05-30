@@ -1,0 +1,38 @@
+.radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio .visibility {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.radio .visibility input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+.radio input[type="radio"] + .visibility::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 99px;
+    border: 2px solid #ccc;
+    margin-right: 8px;
+  }
+  
+  .radio input[type="radio"]:checked + .visibility::before {
+    background-color: blue;
+    border-color: blue;
+  }
+
+  .radio .checkbox {
+    margin-right: 5px;
+  }

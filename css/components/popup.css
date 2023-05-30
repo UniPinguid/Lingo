@@ -1,0 +1,88 @@
+#popup {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    width: 60%;
+
+    display: none;
+    padding: 16px 32px;
+
+    background-color: white;
+    border-radius: 32px;
+
+    transform: translate(-50%, -50%);
+
+    filter: drop-shadow(10px 5px 16px #C6CFDE);
+}
+
+.popup-lock {
+    overflow: hidden;
+}
+
+#popup .header {
+    font-weight: 600;
+    font-size: 24px;
+
+    margin: 16px 0px;
+}
+
+#popup #closeButton {
+    border: none;
+    outline: none;
+    background: none;
+
+    cursor: pointer;
+}
+
+#popup .participants {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    isolation: isolate;
+}
+
+#popup .participants .avatar {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: -16px;
+    overflow: hidden;
+
+    border: 2px solid white;
+    border-radius: 99px;
+}
+
+#popup .participants .avatar img {
+    width: 40px;
+    height: 40px;
+}
+
+#popup label {
+    margin: 4px 0px;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#popup label#radio {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    gap: 8px;
+    font-size: 14px;
+}
+
+#popup input {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+
+    border: 2px solid var(--neutral-light-gray);
+}
+
+#popup input[type="text"]::placeholder
+{
+    color: var(--text-light-white);
+}

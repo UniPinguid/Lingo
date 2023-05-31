@@ -22,7 +22,7 @@ body {
 
     color: var(--text-default);
 
-    background-image: url("/images/signup\ background.png");
+    background-image: url("../images/signup\ background.png");
     background-size: cover;
     background-position: 10%;
     background-attachment: fixed;

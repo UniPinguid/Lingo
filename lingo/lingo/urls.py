@@ -16,10 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from lingo.views import home
+from lingo.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('', include(app.urls))
+    # Main screens
+    path('', home, name=''),
+    path('signup', signup, name='signup'),
+    path('signin', signin, name='signin'),
+    path('dashboard', dashboard, name='dashboard'),
+    # Project subscreens
+    path('project', project, name='project'),
+    path('project/tasks', tasks, name='tasks'),
+    path('project/members', members, name='members'),
+    path('project/labels', labels, name='labels'),
+    path('project/contribution', contribution, name='contribution')
 ]

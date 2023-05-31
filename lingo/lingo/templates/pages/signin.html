@@ -2,16 +2,16 @@
 <html>
 
 <head>
-    <link href="/css/signup.css" rel="stylesheet" />
-    <link href="/css/components/button.css" rel="stylesheet" />
-    <link href="/css/icon.css" rel="stylesheet" />
-    <link href="/css/root.css" rel="stylesheet" />
+    <link href="static/css/signup.css" rel="stylesheet" />
+    <link href="static/css/components/button.css" rel="stylesheet" />
+    <link href="static/css/icon.css" rel="stylesheet" />
+    <link href="static/css/root.css" rel="stylesheet" />
     <title>Lingo</title>
 </head>
 
 <body>
     <div class="background"></div>
-    <a class="logo" href="/index.html">Lingo</a>
+    <a class="logo" href="{% url '' %}">Lingo</a>
     <div class="form">
         <div class="title">Sign In</div>
         <div class="input-field">
@@ -38,7 +38,7 @@
             </a>
         </div>
         <div id="continue-button">
-            <a class="icon white size64px" id="arrow-right" href="/pages/dashboard.html"></a>
+            <a class="icon white size64px" id="arrow-right" href="{% url 'dashboard' %}"></a>
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
             <div>Don't have an account?</div>

@@ -3,18 +3,18 @@
 <html>
 
 <head>
-    <link href="/css/project.css" rel="stylesheet" />
-    <link href="/css/components/button.css" rel="stylesheet" />
-    <link href="/css/components/format.css" rel="stylesheet" />
-    <link href="/css/icon.css" rel="stylesheet" />
-    <link href="/css/root.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
 </head>
 
 <body>
     <div class="header">
         <div style="display: flex; align-items: center; gap: 24px">
-            <a href="/pages/dashboard.html" style="border: 1px solid white; border-radius: 99px;">
+            <a href="{% url 'dashboard'%}" style="border: 1px solid white; border-radius: 99px;">
                 <div class="icon white" id="arrow-left"></div>
             </a>
             <div class="logo">LingoLab</div>
@@ -22,7 +22,7 @@
         <div class="functions">
             <div class="icon white" id="check"></div>
             <div class="icon white" id="check"></div>
-            <div class="avatar"><img src="/images/sample avatar.png"></div>
+            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
         </div>
     </div>
     <div class="project-header">
@@ -43,10 +43,10 @@
         <div class="second-row">
             <div class="tabber">
                 <a class="tab" id="active" href="#">Main</a>
-                <a class="tab" id="inactive" href="members.html">Members</a>
-                <a class="tab" id="inactive" href="labels.html">Labels</a>
-                <a class="tab" id="inactive" href="tasks.html">Tasks</a>
-                <a class="tab" id="inactive" href="contribution.html">Contribution</a>
+                <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
+                <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
+                <a class="tab" id="inactive" href="{% url 'tasks' %}">Tasks</a>
+                <a class="tab" id="inactive" href="{% url 'contribution' %}">Contribution</a>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
             <div class="project-info">
                 <div class="label">Created by</div>
                 <div class="content">
-                    <div class="avatar"><img src="/images/sample avatar.png" style="width: 32px"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png" style="width: 32px"></div>
                     <div class="username">LBC Phat</div>
                     <div class="date">on October 24th, 2012</div>
                 </div>
@@ -148,10 +148,10 @@
                     <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
                 </div>
                 <div class="participants">
-                    <div class="avatar"><img src="/images/sample avatar.png"></div>
-                    <div class="avatar"><img src="/images/sample avatar.png"></div>
-                    <div class="avatar"><img src="/images/sample avatar.png"></div>
-                    <div class="avatar"><img src="/images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                 </div>
             </div>
             <div class="spacing"></div>
@@ -245,8 +245,8 @@
     </div>
     </div>
 
-    <script src="/js/collapsible.js"></script>
-    <script src="/js/upload.js"></script>
+    <script src="{{STATIC_URL}}js/collapsible.js"></script>
+    <script src="{{STATIC_URL}}js/upload.js"></script>
 </body>
 
 </html>

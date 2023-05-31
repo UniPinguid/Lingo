@@ -1,0 +1,94 @@
+.icon {
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+}
+
+/* Size */
+.icon.size40px{
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+.icon.size48px {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+}
+
+.icon.size64px {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+}
+
+/* Filter */
+.icon.white
+{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(103%) contrast(102%);;
+}
+
+.icon.primary
+{
+    filter: invert(33%) sepia(99%) saturate(5729%) hue-rotate(226deg) brightness(114%) contrast(101%);
+}
+
+.icon.light {
+    filter: invert(60%) sepia(9%) saturate(827%) hue-rotate(185deg) brightness(93%) contrast(86%);
+}
+
+/* Name */
+.icon#search {
+    background-image: url('/static/icons/search.svg');
+}
+
+.icon#check {
+    background-image: url('/static/icons/check.svg');
+}
+
+.icon#plus {
+    background-image: url('/static/icons/plus.svg');
+}
+
+.icon#arrow-left
+{
+    background-image: url('/static/icons/arrow\ right.svg');
+    transform: scaleX(-1);
+}
+
+.icon#arrow-right
+{
+    background-image: url('/static/icons/arrow\ right.svg');
+}
+
+.icon#google
+{
+    background-image: url('/static/icons/Google.svg');
+}
+
+.icon#twitter {
+    background-image: url('/static/icons/Twitter.svg');
+}
+
+.icon#facebook
+{
+    background-image: url('/static/icons/Facebook.svg');
+}
+
+.icon#github
+{
+    background-image: url('/static/icons/GitHub.svg');
+}
+
+.icon#more-horizontal {
+    background-image: url('/static/icons/more\ horizontal.svg');
+}
+
+.icon#upload {
+    background-image: url('/static/icons/upload.svg');
+}
+
+.icon#close {
+    background-image: url('/static/icons/close.svg');
+}

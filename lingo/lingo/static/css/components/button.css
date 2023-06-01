@@ -16,8 +16,32 @@
     font-size: 120%;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
 
     cursor: pointer;
+}
+
+button.icon {
+    border: none;
+    outline: none;
+    background: none;
+
+    cursor: pointer;
+}
+
+button.icon-primary {
+    border: none;
+    outline: none;
+    background: none;
+
+    background-color: var(--primary);
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+button.icon:hover {
+    background-color: var(--background-lighter);
 }
 
 .button:hover, .button-small:hover
@@ -66,6 +90,36 @@
     font-size: 100%;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
 
     cursor: pointer;
+}
+
+button.action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 24px;
+
+    width: max-content;
+    height: max-content;
+
+    background: none;
+    border-radius: 8px;
+    
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+button.action#edit {
+    border: 1px solid var(--neutral-dark);
+    color: var(--text-light);
+}
+
+button.action#delete {
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
 }

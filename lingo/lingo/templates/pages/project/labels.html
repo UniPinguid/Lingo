@@ -3,9 +3,13 @@
 <html>
 
 <head>
-    <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/label.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -51,9 +55,104 @@
         </div>
     </div>
     <div class="project-content">
-        <div class="left-section">
+        <div class="left-section" style="width:25%">
+            <h3>List</h3>
+            <div class="sidetab">
+                <button class="tab" id="active">Paragraph Labels</button>
+                <button class="tab" id="inactive">Entity Labels</button>
+            </div>
+            <hr>
+            <h3>Statistics</h3>
+            <div class="sidetab">
+                <button class="tab" id="inactive">Analysis</button>
+            </div>
         </div>
-        <div class="right-section">
+        <div class="right-section" style="width:75%;">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Labels</h1>
+                    <div class="num">129</div>
+                </div>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 8px">
+                    <div style="display: flex; flex-direction: row; gap: 16px">
+                        <div>Results per page: </div>
+                        <select>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                        </select>
+                    </div>
+                    <div style="height: 20px; border-right: 2px solid var(--neutral-light-gray);"></div>
+                    <button class="icon">
+                        <div class="icon" id="sort"></div>
+                    </button>
+                    <button class="icon">
+                        <div class="icon" id="filter"></div>
+                    </button>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; width: 100%; gap: 16px; align-items: center;">
+                <div class="search-bar" id="small" style="width: 100%;">
+                    <input placeholder="Search" type="text">
+                    <div class="icon" id="search"></div>
+                </div>
+                <button class="button-small">New Label</button>
+            </div>
+            <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
+            <!-- Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="label paragraph">love story</div></td>
+                        <td>Description for label 1</td>
+                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><div class="label paragraph">love story</div></td>
+                        <td>Description for label 1</td>
+                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><div class="label paragraph">love story</div></td>
+                        <td>Description for label 1</td>
+                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><div class="label paragraph">love story</div></td>
+                        <td>Description for label 1</td>
+                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><div class="label paragraph">love story</div></td>
+                        <td>Description for label 1</td>
+                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <div class="list-pages">
+                    <button><div class="icon" id="first"></div></button>
+                    <button><div class="icon" id="previous"></div></button>
+                    <button class="page" id="active">1</button>
+                    <button class="page" id="inactive">2</button>
+                    <button class="page" id="inactive">3</button>
+                    <button class="page" id="inactive">4</button>
+                    <button><div class="icon" id="next"></div></button>
+                    <button><div class="icon" id="last"></div></button>
+                </div>
+                <div class="custom-page">
+                    <div>Go to page:</div>
+                    <input type="text" value="2">
+                    <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px"><div class="icon white" id="arrow-right"></div></button>
+                </div>
+            </div>
         </div>
     </div>
 

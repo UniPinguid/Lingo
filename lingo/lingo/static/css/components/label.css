@@ -1,0 +1,17 @@
+.label.paragraph {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    padding: 8px 24px;
+    gap: 8px;
+
+    background: var(--fill-primary);
+    border-radius: 32px;
+
+    font-weight: 600;
+    color: var(--primary);
+}

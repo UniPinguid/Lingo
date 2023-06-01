@@ -1,0 +1,58 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 32px;
+
+    width: 100%;
+}
+
+.pagination .list-pages {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 8px
+}
+
+.pagination .custom-page {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 8px
+}
+
+.pagination .custom-page input {
+    width: 32px;
+    height: 28px;
+    
+    border-radius: 8px;
+    text-align: center;
+}
+
+.pagination .list-pages button {
+    outline: none;
+    border: none;
+    background: none;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.pagination .list-pages button:hover {
+    background-color: var(--neutral-white);
+}
+
+.pagination .list-pages button.page#active {
+    background-color: var(--primary);
+
+    font-weight: 600;
+    color: white;
+}

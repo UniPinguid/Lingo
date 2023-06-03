@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'DataLabeling',
         'CLIENT': {
-            'host': 'http://18.142.250.16',
+            'host': 'mongodb://18.142.250.16',
             'port': 27017,
             # 'username': 'your_username',
             # 'password': 'your_password',

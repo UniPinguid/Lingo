@@ -30,3 +30,7 @@ def labels(request):
 
 def contribution(request):
     return render(request, 'pages/project/contribution.html')
+
+# Tasks screen
+def task_detail (request):
+    return render(request, 'pages/project/task/detail.html')

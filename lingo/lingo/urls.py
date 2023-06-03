@@ -30,5 +30,7 @@ urlpatterns = [
     path('project/tasks', tasks, name='tasks'),
     path('project/members', members, name='members'),
     path('project/labels', labels, name='labels'),
-    path('project/contribution', contribution, name='contribution')
+    path('project/contribution', contribution, name='contribution'),
+    # Task screens
+    path('proect/tasks?id=IDHERE', task_detail, name='task_detail')
 ]

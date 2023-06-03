@@ -15,3 +15,28 @@
     font-weight: 600;
     color: var(--primary);
 }
+
+.project-category {
+    font-weight: 500;
+    font-size: 15px;
+
+    padding: 8px 12px;
+    width: max-content;
+
+    border-radius: 8px;
+}
+
+.project-category#text-classification {
+    color: var(--primary);
+    background-color: var(--fill-primary);
+}
+
+.project-category#text-generation {
+    color: var(--accent-purple);
+    background-color: var(--accent-background-purple);
+}
+
+.project-category#sequence-labeling {
+    color: var(--accent-green);
+    background-color: var(--accent-background-green);
+}

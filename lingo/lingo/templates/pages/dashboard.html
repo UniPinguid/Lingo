@@ -659,7 +659,8 @@
         })
         .then(function(data) {
     // Xử lý dữ liệu JSON trả về từ server
-        console.log(data.message); // In ra thông báo từ server
+        alert(data.message);
+        window.location.href = '/project'; // In ra thông báo từ server
         })
         .catch(function(error) {
         console.error("Lỗi:", error);

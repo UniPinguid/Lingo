@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djongo'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,16 @@ WSGI_APPLICATION = 'lingo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'DataLabeling',
+        'CLIENT': {
+            'host': 'mongodb://18.142.250.16:27017/',
+            #'port': 27017,
+            # 'username': 'your_username',
+            # 'password': 'your_password',
+            # 'authSource': 'your_auth_source',
+            # 'authMechanism': 'your_auth_mechanism',
+        },
     }
 }
 

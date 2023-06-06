@@ -75,27 +75,27 @@ WSGI_APPLICATION = 'lingo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'DataLabeling',
-        'CLIENT': {
-            'host': 'mongodb://18.142.250.16',
-            'port': 27017,
-            # 'username': 'your_username',
-            # 'password': 'your_password',
-            # 'authSource': 'your_auth_source',
-            # 'authMechanism': 'your_auth_mechanism',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'DataLabeling',
+#         'CLIENT': {
+#             'host': 'mongodb://18.142.250.16',
+#             'port': 27017,
+#             # 'username': 'your_username',
+#             # 'password': 'your_password',
+#             # 'authSource': 'your_auth_source',
+#             # 'authMechanism': 'your_auth_mechanism',
+#         },
+#     }
+# }
 
 
 

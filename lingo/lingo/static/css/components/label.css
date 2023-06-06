@@ -16,6 +16,33 @@
     color: var(--primary);
 }
 
+.label.entity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    padding: 8px 24px;
+    gap: 8px;
+
+    background: var(--primary);
+    border-radius: 32px;
+
+    font-weight: 600;
+    color: white;
+}
+
+.label.entity::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+
+    background-color: white;
+    border-radius: 8px;
+}
+
 .project-category {
     font-weight: 500;
     font-size: 15px;

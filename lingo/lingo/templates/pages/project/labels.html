@@ -3,12 +3,16 @@
 <html>
 
 <head>
+    <link href="{{STATIC_URL}}css/dashboard.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/label.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/popup.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/radio.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/toast.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
@@ -58,8 +62,8 @@
         <div class="left-section" style="width:25%">
             <h3>List</h3>
             <div class="sidetab">
-                <button class="tab" id="active">Paragraph Labels</button>
-                <button class="tab" id="inactive">Entity Labels</button>
+                <button class="tab active" id="paragraph-tab">Paragraph Labels</button>
+                <button class="tab" id="entity-tab">Entity Labels</button>
             </div>
             <hr>
             <h3>Statistics</h3>
@@ -96,65 +100,207 @@
                     <input placeholder="Search" type="text">
                     <div class="icon" id="search"></div>
                 </div>
-                <button class="button-small">New Label</button>
+                <button class="button-small" id="popupButton">New Label</button>
             </div>
             <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
-            <!-- Table -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Label</th>
-                        <th>Description</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><div class="label paragraph">love story</div></td>
-                        <td>Description for label 1</td>
-                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td><div class="label paragraph">love story</div></td>
-                        <td>Description for label 1</td>
-                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td><div class="label paragraph">love story</div></td>
-                        <td>Description for label 1</td>
-                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td><div class="label paragraph">love story</div></td>
-                        <td>Description for label 1</td>
-                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td><div class="label paragraph">love story</div></td>
-                        <td>Description for label 1</td>
-                        <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="pagination">
-                <div class="list-pages">
-                    <button><div class="icon" id="first"></div></button>
-                    <button><div class="icon" id="previous"></div></button>
-                    <button class="page" id="active">1</button>
-                    <button class="page" id="inactive">2</button>
-                    <button class="page" id="inactive">3</button>
-                    <button class="page" id="inactive">4</button>
-                    <button><div class="icon" id="next"></div></button>
-                    <button><div class="icon" id="last"></div></button>
+            <!-- Paragraph Table -->
+            <div id="table-paragraph">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="label paragraph">love story</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label paragraph">love story</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label paragraph">love story</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label paragraph">love story</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label paragraph">love story</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <div class="list-pages">
+                        <button>
+                            <div class="icon" id="first"></div>
+                        </button>
+                        <button>
+                            <div class="icon" id="previous"></div>
+                        </button>
+                        <button class="page" id="active">1</button>
+                        <button class="page" id="inactive">2</button>
+                        <button class="page" id="inactive">3</button>
+                        <button class="page" id="inactive">4</button>
+                        <button>
+                            <div class="icon" id="next"></div>
+                        </button>
+                        <button>
+                            <div class="icon" id="last"></div>
+                        </button>
+                    </div>
+                    <div class="custom-page">
+                        <div>Go to page:</div>
+                        <input type="text" value="2">
+                        <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px">
+                            <div class="icon white" id="arrow-right"></div>
+                        </button>
+                    </div>
                 </div>
-                <div class="custom-page">
-                    <div>Go to page:</div>
-                    <input type="text" value="2">
-                    <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px"><div class="icon white" id="arrow-right"></div></button>
+            </div>
+            <!-- Entity Table -->
+            <div id="table-entity">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="label entity">love</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label entity">affection</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label entity">intimacy</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label entity">first sight</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="label entity">relationship</div>
+                            </td>
+                            <td>Description for label 1</td>
+                            <td><button class="action" id="edit">Edit</button><button class="action"
+                                    id="delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <div class="list-pages">
+                        <button>
+                            <div class="icon" id="first"></div>
+                        </button>
+                        <button>
+                            <div class="icon" id="previous"></div>
+                        </button>
+                        <button class="page" id="active">1</button>
+                        <button class="page" id="inactive">2</button>
+                        <button class="page" id="inactive">3</button>
+                        <button class="page" id="inactive">4</button>
+                        <button>
+                            <div class="icon" id="next"></div>
+                        </button>
+                        <button>
+                            <div class="icon" id="last"></div>
+                        </button>
+                    </div>
+                    <div class="custom-page">
+                        <div>Go to page:</div>
+                        <input type="text" value="2">
+                        <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px">
+                            <div class="icon white" id="arrow-right"></div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="popup" style="width: 40%;">
+        <div class="pheader">
+            <div class="title">Create a new label</div>
+            <button id="closeButton">
+                <div class="icon size48px" id="close"></div>
+            </button>
+        </div>
+        <hr>
+        <div style="display: flex; flex-direction: column; width: 100%; margin-top: 16px;">
+            <label>Name</label>
+            <input class="input-field" type="text" placeholder="e.g. animals, medium">
+
+            <label>Description</label>
+            <input class="input-field" type="text" style="height: 60px;">
+
+            <label>Color</label>
+            <div>
+                <button class="color"></button>
+                <button class="color"></button>
+                <button class="color"></button>
+                <button class="color"></button>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="button" id="ghost">Cancel</button>
+            <a href="#"><button class="button" id="submitButton" onclick="showToast()">Done</button></a>
+        </div>
+    </div>
+
+    <div id="toast" class="slide-in">
+        <span>Label "NAMEHERE" has been created.</span>
+        <button id="undoButton">Undo</button>
+        <button id="closeButtonPopup"><div class="icon size24px" id="close"></div></button>
+      </div>      
 
     </div>
     <div class="footer">
@@ -172,8 +318,62 @@
     </div>
     </div>
 
+    <style>
+        /* Add CSS styles for fading transition */
+        .fade-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .fade-transition.hidden {
+            opacity: 0;
+            display: none;
+        }
+
+        .fade-transition.visible {
+            opacity: 1;
+            display: block;
+        }
+    </style>
+
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
     <script src="{{STATIC_URL}}js/upload.js"></script>
+    <script src="{{STATIC_URL}}js/popup.js"></script>
+    <script src="{{STATIC_URL}}js/toast.js"></script>
+    <script>
+        // Get references to the tab buttons and content divs
+        const paragraphTab = document.getElementById('paragraph-tab');
+        const entityTab = document.getElementById('entity-tab');
+        const tableParagraph = document.getElementById('table-paragraph');
+        const tableEntity = document.getElementById('table-entity');
+
+        // Add event listener to paragraphTab button
+        paragraphTab.addEventListener('click', function () {
+            // Add 'active' class to paragraphTab and remove it from entityTab
+            paragraphTab.classList.add('active');
+            entityTab.classList.remove('active');
+
+            // Show tableParagraph content with fading transition and hide tableEntity content
+            tableParagraph.classList.add('fade-transition', 'visible');
+            tableParagraph.classList.remove('hidden');
+            tableEntity.classList.add('fade-transition', 'hidden');
+            tableEntity.classList.remove('visible');
+        });
+
+        // Add event listener to entityTab button
+        entityTab.addEventListener('click', function () {
+            // Add 'active' class to entityTab and remove it from paragraphTab
+            entityTab.classList.add('active');
+            paragraphTab.classList.remove('active');
+
+            // Show tableEntity content with fading transition and hide tableParagraph content
+            tableEntity.classList.add('fade-transition', 'visible');
+            tableEntity.classList.remove('hidden');
+            tableParagraph.classList.add('fade-transition', 'hidden');
+            tableParagraph.classList.remove('visible');
+        });
+
+        paragraphTab.click()
+    </script>
 </body>
 
 </html>

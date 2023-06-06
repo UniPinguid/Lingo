@@ -458,7 +458,7 @@ label[for="fileInput"]:hover {
     flex-direction: column;
 }
 
-button.tab, button.tab#inactive {
+button.tab {
     display: flex;
     align-items: flex-start;
 
@@ -475,14 +475,14 @@ button.tab, button.tab#inactive {
     transition: all 0.2s ease;
 }
 
-button.tab#inactive:hover {
+button.tab:hover {
     background-color: var(--neutral-white);
     border-right: 4px solid var(--neutral-dark);
     
     transition: all 0.2s ease;
 }
 
-button.tab#active {
+button.tab.active {
     outline: none;
     border: none;
     background: none;
@@ -492,7 +492,7 @@ button.tab#active {
     background-color: var(--fill-primary);
 }
 
-button.tab#active:hover {
+button.tab.active:hover {
     filter: brightness(95%);
 }
 

@@ -21,6 +21,10 @@ th, td {
     padding: 16px 8px;
 }
 
+td:first-child {
+    width: 1%;
+}
+
 tbody tr {
     margin: 8px;
     border-top: 1px solid var(--neutral-light-gray);

@@ -58,20 +58,32 @@
 
     <!-- Content -->
     <div style="padding: 16px 100px">
-        <div class="" style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; padding: 16px 0px;">
+        <div class=""
+            style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">
-                <div class="icon" id="search"></div>
-                <div>
+                <div class="icon size40px" id="task"></div>
+                <div class="info">
                     <div>Identifying objects in images for computer vision training</div>
                     <div>#PMD-123984</div>
                 </div>
             </div>
-            <button class="icon" style="padding: 0px;"><div class="icon" id="more-horizontal"></div></button>
+            <button class="icon" style="padding: 0px;">
+                <div class="icon" id="more-horizontal"></div>
+            </button>
         </div>
         <h1>Description</h1>
-        <div style="margin-bottom: 16px;">The task of identifying objects in images is an essential step in computer vision training. It involves the process of labeling images with the names of objects that appear in them, which can include people, animals, vehicles, buildings, and other objects. This task is important for machine learning algorithms to learn how to recognize objects and distinguish them from other elements in an image. By accurately identifying objects in images, computer vision models can be trained to recognize objects in real-world scenarios, such as self-driving cars, security cameras, and more.</div>
+        <div style="margin-bottom: 16px;">The task of identifying objects in images is an essential step in computer
+            vision training. It involves the process of labeling images with the names of objects that appear in them,
+            which can include people, animals, vehicles, buildings, and other objects. This task is important for
+            machine learning algorithms to learn how to recognize objects and distinguish them from other elements in an
+            image. By accurately identifying objects in images, computer vision models can be trained to recognize
+            objects in real-world scenarios, such as self-driving cars, security cameras, and more.</div>
         <h1>Used Labels</h1>
-        <div style="margin-bottom: 16px;">Test</div>
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div class="label paragraph">computer science</div>
+            <div style="border-right: 2px solid var(--neutral-light-gray); height: 24px; width: 1"></div>
+            <div class="label entity">technology</div>
+        </div>
         <div class="theader">
             <div style="display: flex; gap: 12px; align-items: center;">
                 <h1>Dataset</h1>
@@ -103,58 +115,32 @@
             <button class="button-small">New Dataset</button>
         </div>
         <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
-        <!-- Table -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Label</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><div class="label paragraph">love story</div></td>
-                    <td>Description for label 1</td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td><div class="label paragraph">love story</div></td>
-                    <td>Description for label 1</td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td><div class="label paragraph">love story</div></td>
-                    <td>Description for label 1</td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td><div class="label paragraph">love story</div></td>
-                    <td>Description for label 1</td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td><div class="label paragraph">love story</div></td>
-                    <td>Description for label 1</td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
+        
         <div class="pagination">
             <div class="list-pages">
-                <button><div class="icon" id="first"></div></button>
-                <button><div class="icon" id="previous"></div></button>
+                <button>
+                    <div class="icon" id="first"></div>
+                </button>
+                <button>
+                    <div class="icon" id="previous"></div>
+                </button>
                 <button class="page" id="active">1</button>
                 <button class="page" id="inactive">2</button>
                 <button class="page" id="inactive">3</button>
                 <button class="page" id="inactive">4</button>
-                <button><div class="icon" id="next"></div></button>
-                <button><div class="icon" id="last"></div></button>
+                <button>
+                    <div class="icon" id="next"></div>
+                </button>
+                <button>
+                    <div class="icon" id="last"></div>
+                </button>
             </div>
             <div class="custom-page">
                 <div>Go to page:</div>
                 <input type="text" value="2">
-                <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px"><div class="icon white" id="arrow-right"></div></button>
+                <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px">
+                    <div class="icon white" id="arrow-right"></div>
+                </button>
             </div>
         </div>
     </div>

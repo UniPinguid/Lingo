@@ -152,7 +152,7 @@ hr {
     position: relative;
 }
 
-input {
+.search-bar input {
     outline: none;
     padding: 8px 16px;
     padding-left: 40px;

@@ -92,3 +92,7 @@
 .icon#close {
     background-image: url('/static/icons/close.svg');
 }
+
+.icon#task {
+    background-image: url('/static/icons/task.svg');
+}

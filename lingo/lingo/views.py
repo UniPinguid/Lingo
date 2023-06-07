@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models.project import Project
+from .models.label import Label
+
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -46,3 +48,12 @@ def create_project(request):
         obj = Project(projectname=project_name_value,tags=tags_value,description=description_value,visibility=visibility_value,member=member_value)
         obj.save()
         return JsonResponse({"message":"Tạo project thành công."})
+
+def create_label(request):
+    if (request.method=='POST'):
+        label_name_value = request.POST.get('label-name')
+        description_value = request.POST.get('label-description')
+        color_value = request.POST.get('label-color')
+        obj = Label(labelname=label_name_value,description=description_value,color=color_value)
+        obj.save()
+        return JsonResponse({"message":"Tạo label thành công."})

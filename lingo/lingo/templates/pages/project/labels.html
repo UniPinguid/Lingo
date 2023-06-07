@@ -275,24 +275,25 @@
             </button>
         </div>
         <hr>
+        <form id="fm-create-label" method="POST" action="{% url 'create_label' %}">{% csrf_token %}</form>
         <div style="display: flex; flex-direction: column; width: 100%; margin-top: 16px;">
             <label>Name</label>
-            <input class="input-field" type="text" placeholder="e.g. animals, medium">
+            <input name="label-name" class="input-field" type="text" placeholder="e.g. animals, medium" form="fm-create-label">
 
             <label>Description</label>
-            <input class="input-field" type="text" style="height: 60px;">
+            <input name="label-description" class="input-field" type="text" style="height: 60px;" form="fm-create-label">
 
             <label>Color</label>
             <div>
-                <button class="color"></button>
-                <button class="color"></button>
-                <button class="color"></button>
-                <button class="color"></button>
+                <input name="label-color" type="radio" class="color-btn" form="fm-create-label" value="red"><button type="button" class="color"></button>
+                <input name="label-color" type="radio" class="color-btn" form="fm-create-label" value="green"><button type="button" class="color"></button>
+                <input name="label-color" type="radio" class="color-btn" form="fm-create-label" value="blue"><button type="button" class="color"></button>
+                <input name="label-color" type="radio" class="color-btn" form="fm-create-label" value="yellow"><button type="button" class="color"></button>
             </div>
         </div>
         <div class="action-buttons">
             <button class="button" id="ghost">Cancel</button>
-            <a href="#"><button class="button" id="submitButton" onclick="showToast()">Done</button></a>
+            <button class="button" form="fm-create-label" type="submit">Done</button>
         </div>
     </div>
 
@@ -373,6 +374,29 @@
         });
 
         paragraphTab.click()
+    </script>
+    <script type="text/javascript">
+        document.getElementById("fm-create-label").addEventListener("submit", function(event) {
+            event.preventDefault(); // Ngăn chặn gửi form
+            var formData = new FormData(this);
+
+            fetch(this.action, {
+            method: "POST",
+            body: formData
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                throw new Error("Lỗi: " + response.status);
+                }
+                return response.json();
+            })
+            .then(function(data) {
+            alert(data.message);
+            })
+            .catch(function(error) {
+            // console.error("Lỗi:", error);
+            });
+        });
     </script>
 </body>
 

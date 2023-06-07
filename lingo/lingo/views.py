@@ -55,5 +55,10 @@ def create_label(request):
         description_value = request.POST.get('label-description')
         color_value = request.POST.get('label-color')
         obj = Label(labelname=label_name_value,description=description_value,color=color_value)
-        obj.save()
-        return JsonResponse({"message":"Tạo label thành công."})
+        try:
+            obj.save()
+            print("data vô rồi")
+            return JsonResponse({"message": "Tạo label thành công."})
+        except Exception as e:
+            print(e)
+            return JsonResponse({"message": "Có lỗi xảy ra khi tạo label."})

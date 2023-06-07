@@ -32,7 +32,7 @@ urlpatterns = [
     path('project/labels', labels, name='labels'),
     path('project/contribution', contribution, name='contribution'),
     path('project/dashboard',create_project,name='create_project'),
+    path('labels',create_label,name='create_label'),
     # Task screens
-    path('project/tasks?id=IDHERE', task_detail, name='task_detail'),
-    path('project/labels',create_label,name='create_label')
+    path('project/tasks?id=IDHERE', task_detail, name='task_detail')
 ]

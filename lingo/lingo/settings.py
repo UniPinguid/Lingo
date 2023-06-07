@@ -76,27 +76,27 @@ WSGI_APPLICATION = 'lingo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'DataLabeling',
-        'CLIENT': {
-            'host': 'mongodb://18.142.250.16:27017/',
-            #'port': 27017,
-            # 'username': 'your_username',
-            # 'password': 'your_password',
-            # 'authSource': 'your_auth_source',
-            # 'authMechanism': 'your_auth_mechanism',
-        },
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'DataLabeling',
+#         'CLIENT': {
+#             'host': 'mongodb://18.142.250.16:27017/',
+#             #'port': 27017,
+#             # 'username': 'your_username',
+#             # 'password': 'your_password',
+#             # 'authSource': 'your_auth_source',
+#             # 'authMechanism': 'your_auth_mechanism',
+#         },
+#     }
+# }
 
 DATABASES = {
     'default': { 
         'ENGINE':'djongo',
         'NAME':'BTTH',
         'CLIENT':{
-            'host':'mongodb://localhost:27017/',}}}
+            'host':'mongodb://localhost:27017/',},}}
 
 
 

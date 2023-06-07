@@ -108,21 +108,24 @@
                 </tr>
             </thead>
             <tbody>
+                {% for task in tasks %}
                 <tr>
                     <td style="width: 80px">
-                        <div class="project-category" id="text-generation">Text Generation</div>
+                        <div class="project-category" id="text-generation">{{task.category}}</div>
                     </td>
-                    <td style="width: 25%;"><a class="task" href="{% url 'task_detail' %}">Task 1 name</a></td>
-                    <td>01/01/2021</td>
+                    <td style="width: 25%;"><a class="task" href="{% url 'task_detail' %}">{{task.title}}</a></td>
+                    <td>{{task.date}}</td>
                     <td>
                         <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     </td>
                     <td>
                         <div class="participants">
+                            {% for contributor in task.contributors %}
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                            <!-- <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div> -->
+                            {% endfor %}
                         </div>
                     </td>
                     <td>
@@ -135,6 +138,7 @@
                     <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
                     </td>
                 </tr>
+                {% endfor %}
                 <tr>
                     <td>
                         <div class="project-category" id="text-classification">Text Classification</div>

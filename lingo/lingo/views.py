@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models.project import Project
 from .models.label import Label
+from .models.task import Task
 
 # Main screens
 def home(request):
@@ -62,3 +63,8 @@ def create_label(request):
         except Exception as e:
             print(e)
             return JsonResponse({"message": "Có lỗi xảy ra khi tạo label."})
+
+def task_management(request,project_id):
+    project = Project.objects.get(id=project_id)
+    tasks = project.task_set.all()
+    return render(request, 'project/tasks.html', {'project': project, 'tasks': tasks})

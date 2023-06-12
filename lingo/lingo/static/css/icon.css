@@ -5,6 +5,12 @@
 }
 
 /* Size */
+.icon.size24px{
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+
 .icon.size40px{
     width: 40px;
     height: 40px;
@@ -95,4 +101,16 @@
 
 .icon#task {
     background-image: url('/static/icons/task.svg');
+}
+
+.icon#dataset {
+    background-image: url('/static/icons/dataset.svg');
+}
+
+.icon#expand {
+    background-image: url('/static/icons/expand.svg');
+}
+
+.icon#edit {
+    background-image: url('static/icons/edit.svg');
 }

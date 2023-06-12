@@ -35,8 +35,14 @@ def contribution(request):
     return render(request, 'pages/project/contribution.html')
 
 # Tasks screen
-def task_detail (request):
+def task_detail(request):
     return render(request, 'pages/project/task/detail.html')
+
+def dataset(request):
+    return render(request, 'pages/project/task/dataset.html')
+
+def dataset_edit(request):
+    return render(request, 'pages/project/task/edit.html')
 
 def create_project(request):
     if (request.method=='POST'):

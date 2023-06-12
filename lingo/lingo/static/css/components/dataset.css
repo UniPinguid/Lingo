@@ -1,0 +1,108 @@
+.dataset-container {
+    padding: 8px 16px;
+    margin: 16px 0px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+}
+
+.dataset-container .header {
+    display: flex;
+
+    padding: 8px 0px;
+    margin: 0px;
+
+    border-bottom: 1px solid var(--neutral-light-gray);
+    
+    background: none;
+}
+
+.dataset-container .header .id {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    font-weight: 700;
+}
+
+.dataset-container .header .level {
+    padding: 4px 8px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.dataset-container .header .file :nth-child(2) {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.dataset-container .edit-button {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 4px;
+
+    padding: 0px 8px;
+
+    background-color: var(--background-dark);
+    color: white;
+    border-radius: 8px;
+}
+
+.dataset-container .body {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 8px 0px;
+}
+
+.dataset-container .body .content {
+    font-family: Consolas;
+    line-height: 150%;
+    color: var(--text-default);
+    font-size: 16px;
+}
+
+.dataset-container .body hr {
+    width: 100%;
+    border-top: 1px solid var(--neutral-light-gray);
+}
+
+.dataset-container .body .recent-contributors {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 16px;
+}
+
+.dataset-container .body .recent-contributors :first-child {
+    font-weight: 700;
+}
+
+.dataset-container .body .contributor {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    gap: 4px;
+}
+
+.dataset-container .body .contributor :nth-child(1)
+{
+    display: flex;
+
+    align-items: center;
+    gap: 8px;
+
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-default);
+}

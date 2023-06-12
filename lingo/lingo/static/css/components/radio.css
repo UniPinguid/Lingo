@@ -12,6 +12,8 @@
     display: flex;
     flex-direction: row;
     margin-left: 10px;
+    
+    cursor: pointer;
 }
 
 .radio .visibility input[type="checkbox"] {
@@ -21,16 +23,30 @@
 .radio input[type="radio"] + .visibility::before {
     content: "";
     display: block;
-    width: 24px;
-    height: 24px;
+
+    min-width: 28px;
+    max-height: 28px;
+    
     border-radius: 99px;
-    border: 2px solid #ccc;
+    background-color: var(--neutral-white);
+    box-sizing: border-box;
+
     margin-right: 8px;
+  }
+
+  .radio input[type="radio"]:hover + .visibility::before {
+    background-color: var(--neutral-light-gray);
   }
   
   .radio input[type="radio"]:checked + .visibility::before {
-    background-color: blue;
-    border-color: blue;
+    content: "✓";
+    color: white;
+
+    padding: 3px 6px;
+    box-sizing: border-box;
+    
+    background-color: var(--primary);
+    border-color: var(--primary);
   }
 
   .radio .checkbox {

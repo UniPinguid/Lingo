@@ -76,7 +76,7 @@
 }
 
 #popup label {
-    margin: 4px 0px;
+    margin: 8px 0px;
 
     font-weight: 600;
     font-size: 16px;
@@ -109,4 +109,17 @@
 
 #popup input[type="text"]::placeholder {
     color: var(--neutral-inactive);
+}
+
+#popup textarea {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    outline: none;
+
+    border: 1px solid var(--neutral-light-gray);
+    border-radius: 16px;
+
+    font-size: 16px;
+
+    resize: none;
 }

@@ -29,6 +29,19 @@ button.icon {
     cursor: pointer;
 }
 
+button.icon-bordered {
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 button.icon-primary {
     border: none;
     outline: none;

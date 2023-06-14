@@ -1,0 +1,25 @@
+.contribution-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.contribution-container .contribution {
+    display: flex;
+    flex-direction: row;
+
+    gap: 16px;
+}
+
+.contribution-container .contribution .icon {
+    min-width: 32px;
+}
+
+.contribution-container .contribution .content * {
+    display: inline-block
+}
+
+.contribution-container .contribution .content .time {
+    color: var(--text-light);
+}

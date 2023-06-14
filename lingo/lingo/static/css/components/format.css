@@ -1,10 +1,34 @@
-a.task {
+a.task, a.contributor {
     font-weight: 700;
     text-decoration: none;
     color: var(--text-default);
 }
 
+a.task:hover, a.contributor:hover {
+    text-decoration: underline;
+}
+
 a.project {
     color: var(--primary);
     text-decoration: none;
+}
+
+.level {
+    padding: 4px 8px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.code {
+    font-family: Consolas;
+    font-size: 90%;
+
+    padding: 2px 4px;
+
+    background-color: var(--neutral-white);
+    border: 1px solid var(--neutral-light-gray);
+    border-radius: 4px;
 }

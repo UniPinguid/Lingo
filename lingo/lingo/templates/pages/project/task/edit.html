@@ -10,6 +10,8 @@
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/editor.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -58,142 +60,32 @@
     </div>
 
     <!-- Content -->
-    <div style="padding: 16px 100px">
+    <div style="padding: 16px 100px; width: 100%; box-sizing: border-box;">
+        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
         <div class=""
-            style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; padding: 16px 0px;">
+            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">
-                <div class="icon size40px" id="task"></div>
+                <div class="icon size40px" id="dataset"></div>
                 <div class="info">
-                    <div>Identifying objects in images for computer vision training</div>
-                    <div>#PMD-123984</div>
+                    <div>DT#1240-2041</div>
                 </div>
-            </div>
-            <button class="icon" style="padding: 0px;">
-                <div class="icon" id="more-horizontal"></div>
-            </button>
-        </div>
-        <h1>Description</h1>
-        <div style="margin-bottom: 16px;">The task of identifying objects in images is an essential step in computer
-            vision training. It involves the process of labeling images with the names of objects that appear in them,
-            which can include people, animals, vehicles, buildings, and other objects. This task is important for
-            machine learning algorithms to learn how to recognize objects and distinguish them from other elements in an
-            image. By accurately identifying objects in images, computer vision models can be trained to recognize
-            objects in real-world scenarios, such as self-driving cars, security cameras, and more.</div>
-        <h1>Used Labels</h1>
-        <div style="display: flex; flex-direction: row; align-items: center; gap: 16px; margin-bottom: 16px;">
-            <div class="label paragraph">computer science</div>
-            <div style="border-right: 2px solid var(--neutral-light-gray); height: 24px; width: 1"></div>
-            <div class="label entity">technology</div>
-        </div>
-        <div class="theader">
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <h1>Dataset</h1>
-                <div class="num">11</div>
-            </div>
-            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px">
-                <div style="display: flex; flex-direction: row; gap: 16px">
-                    <div>Results per page: </div>
-                    <select>
-                        <option>5</option>
-                        <option>10</option>
-                        <option>20</option>
-                    </select>
+                <div class="file" style="margin-left: 24px">
+                    <span>from</span>
+                    <a href="#" style="text-decoration: none; color: var(--text-light);">rawdata.txt</a>
                 </div>
-                <div style="height: 20px; border-right: 2px solid var(--neutral-light-gray);"></div>
-                <button class="icon">
-                    <div class="icon" id="sort"></div>
-                </button>
-                <button class="icon">
-                    <div class="icon" id="filter"></div>
-                </button>
             </div>
         </div>
-        <div style="display: flex; flex-direction: row; width: 100%; gap: 16px; align-items: center;">
-            <div class="search-bar" id="small" style="width: 100%;">
-                <input placeholder="Search" type="text">
-                <div class="icon" id="search"></div>
-            </div>
-            <button class="button-small">New Dataset</button>
-        </div>
-        <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
-        <div class="dataset-container">
-            <div class="header">
-                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
-                    <div class="id">
-                        <div class="icon" id="dataset"></div><a href="#">DT#1240-2041</a>
-                    </div>
-                    <div class="level">Level 1</div>
-                    <div class="file">
-                        <span>from</span>
-                        <a href="#">rawdata.txt</a>
-                    </div>
-                </div>
-                <div class="edit-button">
-                    <div class="icon white" id="edit"></div>
-                    <div>Edit</div>
-                    <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px;"></div>
-                    <div class="icon white size24px" id="expand"></div>
-                </div>
-            </div>
-            <div class="body">
-                <div class="paragraph label">computer science</div>
-                <div class="content">
-                    Computer vision is a field of artificial intelligence and computer science that focuses on enabling
-                    machines to interpret and understand visual information from the world around them. Using advanced
-                    algorithms and deep learning techniques, computer vision systems can analyze images, videos, and
-                    other forms of visual data to recognize patterns, objects, and even people. This technology has a
-                    wide range of applications, from self-driving cars and facial recognition software to medical
-                    imaging and quality control in manufacturing. As computer vision technology continues to evolve and
-                    improve, it has the potential to revolutionize a variety of industries and change the way we
-                    interact with the world around us.
-                </div>
-                <hr>
-                <div class="recent-contributors">
-                    <div>Recent Contributors:</div>
-                    <div class="contributor">
-                        <a href="#">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <span>ltngan</span>
-                        </a>
-                        <div>&middot;</div>
-                        <div>2 hours ago</div>
-                    </div>
-                </div>
-            </div>
-            <div class="contributors">
 
-            </div>
-        </div>
-        <div class="pagination">
-            <div class="list-pages">
-                <button>
-                    <div class="icon" id="first"></div>
-                </button>
-                <button>
-                    <div class="icon" id="previous"></div>
-                </button>
-                <button class="page" id="active">1</button>
-                <button class="page" id="inactive">2</button>
-                <button class="page" id="inactive">3</button>
-                <button class="page" id="inactive">4</button>
-                <button>
-                    <div class="icon" id="next"></div>
-                </button>
-                <button>
-                    <div class="icon" id="last"></div>
-                </button>
-            </div>
-            <div class="custom-page">
-                <div>Go to page:</div>
-                <input type="text" value="2">
-                <button class="icon-primary" style="width: 32px; height: 32px; padding: 0px">
-                    <div class="icon white" id="arrow-right"></div>
-                </button>
-            </div>
-        </div>
-    </div>
+        <h1>Category</h1>
+        <div class="label paragraph">computer science</div>
 
-    </div>
+        <ul id="labeledTextList"></ul>
+        <button id="labelButton">Label</button>
+        <textarea
+            id="editor">Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines to interpret and understand visual information from the world around them. Using advanced algorithms and deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data to recognize patterns, objects, and even people. This technology has a wide range of applications, from self-driving cars and facial recognition software to medical imaging and quality control in manufacturing. As computer vision technology continues to evolve and improve, it has the potential to revolutionize a variety of industries and change the way we interact with the world around us.</textarea>
+    
+        </div>
+
     <div class="footer">
         <hr>
         <div class="info">
@@ -211,6 +103,7 @@
 
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
     <script src="{{STATIC_URL}}js/upload.js"></script>
+    <script src="{{STATIC_URL}}js/editor.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,62 @@
+textarea#editor {
+    width: 100%;
+    height: auto;
+
+    margin-top: 16px;
+    padding: 16px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+
+    font-family: Consolas;
+    line-height: 200%;
+    color: var(--text-default);
+    font-size: 18px;
+
+    overflow: hidden;
+    resize: none;
+}
+
+textarea#editor:hover {
+    outline: none;
+}
+
+.highlight {
+    background-color: yellow;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    top: -20px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+}
+
+.highlight:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.labeledText {
+    background-color: red;
+    width: 20px;
+}

@@ -65,7 +65,7 @@ def create_label(request):
         try:
             obj.save()
             print("data vô rồi")
-            return JsonResponse({"message": "Tạo label thành công."})
+            return #JsonResponse({"message": "Tạo label thành công."})
         except Exception as e:
             print(e)
             return JsonResponse({"message": "Có lỗi xảy ra khi tạo label."})

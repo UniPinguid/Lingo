@@ -1,0 +1,37 @@
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+
+    gap: 24px;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-container .avatar {
+    min-width: 32px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding-left: 12px;
+}
+
+.comment .info {
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: center;
+    gap: 4px;
+}
+
+.comment .info .time {
+    color: var(--text-light);
+}

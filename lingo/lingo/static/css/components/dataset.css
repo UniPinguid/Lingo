@@ -26,13 +26,13 @@
     font-weight: 700;
 }
 
-.dataset-container .header .level {
-    padding: 4px 8px;
+.dataset-container .header .id a {
+    color: var(--text-default);
+    text-decoration: none;
+}
 
-    border: 1px solid var(--neutral-dark);
-    border-radius: 8px;
-
-    font-size: 14px;
+.dataset-container .header .id a:hover {
+    text-decoration: underline;
 }
 
 .dataset-container .header .file :nth-child(2) {
@@ -105,4 +105,17 @@
     font-weight: 700;
     text-decoration: none;
     color: var(--text-default);
+}
+
+.dataset-content {
+    margin-top: 16px;
+    padding: 16px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
+
+    font-family: Consolas;
+    line-height: 200%;
+    color: var(--text-default);
+    font-size: 18px;
 }

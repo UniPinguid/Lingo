@@ -10,6 +10,8 @@
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/contribution.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -59,24 +61,111 @@
 
     <!-- Content -->
     <div style="padding: 16px 100px">
-        <a href="{% url 'task_detail' %}">&larr; Back to task</a>
+        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
         <div class=""
-            style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; padding: 16px 0px;">
+            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">
                 <div class="icon size40px" id="dataset"></div>
                 <div class="info">
                     <div>DT#1240-2041</div>
                 </div>
+                <div class="file" style="margin-left: 24px">
+                    <span>from</span>
+                    <a href="#" style="text-decoration: none; color: var(--text-light);">rawdata.txt</a>
+                </div>
             </div>
-            <button class="icon" style="padding: 0px;">
-                <div class="icon" id="more-horizontal"></div>
-            </button>
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                <div class="level">Level 1</div>
+                <a class="edit-button" href="{% url 'edit' %}">
+                    <div class="icon" id="edit"></div>
+                    <span>Edit</span>
+                </a>
+                <div style="border-right: 1px solid var(--neutral-light-gray); height: 24px;"></div>
+                <button class="icon" style="padding: 0px;">
+                    <div class="icon" id="more-horizontal"></div>
+                </button>
+            </div>
         </div>
 
         <h1>Category</h1>
         <div class="label paragraph">computer science</div>
 
+        <div class="dataset-content">
+            Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines
+            to interpret and understand visual information from the world around them. Using advanced algorithms and
+            deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data
+            to recognize patterns, objects, and even people. This technology has a wide range of applications, from
+            self-driving cars and facial recognition software to medical imaging and quality control in manufacturing.
+            As computer vision technology continues to evolve and improve, it has the potential to revolutionize a
+            variety of industries and change the way we interact with the world around us.
+        </div>
     </div>
+
+    <div class="project-content" style="padding: 0px 100px">
+        <div class="left-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Discuss</h1>
+                    <div class="num">8</div>
+                </div>
+            </div>
+            <div class="comment-section">
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">LBC Phat</a>
+                            <div>&middot;</div>
+                            <div class="time">2 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>Guys I think</span>
+                            <span class="code">medical imaging</span>
+                            <span>should be labeled as 'application'.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">pstung</a>
+                            <div>&middot;</div>
+                            <div class="time">3 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>This text gives off weird lexical patterns that I cannot fathom to understanding the
+                                meaning of the whole datapack.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Recent Contributions</h1>
+                </div>
+            </div>
+            <div class="contribution-container">
+                <div class="contribution">
+                    <div class="icon" id="label"></div>
+                    <div class="content">
+                        <a class="contributor">LBC Phat</a>
+                        <span>has labeled the whole data as</span>
+                        <span class="paragraph label alt">computer science</span>
+                        <span>&middot;</span>
+                        <span class="time">2 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="footer">
         <hr>
         <div class="info">

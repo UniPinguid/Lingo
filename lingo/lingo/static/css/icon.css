@@ -112,5 +112,9 @@
 }
 
 .icon#edit {
-    background-image: url('static/icons/edit.svg');
+    background-image: url('/static/icons/edit.svg');
+}
+
+.icon#label {
+    background-image: url('/static/icons/label.svg');
 }

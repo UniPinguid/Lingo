@@ -9,6 +9,7 @@
     <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -67,9 +68,12 @@
                     <div>#PMD-123984</div>
                 </div>
             </div>
-            <button class="icon" style="padding: 0px;">
-                <div class="icon" id="more-horizontal"></div>
-            </button>
+            <div style="display: flex; align-items: center; gap: 16px">
+                <div class="project-category" id="text-classification">Text Classification</div>
+                <button class="icon" style="padding: 0px;">
+                    <div class="icon" id="more-horizontal"></div>
+                </button>
+            </div>
         </div>
         <h1>Description</h1>
         <div style="margin-bottom: 16px;">The task of identifying objects in images is an essential step in computer
@@ -115,7 +119,54 @@
             <button class="button-small">New Dataset</button>
         </div>
         <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
-        
+        <div class="dataset-container">
+            <div class="header">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                    <div class="id">
+                        <div class="icon" id="dataset"></div><a href="{% url 'dataset'%}">DT#1240-2041</a>
+                    </div>
+                    <div class="level">Level 1</div>
+                    <div class="file">
+                        <span>from</span>
+                        <a href="#">rawdata.txt</a>
+                    </div>
+                </div>
+                <div class="edit-button">
+                    <div class="icon white" id="edit"></div>
+                    <div>Edit</div>
+                    <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px;"></div>
+                    <div class="icon white size24px" id="expand"></div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="paragraph label">computer science</div>
+                <div class="content">
+                    Computer vision is a field of artificial intelligence and computer science that focuses on enabling
+                    machines to interpret and understand visual information from the world around them. Using advanced
+                    algorithms and deep learning techniques, computer vision systems can analyze images, videos, and
+                    other forms of visual data to recognize patterns, objects, and even people. This technology has a
+                    wide range of applications, from self-driving cars and facial recognition software to medical
+                    imaging and quality control in manufacturing. As computer vision technology continues to evolve and
+                    improve, it has the potential to revolutionize a variety of industries and change the way we
+                    interact with the world around us.
+                </div>
+                <hr>
+                <div class="recent-contributors">
+                    <div>Recent Contributors:</div>
+                    <div class="contributor">
+                        <a href="#">
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                            <a class="contributor" href="#">ltngan</a>
+                        </a>
+                        <div>&middot;</div>
+                        <div>2 hours ago</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contributors">
+
+            </div>
+        </div>
         <div class="pagination">
             <div class="list-pages">
                 <button>

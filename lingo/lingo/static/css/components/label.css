@@ -16,6 +16,25 @@
     color: var(--primary);
 }
 
+.label.paragraph.alt {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    padding: 6px 12px;
+    margin: 4px 0px;
+    gap: 8px;
+
+    background: var(--fill-primary);
+    border-radius: 8px;
+
+    font-weight: 600;
+    color: var(--primary);
+}
+
 .label.entity {
     display: flex;
     flex-direction: row;

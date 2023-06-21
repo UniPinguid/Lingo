@@ -34,5 +34,7 @@ urlpatterns = [
     path('project/dashboard',create_project,name='create_project'),
     path('labels',create_label,name='create_label'),
     # Task screens
-    path('project/tasks?id=IDHERE', task_detail, name='task_detail')
+    path('project/tasks?id=IDHERE', task_detail, name='task_detail'),
+    path('project/tasks?id=IDHERE/IDDATASET', dataset, name='dataset'),
+    path('project/tasks?id=IDHERE/IDDATASET?edit=true', dataset_edit, name='edit')
 ]

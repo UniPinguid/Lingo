@@ -35,8 +35,14 @@ def contribution(request):
     return render(request, 'pages/project/contribution.html')
 
 # Tasks screen
-def task_detail (request):
+def task_detail(request):
     return render(request, 'pages/project/task/detail.html')
+
+def dataset(request):
+    return render(request, 'pages/project/task/dataset.html')
+
+def dataset_edit(request):
+    return render(request, 'pages/project/task/edit.html')
 
 def create_project(request):
     if (request.method=='POST'):
@@ -62,7 +68,7 @@ def create_label(request):
         try:
             obj.save()
             print("data vô rồi")
-            return JsonResponse({"message": "Tạo label thành công."})
+            return #JsonResponse({"message": "Tạo label thành công."})
         except Exception as e:
             print(e)
             return JsonResponse({"message": "Có lỗi xảy ra khi tạo label."})

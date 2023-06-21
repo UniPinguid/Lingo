@@ -25,7 +25,22 @@ button.icon {
     border: none;
     outline: none;
     background: none;
+    padding: 4px;
+    cursor: pointer;
 
+    border-radius: 16px;
+}
+
+button.icon-bordered {
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -41,16 +56,16 @@ button.icon-primary {
 }
 
 button.icon:hover {
-    background-color: var(--background-lighter);
+    background-color: var(--neutral-light-gray);
 }
 
-.button:hover, .button-small:hover
-{
+.button:hover,
+.button-small:hover {
     background-color: var(--primary-medium);
 }
 
-.button:active, .button-small:active
-{
+.button:active,
+.button-small:active {
     background-color: var(--primary-dark);
 }
 
@@ -95,6 +110,13 @@ button.icon:hover {
     cursor: pointer;
 }
 
+.button-small#ghost {
+    color: var(--neutral-inactive);
+    
+    background: none;
+    border: 1px solid var(--neutral-light-gray);
+}
+
 button.action {
     display: flex;
     flex-direction: row;
@@ -106,7 +128,7 @@ button.action {
 
     background: none;
     border-radius: 8px;
-    
+
     font-size: 16px;
     text-decoration: none;
     white-space: nowrap;
@@ -122,4 +144,28 @@ button.action#edit {
 button.action#delete {
     border: 1px solid var(--accent-red);
     color: var(--accent-red);
+}
+
+.edit-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+
+    padding: 2px 12px 2px 6px;
+    border-radius: 16px;
+}
+
+.edit-button:hover {
+    background-color: var(--neutral-white);
+}
+
+.edit-button:focus {
+    background-color: var(--neutral-light-gray);
+}
+
+a.edit-button {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--text-default);
 }

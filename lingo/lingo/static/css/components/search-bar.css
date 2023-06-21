@@ -33,6 +33,14 @@
     border-radius: 8px;
 }
 
+.search-bar#small input[type="text"]:hover {
+    outline: 1px solid var(--neutral-dark);
+}
+
+.search-bar#small input[type="text"]:focus, .search-bar#small input[type="text"]:active {
+    background-color: var(--neutral-white);
+}
+
 .search-bar#small .icon {
     position: absolute;
     left: 6px;

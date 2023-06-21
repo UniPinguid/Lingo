@@ -3,12 +3,12 @@
     --text-light: #8590AB;
     --text-light-white: #D0D9E4;
 
-    --primary: #2361FF;
+    --primary: #2462ff;
     --primary-medium: #1852e3;
     --primary-dark: #164acc;
 
     --background-dark: #2F3352;
-    --background-lighter: #EFF2F8;
+    --background-lighter: #F3F8FF;
 
     --neutral-light-gray: #D0D9E4;
     --neutral-dark: #8590AB;
@@ -21,6 +21,8 @@
     --accent-purple: #B454FF;
     --accent-background-purple: #F7E1FF;
     --accent-red: #DA2D56;
+
     --accent-green: #38B2AB;
     --accent-background-green: #DAFFF4;
+    --complete: #70D640;
 }

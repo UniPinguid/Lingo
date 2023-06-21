@@ -3,12 +3,14 @@
 <html>
 
 <head>
+    <link href="{{STATIC_URL}}css/dashboard.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/label.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/popup.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -56,10 +58,33 @@
         </div>
     </div>
     <div class="project-content">
-        <div class="left-section">
-            Will be working on later...
+        <div class="progression-container">
+            <div class="progression">
+                <div class="bar done"></div>
+                <div class="bar ongoing"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="legend-container">
+                <div class="legend">
+                    <div style="width: 32px; height: 16px; background-color: var(--primary)"></div>
+                    <div>Complete Task</div>
+                    <div>(3/27)</div>
+                </div>
+                <div class="legend">
+                    <div style="width: 32px; height: 16px; background-color: rgb(36, 98, 255, 0.3);"></div>
+                    <div>On-Going Task</div>
+                    <div>(7/27)</div>
+                </div>
+                <div class="legend">
+                    <div style="width: 32px; height: 16px; background-color: var(--neutral-white)"></div>
+                    <div>Pending Task</div>
+                    <div>(17/27)</div>
+                </div>
+            </div>
         </div>
-        <div class="right-section">
+        <div class="progression-total">
+            <div>5%</div>
+            <div>complete</div>
         </div>
     </div>
     <div style="width: 100%; padding: 0px 100px; box-sizing: border-box">
@@ -91,7 +116,7 @@
                 <input placeholder="Search" type="text">
                 <div class="icon" id="search"></div>
             </div>
-            <button class="button-small">New Task</button>
+            <button class="button-small" id="popupButton">New Task</button>
         </div>
         <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
         <!-- Table -->
@@ -305,6 +330,113 @@
         </div>
     </div>
 
+    <div id="popup" style="width: 55%;">
+        <div class="pheader">
+            <div class="title">Create a new task</div>
+            <button id="closeButton">
+                <div class="icon size48px" id="close"></div>
+            </button>
+        </div>
+        <hr>
+        <form id="fm-create-project" method="POST" action="{% url 'create_project' %}">{% csrf_token %}</form>
+        <div style="display: flex; flex-direction: row; gap: 32px;">
+            <!-- Left -->
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <label>Title</label>
+                <input name="project-name" form="fm-create-project" class="input-field" type="text"
+                    placeholder="e.g. Specifying Formal Languages">
+
+                <label>Category</label>
+                <input class="input-field" type="text" name="project-tag" form="fm-create-project">
+
+                <label>Description</label>
+                <textarea class="input-field" type="text" style="height: 60px; white-space:normal"
+                    name="project-description" form="fm-create-project"></textarea>
+
+                <label>Assign Members</label>
+                <input class="input-field" type="text" name="project-member" form="fm-create-project">
+
+                <div class="participants">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                </div>
+            </div>
+            <!-- Right -->
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <label>Attached Dataset</label>
+                <div style="display: flex; flex-direction: row; gap: 16px; width: 100%;" id="uploadBox">
+                    <input name="project-name" form="fm-create-project" class="input-field" type="text"
+                        placeholder="Search files..." style="width: 100%;">
+
+                    <label for="fileInputSmall">
+                        <div class="icon size40px" id="upload"></div>
+                    </label>
+                    <input type="file" id="fileInputSmall">
+                </div>
+
+                <!-- File input -->
+                <div id="uploadStatus"></div>
+                <div class="file-collection select" style="font-size: 90%">
+                    <div class="file-container">
+                        <div class="info-container">
+                            <div class="file-icon">
+                                <div class="icon light size48px" id="search"></div>
+                            </div>
+                            <div class="info">
+                                <div>rawdata.txt</div>
+                                <div>12 Jan, 2023 - 09:30</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div class="size">24.5 KB</div>
+                            <div class="icon" id="close"></div>
+                        </div>
+                    </div>
+                    <div class="file-container">
+                        <div class="info-container">
+                            <div class="file-icon">
+                                <div class="icon light size48px" id="search"></div>
+                            </div>
+                            <div class="info">
+                                <div>rawdata.txt</div>
+                                <div>12 Jan, 2023 - 09:30</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div class="size">24.5 KB</div>
+                            <div class="icon" id="close"></div>
+                        </div>
+                    </div>
+                    <div class="file-container">
+                        <div class="info-container">
+                            <div class="file-icon">
+                                <div class="icon light size48px" id="search"></div>
+                            </div>
+                            <div class="info">
+                                <div>rawdata.txt</div>
+                                <div>12 Jan, 2023 - 09:30</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div class="size">24.5 KB</div>
+                            <div class="icon" id="close"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="button" id="ghost">Cancel</button>
+            <!-- <a href="{% url 'project'%}"> -->
+            <button class="button" type="submit" form="fm-create-project">Done</button>
+            <!-- </a> -->
+        </div>
+
+        <script src="{{STATIC_URL}}js/upload.js"></script>
+    </div>
+
     </div>
     <div class="footer">
         <hr>
@@ -322,7 +454,7 @@
     </div>
 
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
-    <script src="{{STATIC_URL}}js/upload.js"></script>
+    <script src="{{STATIC_URL}}js/popup.js"></script>
 </body>
 
 </html>

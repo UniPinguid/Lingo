@@ -14,7 +14,7 @@ closeButton.forEach(function(element)
   document.body.classList.remove('popup-lock');
 })});
 
-// submitButton.addEventListener('click', function() {
-//   popup.style.display = 'none';
-//   document.body.classList.remove('popup-lock');
-// });
+submitButton.addEventListener('click', function() {
+  popup.style.display = 'none';
+  document.body.classList.remove('popup-lock');
+});

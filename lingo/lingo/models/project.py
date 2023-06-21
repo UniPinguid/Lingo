@@ -1,5 +1,6 @@
 from django.db import models
 from djongo.models.fields import ArrayField
+from pymongo.errors import PyMongoError
 
 class Project(models.Model):
     id_project= models.CharField(max_length=50)
@@ -18,5 +19,14 @@ class Project(models.Model):
     # )
     datasets = models.JSONField()
 
+    def insertProject(self):
+        try:
+            super().save()
+        except PyMongoError as e:
+            print(f"Create project fail: {str(e)}")
+            return 0
+        
+        return 1
+            
 
     

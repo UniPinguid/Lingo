@@ -47,8 +47,11 @@ def create_project(request):
         visibility_value = request.POST.get('visibility')
         member_value = request.POST.get('project-member')
         obj = Project(projectname=project_name_value,tags=tags_value,description=description_value,visibility=visibility_value,member=member_value)
-        obj.save()
-        return JsonResponse({"message":"Tạo project thành công."})
+        res = obj.insertProject()
+        if(res == 1):
+            return JsonResponse({"message":"Tạo project thành công."})
+        else:
+            return JsonResponse({"message":"Tạo project thất bại."})
 
 def create_label(request):
     if (request.method=='POST'):
@@ -68,3 +71,9 @@ def task_management(request,project_id):
     project = Project.objects.get(id=project_id)
     tasks = project.task_set.all()
     return render(request, 'project/tasks.html', {'project': project, 'tasks': tasks})
+
+
+def label_list(request, project_id):
+    temp = Label(project_id=project_id)
+    labels = temp.getLabelList(project_id)
+    return render(request, 'project/labels.html', {'labels': labels})

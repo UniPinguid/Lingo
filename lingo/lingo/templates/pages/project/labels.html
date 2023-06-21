@@ -114,46 +114,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for label in labels %}
                         <tr>
                             <td>
-                                <div class="label paragraph">love story</div>
+                                <div class="label paragraph">{{ label.labelname }}</div>
                             </td>
-                            <td>Description for label 1</td>
-                            <td><button class="action" id="edit">Edit</button><button class="action"
-                                    id="delete">Delete</button></td>
-                        </tr>
-                        <tr>
+                            <td>{{ label.description }}</td>
                             <td>
-                                <div class="label paragraph">love story</div>
+                                <button class="action" id="edit">Edit</button>
+                                <button class="action" id="delete">Delete</button>
                             </td>
-                            <td>Description for label 1</td>
-                            <td><button class="action" id="edit">Edit</button><button class="action"
-                                    id="delete">Delete</button></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="label paragraph">love story</div>
-                            </td>
-                            <td>Description for label 1</td>
-                            <td><button class="action" id="edit">Edit</button><button class="action"
-                                    id="delete">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="label paragraph">love story</div>
-                            </td>
-                            <td>Description for label 1</td>
-                            <td><button class="action" id="edit">Edit</button><button class="action"
-                                    id="delete">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="label paragraph">love story</div>
-                            </td>
-                            <td>Description for label 1</td>
-                            <td><button class="action" id="edit">Edit</button><button class="action"
-                                    id="delete">Delete</button></td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <div class="pagination">

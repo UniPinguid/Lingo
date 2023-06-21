@@ -80,24 +80,51 @@
         <div class="label paragraph">computer science</div>
 
         <ul id="labeledTextList"></ul>
-        <button id="labelButton">Label</button>
-        <textarea
-            id="editor">Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines to interpret and understand visual information from the world around them. Using advanced algorithms and deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data to recognize patterns, objects, and even people. This technology has a wide range of applications, from self-driving cars and facial recognition software to medical imaging and quality control in manufacturing. As computer vision technology continues to evolve and improve, it has the potential to revolutionize a variety of industries and change the way we interact with the world around us.</textarea>
-    
+        <div class="editor-toolbar">
+            <button class="icon" style="padding: 0px;"><div class="icon" id="search"></div></button>
+            <button class="icon" style="padding: 0px;"><div class="icon" id="search"></div></button>
+            <div style="border-right: 2px solid var(--neutral-light-gray); height: 24px;"></div>
+            <button class="icon" id="labelButton" style="padding: 0px;" onclick="handleSelection()"><div class="icon" id="label"></div></button>
         </div>
-
-    <div class="footer">
-        <hr>
-        <div class="info">
-            <div>@ 2023 LingoTeam. All rights reserved.</div>
-            <div class="links">
-                <a href="#">Support</a>
-                <a href="#">Privacy</a>
-                <a href="#">Contact Us</a>
-                <a href="#">About</a>
+        <div class="editor-container">
+            <div class="lines">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+            <div id="editor">
+                <textarea
+                    id="editor-textarea">Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines to interpret and understand visual information from the world around them. Using advanced algorithms and deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data to recognize patterns, objects, and even people. This technology has a wide range of applications, from self-driving cars and facial recognition software to medical imaging and quality control in manufacturing. As computer vision technology continues to evolve and improve, it has the potential to revolutionize a variety of industries and change the way we interact with the world around us.</textarea>
+                <div id="listText"></div>
             </div>
         </div>
-    </div>
+        <textarea placeholder="Describe what you changed" id="change"></textarea>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="revise">
+                <label for="revise">Pending revise/review</label>
+            </div>
+            <div style="display: flex; gap: 16px;">
+                <button class="button-small" id="ghost">Cancel</button>
+                <button class="button-small" type="submit">Save</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <hr>
+            <div class="info">
+                <div>@ 2023 LingoTeam. All rights reserved.</div>
+                <div class="links">
+                    <a href="#">Support</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">About</a>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 

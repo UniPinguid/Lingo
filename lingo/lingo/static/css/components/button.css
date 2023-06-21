@@ -56,7 +56,7 @@ button.icon-primary {
 }
 
 button.icon:hover {
-    background-color: var(--background-lighter);
+    background-color: var(--neutral-light-gray);
 }
 
 .button:hover,
@@ -108,6 +108,13 @@ button.icon:hover {
     white-space: nowrap;
 
     cursor: pointer;
+}
+
+.button-small#ghost {
+    color: var(--neutral-inactive);
+    
+    background: none;
+    border: 1px solid var(--neutral-light-gray);
 }
 
 button.action {

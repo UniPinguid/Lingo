@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .models.project import Project
 from .models.label import Label
 from .models.task import Task
+from datetime import datetime
 
 # Main screens
 def home(request):
@@ -67,8 +68,7 @@ def create_label(request):
         obj = Label(labelname=label_name_value,description=description_value,color=color_value)
         try:
             obj.save()
-            print("data vô rồi")
-            return #JsonResponse({"message": "Tạo label thành công."})
+            return JsonResponse({"message": "Tạo label thành công."})
         except Exception as e:
             print(e)
             return JsonResponse({"message": "Có lỗi xảy ra khi tạo label."})
@@ -83,3 +83,16 @@ def label_list(request, project_id):
     temp = Label(project_id=project_id)
     labels = temp.getLabelList(project_id)
     return render(request, 'project/labels.html', {'labels': labels})
+
+def create_task(request):
+    if (request.method=='POST'):
+        title_value = request.POST.get('task-title')
+        category_value = request.POST.get('task-category')
+        description_value = request.POST.get('task-description')
+        member_value = request.POST.get('task-member')
+        obj = Task(title=title_value,category=category_value,description=description_value,member=member_value,date=datetime.now().date(),project_id=1)
+        res = obj.insertTask()
+        if(res == 1):
+            return JsonResponse({"message":"Tạo task thành công."})
+        else:
+            return JsonResponse({"message":"Tạo task thất bại."})

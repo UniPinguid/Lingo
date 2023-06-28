@@ -338,23 +338,23 @@
             </button>
         </div>
         <hr>
-        <form id="fm-create-project" method="POST" action="{% url 'create_project' %}">{% csrf_token %}</form>
+        <form id="fm-create-task" method="POST" action="{% url 'create_project' %}">{% csrf_token %}</form>
         <div style="display: flex; flex-direction: row; gap: 32px;">
             <!-- Left -->
             <div style="display: flex; flex-direction: column; width: 100%;">
                 <label>Title</label>
-                <input name="project-name" form="fm-create-project" class="input-field" type="text"
+                <input name="task-title" form="fm-create-task" class="input-field" type="text"
                     placeholder="e.g. Specifying Formal Languages">
 
                 <label>Category</label>
-                <input class="input-field" type="text" name="project-tag" form="fm-create-project">
+                <input class="input-field" type="text" name="task-category" form="fm-create-task">
 
                 <label>Description</label>
                 <textarea class="input-field" type="text" style="height: 60px; white-space:normal"
-                    name="project-description" form="fm-create-project"></textarea>
+                    name="task-description" form="fm-create-task"></textarea>
 
                 <label>Assign Members</label>
-                <input class="input-field" type="text" name="project-member" form="fm-create-project">
+                <input class="input-field" type="text" name="task-member" form="fm-create-task">
 
                 <div class="participants">
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
@@ -367,7 +367,7 @@
             <div style="display: flex; flex-direction: column; width: 100%;">
                 <label>Attached Dataset</label>
                 <div style="display: flex; flex-direction: row; gap: 16px; width: 100%;" id="uploadBox">
-                    <input name="project-name" form="fm-create-project" class="input-field" type="text"
+                    <input name="task-dataset" form="fm-create-task" class="input-field" type="text"
                         placeholder="Search files..." style="width: 100%;">
 
                     <label for="fileInputSmall">
@@ -430,7 +430,7 @@
         <div class="action-buttons">
             <button class="button" id="ghost">Cancel</button>
             <!-- <a href="{% url 'project'%}"> -->
-            <button class="button" type="submit" form="fm-create-project">Done</button>
+            <button class="button" type="submit" form="fm-create-task">Done</button>
             <!-- </a> -->
         </div>
 

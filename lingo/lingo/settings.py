@@ -41,6 +41,15 @@ INSTALLED_APPS = [
     'djongo'
 ]
 
+# Cấu hình backend xác thực và đăng nhập
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
+# Cấu hình URL để chuyển hướng sau khi đăng nhập thành công
+LOGIN_REDIRECT_URL = 'dashboard'  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,7 +105,8 @@ DATABASES = {
         'ENGINE':'djongo',
         'NAME':'BTTH',
         'CLIENT':{
-            'host':'mongodb://localhost:27017/',},}}
+            'host':'mongodb://localhost:27017',},}}
+
 
 
 

@@ -37,4 +37,5 @@ urlpatterns = [
     path('project/tasks?id=IDHERE', task_detail, name='task_detail'),
     path('project/tasks?id=IDHERE/IDDATASET', dataset, name='dataset'),
     path('project/tasks?id=IDHERE/IDDATASET?edit=true', dataset_edit, name='edit')
+    
 ]

@@ -1,19 +1,59 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models.project import Project
 from .models.label import Label
 from .models.task import Task
 from datetime import datetime
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 # Main screens
 def home(request):
     return render(request, 'index.html')
 
 def signup(request):
-    return render(request, 'pages/signup.html')
+    if request.method == 'POST':
+        if 'username' in request.POST and 'email' in request.POST and 'phone' in request.POST and 'password' not in request.POST:
+            # Bước 1: Nhập thông tin
+            username = request.POST['username']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            return render(request, 'pages/password_setup.html', {'username': username, 'email': email, 'phone': phone})
+        elif 'username' in request.POST and 'email' in request.POST and 'password' in request.POST:
+            # Bước 2: Nhập mật khẩu
+            username = request.POST['username']
+            email = request.POST['email']
+            password = request.POST['password']
+            phone = request.POST['phone']
+            user = User.objects.create_user(username=username, email=email, password=password)
+            # #user.phone = phone
+            # #user.save()
+            # user = User.objects.create(username=username, email=email)
+            # user.set_password(password)
+            # user.phone = phone
+            user.save()
+            return redirect(signin)
+    else:
+        return render(request, 'pages/signup.html')
+        
 
 def signin(request):
-    return render(request, 'pages/signin.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
+            return redirect(dashboard)  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
+        else:
+            # Đăng nhập thất bại, thông báo lỗi hoặc hiển thị lại form đăng nhập với thông báo lỗi
+            error_message = "username: " + username + " password: " + password
+            return render(request, 'pages/signin.html', {'error_message': error_message})
+    else:
+        # Hiển thị form đăng nhập
+        return render(request, 'pages/signin.html')
+    
 
 def dashboard(request):
     return render(request, 'pages/dashboard.html')
@@ -96,3 +136,20 @@ def create_task(request):
             return JsonResponse({"message":"Tạo task thành công."})
         else:
             return JsonResponse({"message":"Tạo task thất bại."})
+        
+# def Cuslogin(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
+#             return redirect('dashboard')  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
+#         else:
+#             # Đăng nhập thất bại, thông báo lỗi hoặc hiển thị lại form đăng nhập với thông báo lỗi
+#             error_message = "Invalid username or password."
+#             return render(request, 'signin', {'error_message': error_message})
+#     else:
+#         # Hiển thị form đăng nhập
+#         return render(request, 'signin')

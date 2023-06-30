@@ -11,17 +11,19 @@
 <body>
     <a class="logo" href="{% url '' %}">Lingo</a>
     <div class="form">
-        <div class="title">Sign Up</div>
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="title">Sign Up</div>
         <div class="input-field">
-            <input type="text" required="required">
+            <input type="text" required="required" name="username">
             <div class="label">USERNAME</div>
         </div>
         <div class="input-field">
-            <input type="text" required="required">
+            <input type="text" required="required" name="email">
             <div class="label">EMAIL ADDRESS</div>
         </div>
         <div class="input-field">
-            <input type="text" required="required">
+            <input type="text" required="required" name="phone">
             <div class="label">CONTACT NUMBER</div>
         </div>
         <div style="margin-top: 24px; text-transform: uppercase;">You can also create an account with</div>
@@ -40,12 +42,15 @@
             </a>
         </div>
         <div id="continue-button">
-            <a class="icon white size64px" id="arrow-right" href="/pages/password_setup.html"></a>
+            <button type="submit" class="icon white size64px" id="arrow-right"></button>
+            
         </div>
         <div style="display: flex; flex-direction: row; gap: 8px">
             <div style="color: var(--text-light)">Already have an account?</div>
             <a href="{% url 'signin' %}">Sign In</a>
         </div>
+        </form>
+        
     </div>
     <div class="footer">
         <div class="links">

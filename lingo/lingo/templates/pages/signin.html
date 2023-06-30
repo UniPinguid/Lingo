@@ -13,37 +13,44 @@
     <div class="background"></div>
     <a class="logo" href="{% url '' %}">Lingo</a>
     <div class="form">
-        <div class="title">Sign In</div>
-        <div class="input-field">
-            <input type="text" required="required">
-            <div class="label">USERNAME</div>
-        </div>
-        <div class="input-field">
-            <input type="text" required="required">
-            <div class="label">PASSWORD</div>
-        </div>
-        <div style="text-transform: uppercase;">You can sign in with</div>
-        <div class="alt-registration">
-            <a class="register-button" href="#" style="background-color: var(--neutral-white);">
-                <div class="icon" id="google"></div>
-            </a>
-            <a class="register-button" href="#" style="background-color: #00AAEC">
-                <div class="icon" id="twitter"></div>
-            </a>
-            <a class="register-button" href="#" style="background-color: #1877F2">
-                <div class="icon" id="facebook"></div>
-            </a>
-            <a class="register-button" href="#" style="background-color: var(--neutral-black);">
-                <div class="icon" id="github"></div>
-            </a>
-        </div>
-        <div id="continue-button">
-            <a class="icon white size64px" id="arrow-right" href="{% url 'dashboard' %}"></a>
-        </div>
-        <div style="display: flex; flex-direction: row; gap: 8px">
-            <div>Don't have an account?</div>
-            <a href="/pages/signup.html">Sign Up</a>
-        </div>
+        <form method="post" action="{% url 'signin' %}">
+            {% csrf_token %}
+            <div class="title">Sign In</div>
+            {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+            {% endif %}
+            <div class="input-field">
+                <input type="text" required="required" name="username" id="username">
+                <div class="label">USERNAME</div>
+            </div>
+            <div class="input-field">
+                <input type="password" required="required" name="password" id="password">
+                <div class="label">PASSWORD</div>
+            </div>
+            <div style="text-transform: uppercase;">You can sign in with</div>
+            <div class="alt-registration">
+                <a class="register-button" href="#" style="background-color: var(--neutral-white);">
+                    <div class="icon" id="google"></div>
+                </a>
+                <a class="register-button" href="#" style="background-color: #00AAEC">
+                    <div class="icon" id="twitter"></div>
+                </a>
+                <a class="register-button" href="#" style="background-color: #1877F2">
+                    <div class="icon" id="facebook"></div>
+                </a>
+                <a class="register-button" href="#" style="background-color: var(--neutral-black);">
+                    <div class="icon" id="github"></div>
+                </a>
+            </div>
+            <div id="continue-button">
+                
+                <button type="submit" class="icon white size64px" id="arrow-right"></button>
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 8px">
+                <div>Don't have an account?</div>
+                <a href="/pages/signup.html">Sign Up</a>
+            </div>
+        </form>
     </div>
 
     <div class="footer">

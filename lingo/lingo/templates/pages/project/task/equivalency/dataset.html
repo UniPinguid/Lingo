@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="{{STATIC_URL}}css/components/label.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/contribution.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
+    <title>Dashboard | LingoLab</title>
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center; gap: 24px">
+            <a href="{% url 'dashboard'%}" style="border: 1px solid white; border-radius: 99px;">
+                <div class="icon white" id="arrow-left"></div>
+            </a>
+            <div class="logo">LingoLab</div>
+        </div>
+        <div class="functions">
+            <div class="icon white" id="check"></div>
+            <div class="icon white" id="check"></div>
+            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+        </div>
+    </div>
+    <div class="project-header">
+        <div class="first-row">
+            <div class="name">
+                <div class="color"></div>New Project
+            </div>
+            <div class="features">
+                <div class="icon size40px" id="search"></div>
+                <select>
+                    <option>Private</option>
+                    <option>Protected</option>
+                    <option>Public</option>
+                </select>
+                <div class="icon size40px" id="more-horizontal"></div>
+            </div>
+        </div>
+        <div class="second-row">
+            <div class="tabber">
+                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
+                <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
+                <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
+                <a class="tab" id="inactive" href="{% url 'contribution' %}">Contribution</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div style="padding: 16px 100px">
+        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
+        <div class=""
+            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
+            <div class="task-header">
+                <div class="icon size40px" id="dataset"></div>
+                <div class="info">
+                    <div>DT#1240-2041</div>
+                </div>
+                <div class="file" style="margin-left: 24px">
+                    <span>from</span>
+                    <a href="#" style="text-decoration: none; color: var(--text-light);">rawdata.txt</a>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                <div class="level">Level 1</div>
+                <a class="edit-button" href="{% url 'equivalency_edit' %}">
+                    <div class="icon" id="edit"></div>
+                    <span>Edit</span>
+                </a>
+                <div style="border-right: 1px solid var(--neutral-light-gray); height: 24px;"></div>
+                <button class="icon" style="padding: 0px;">
+                    <div class="icon" id="more-horizontal"></div>
+                </button>
+            </div>
+        </div>
+
+        <div style="width: 100%; text-align: center; padding: 8px 0px; border-radius: 8px; background-color: var(--accent-green); color: white;">The two given datasets are equivalent.</div>
+
+        <div style="display: flex; flex-direction: row; gap: 16px;">
+            <div class="dataset-content" style="width: 100%;">
+                In this vast universe, we are but tiny specks of dust floating through the cosmic expanse. Our
+                existence, like a flicker of light, is fleeting and insignificant in the grand scheme of things.
+                The
+                immense scale of space and time dwarfs our individual lives, reminding us of our humble place in
+                the
+                cosmos. Yet, within this insignificance lies the beauty of our existence—a chance to experience
+                and
+                appreciate the wonders of the universe, to connect with one another, and to seek meaning amidst
+                the
+                vastness.
+            </div>
+            <div class="dataset-content" style="width: 100%;">
+                Within the vastness of the universe, our presence is minuscule, akin to tiny particles adrift in
+                the
+                cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that
+                quickly
+                fades away. When faced with the enormity of space and the passage of time, our significance
+                pales in
+                comparison. However, it is within this very insignificance that the true magnificence of our
+                existence lies—the opportunity to witness and cherish the marvels of the cosmos, to forge
+                connections with fellow beings, and to search for purpose amidst the boundless expanse.
+            </div>
+        </div>
+    </div>
+
+    <div class="project-content" style="padding: 0px 100px">
+        <div class="left-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Discuss</h1>
+                    <div class="num">8</div>
+                </div>
+            </div>
+            <div class="comment-section">
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">LBC Phat</a>
+                            <div>&middot;</div>
+                            <div class="time">2 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>Guys I think</span>
+                            <span class="code">medical imaging</span>
+                            <span>should be labeled as 'application'.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">pstung</a>
+                            <div>&middot;</div>
+                            <div class="time">3 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>This text gives off weird lexical patterns that I cannot fathom to understanding the
+                                meaning of the whole datapack.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Recent Contributions</h1>
+                </div>
+            </div>
+            <div class="contribution-container">
+                <div class="contribution">
+                    <div class="icon" id="label"></div>
+                    <div class="content">
+                        <a class="contributor">LBC Phat</a>
+                        <span>has labeled the whole data as</span>
+                        <span class="paragraph label alt">computer science</span>
+                        <span>&middot;</span>
+                        <span class="time">2 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <hr>
+        <div class="info">
+            <div>@ 2023 LingoTeam. All rights reserved.</div>
+            <div class="links">
+                <a href="#">Support</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="{{STATIC_URL}}js/collapsible.js"></script>
+    <script src="{{STATIC_URL}}js/upload.js"></script>
+</body>
+
+</html>

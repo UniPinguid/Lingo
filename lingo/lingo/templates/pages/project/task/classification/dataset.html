@@ -12,6 +12,7 @@
     <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/contribution.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/badge.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -76,7 +77,7 @@
             </div>
             <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                 <div class="level">Level 1</div>
-                <a class="edit-button" href="{% url 'edit' %}">
+                <a class="edit-button" href="{% url 'classification_edit' %}">
                     <div class="icon" id="edit"></div>
                     <span>Edit</span>
                 </a>

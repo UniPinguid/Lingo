@@ -75,6 +75,11 @@
     caret-color: var(--text-default);
 }
 
+#editor textarea::selection {
+    background-color: var(--neutral-light-gray); /* Set the background color */
+    color: #ffffff; /* Set the text color */
+}
+
 textarea#change {
     width: 100%;
     height: 48px;

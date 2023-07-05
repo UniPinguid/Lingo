@@ -10,8 +10,8 @@
 
 <body>
     <a class="logo" href="{% url '' %}">Lingo</a>
-    <div class="form">
-        <form method="POST" action="{% url 'signup' %}">
+    <div>
+        <form class="form" method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
             <div class="title">Sign Up</div>
         <div class="input-field">

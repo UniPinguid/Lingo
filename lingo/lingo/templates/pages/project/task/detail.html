@@ -10,6 +10,7 @@
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/badge.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -119,11 +120,13 @@
             <button class="button-small">New Dataset</button>
         </div>
         <div class="result-amount">Showing 1 to 10 of total 200 rows</div>
+        <!-- Classification -->
         <div class="dataset-container">
             <div class="header">
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                     <div class="id">
-                        <div class="icon" id="dataset"></div><a href="{% url 'dataset'%}">DT#1240-2041</a>
+                        <div class="icon" id="dataset"></div><a
+                            href="{% url 'dataset_classification'%}">DT#1240-2041</a>
                     </div>
                     <div class="level">Level 1</div>
                     <div class="file">
@@ -131,12 +134,12 @@
                         <a href="#">rawdata.txt</a>
                     </div>
                 </div>
-                <div class="edit-button">
+                <a class="edit-button" href="{% url 'classification_edit' %}">
                     <div class="icon white" id="edit"></div>
                     <div>Edit</div>
-                    <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px;"></div>
+                    <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px; margin: 0px 4px;"></div>
                     <div class="icon white size24px" id="expand"></div>
-                </div>
+                </a>
             </div>
             <div class="body">
                 <div class="paragraph label">computer science</div>
@@ -149,6 +152,122 @@
                     imaging and quality control in manufacturing. As computer vision technology continues to evolve and
                     improve, it has the potential to revolutionize a variety of industries and change the way we
                     interact with the world around us.
+                </div>
+                <hr>
+                <div class="recent-contributors">
+                    <div>Recent Contributors:</div>
+                    <div class="contributor">
+                        <a href="#">
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                            <a class="contributor" href="#">ltngan</a>
+                        </a>
+                        <div>&middot;</div>
+                        <div>2 hours ago</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contributors">
+
+            </div>
+        </div>
+        <!-- Equivalency -->
+        <div class="dataset-container">
+            <div class="header">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                    <div class="id">
+                        <div class="icon" id="dataset"></div><a href="{% url 'dataset_equivalency'%}">DT#1240-2333</a>
+                    </div>
+                    <div class="level">Level 1</div>
+                    <div class="file">
+                        <span>from</span>
+                        <a href="#">rawdata.txt</a>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 24px">
+                    <div class="badge" id="equivalent">equivalent</div>
+                    <a class="edit-button" href="{% url 'equivalency_edit' %}">
+                        <div class="icon white" id="edit"></div>
+                        <div>Edit</div>
+                        <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px; margin: 0px 4px;"></div>
+                        <div class="icon white size24px" id="expand"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="body">
+                <div style="display: flex; flex-direction: row; gap: 24px;">
+                    <div class="content"
+                        style="width: 100%; padding: 16px; background-color: var(--neutral-white); border-radius: 8px;">
+                        In this vast universe, we are but tiny specks of dust floating through the cosmic expanse. Our
+                        existence, like a flicker of light, is fleeting and insignificant in the grand scheme of things.
+                        The
+                        immense scale of space and time dwarfs our individual lives, reminding us of our humble place in
+                        the
+                        cosmos. Yet, within this insignificance lies the beauty of our existence—a chance to experience
+                        and
+                        appreciate the wonders of the universe, to connect with one another, and to seek meaning amidst
+                        the
+                        vastness.
+                    </div>
+                    <div class="content"
+                        style="width: 100%; padding: 16px; background-color: var(--neutral-white); border-radius: 8px;">
+                        Within the vastness of the universe, our presence is minuscule, akin to tiny particles adrift in
+                        the
+                        cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that
+                        quickly
+                        fades away. When faced with the enormity of space and the passage of time, our significance
+                        pales in
+                        comparison. However, it is within this very insignificance that the true magnificence of our
+                        existence lies—the opportunity to witness and cherish the marvels of the cosmos, to forge
+                        connections with fellow beings, and to search for purpose amidst the boundless expanse.
+                    </div>
+                </div>
+                <hr>
+                <div class="recent-contributors">
+                    <div>Recent Contributors:</div>
+                    <div class="contributor">
+                        <a href="#">
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                            <a class="contributor" href="#">ltngan</a>
+                        </a>
+                        <div>&middot;</div>
+                        <div>2 hours ago</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contributors">
+
+            </div>
+        </div>
+        <!-- QA -->
+        <div class="dataset-container">
+            <div class="header">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                    <div class="id">
+                        <div class="icon" id="dataset"></div><a href="{% url 'dataset_qa'%}">DT#1144-2993</a>
+                    </div>
+                    <div class="level">Level 1</div>
+                    <div class="file">
+                        <span>from</span>
+                        <a href="#">rawdata.txt</a>
+                    </div>
+                </div>
+                <a class="edit-button" href="{% url 'qa_edit' %}">
+                    <div class="icon white" id="edit"></div>
+                    <div>Edit</div>
+                    <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px; margin: 0px 4px;"></div>
+                    <div class="icon white size24px" id="expand"></div>
+                </a>
+            </div>
+            <div class="body">
+                <div style="display: flex; flex-direction: row; gap: 24px;">
+                    <div class="content"
+                        style="width: 100%; padding: 16px; background-color: var(--neutral-white); border-radius: 8px;">
+                        What is the average lifespan of a housefly?
+                    </div>
+                    <div class="content"
+                        style="width: 100%; padding: 16px; border: 1px solid var(--neutral-dark); border-radius: 8px;">
+                        The average lifespan of a housefly is approximately 28 days.
+                    </div>
                 </div>
                 <hr>
                 <div class="recent-contributors">

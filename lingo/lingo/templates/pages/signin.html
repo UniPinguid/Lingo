@@ -12,8 +12,8 @@
 <body>
     <div class="background"></div>
     <a class="logo" href="{% url '' %}">Lingo</a>
-    <div class="form">
-        <form method="post" action="{% url 'signin' %}">
+    <div>
+        <form class="form" method="post" action="{% url 'signin' %}">
             {% csrf_token %}
             <div class="title">Sign In</div>
             {% if error_message %}

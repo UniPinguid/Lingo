@@ -35,7 +35,10 @@ urlpatterns = [
     path('labels',create_label,name='create_label'),
     # Task screens
     path('project/tasks?id=IDHERE', task_detail, name='task_detail'),
-    path('project/tasks?id=IDHERE/IDDATASET', dataset, name='dataset'),
-    path('project/tasks?id=IDHERE/IDDATASET?edit=true', dataset_edit, name='edit')
-    
+    path('project/tasks?id=IDHERE/IDDATASET', dataset_classification, name='dataset_classification'),
+    path('project/tasks?id=IDHERE/IDDATASET?edit=true', dataset_classification_edit, name='classification_edit'),
+    path('project/tasks?id=IDHERE/IDDATASETEQ', dataset_equivalency, name='dataset_equivalency'),
+    path('project/tasks?id=IDHERE/IDDATASETEQ?edit=true', dataset_equivalency_edit, name='equivalency_edit'),
+    path('project/tasks?id=IDHERE/IDDATASETQA', dataset_qa, name='dataset_qa'),
+    path('project/tasks?id=IDHERE/IDDATASETQA?edit=true', dataset_qa_edit, name='qa_edit')
 ]

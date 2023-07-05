@@ -79,11 +79,23 @@ def contribution(request):
 def task_detail(request):
     return render(request, 'pages/project/task/detail.html')
 
-def dataset(request):
-    return render(request, 'pages/project/task/dataset.html')
+def dataset_classification(request):
+    return render(request, 'pages/project/task/classification/dataset.html')
 
-def dataset_edit(request):
-    return render(request, 'pages/project/task/edit.html')
+def dataset_classification_edit(request):
+    return render(request, 'pages/project/task/classification/edit.html')
+
+def dataset_equivalency(request):
+    return render(request, 'pages/project/task/equivalency/dataset.html')
+
+def dataset_equivalency_edit(request):
+    return render(request, 'pages/project/task/equivalency/edit.html')
+
+def dataset_qa(request):
+    return render(request, 'pages/project/task/qa/dataset.html')
+
+def dataset_qa_edit(request):
+    return render(request, 'pages/project/task/qa/edit.html')
 
 def create_project(request):
     if (request.method=='POST'):

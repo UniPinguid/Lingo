@@ -9,7 +9,7 @@ class Project(models.Model):
     description = models.TextField()
     color = models.CharField(max_length=20)
     visibility = models.CharField(max_length=20)
-    member = (models.TextField(max_length=50))
+    member = models.TextField(max_length=50)
     # datasets = ArrayField(
     #     models.DictField(
     #         tenhienthi=models.CharField(max_length=100),
@@ -27,6 +27,10 @@ class Project(models.Model):
             return 0
         
         return 1
+    
+    @staticmethod
+    def getProjectList(username):
+        print("Hello")
             
 
     

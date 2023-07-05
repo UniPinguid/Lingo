@@ -97,6 +97,12 @@ def dataset_qa(request):
 def dataset_qa_edit(request):
     return render(request, 'pages/project/task/qa/edit.html')
 
+def dataset_translation(request):
+    return render(request, 'pages/project/task/translation/dataset.html')
+
+def dataset_translation_edit(request):
+    return render(request, 'pages/project/task/translation/edit.html')
+
 def create_project(request):
     if (request.method=='POST'):
         project_name_value = request.POST.get('project-name')

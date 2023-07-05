@@ -40,5 +40,7 @@ urlpatterns = [
     path('project/tasks?id=IDHERE/IDDATASETEQ', dataset_equivalency, name='dataset_equivalency'),
     path('project/tasks?id=IDHERE/IDDATASETEQ?edit=true', dataset_equivalency_edit, name='equivalency_edit'),
     path('project/tasks?id=IDHERE/IDDATASETQA', dataset_qa, name='dataset_qa'),
-    path('project/tasks?id=IDHERE/IDDATASETQA?edit=true', dataset_qa_edit, name='qa_edit')
+    path('project/tasks?id=IDHERE/IDDATASETQA?edit=true', dataset_qa_edit, name='qa_edit'),
+    path('project/tasks?id=IDHERE/IDDATASETTS', dataset_translation, name='dataset_translation'),
+    path('project/tasks?id=IDHERE/IDDATASETTS?edit=true', dataset_translation_edit, name='translation_edit')
 ]

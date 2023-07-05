@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="{{STATIC_URL}}css/components/label.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/search-bar.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/contribution.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
+    <title>Dashboard | LingoLab</title>
+</head>
+
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center; gap: 24px">
+            <a href="{% url 'dashboard'%}" style="border: 1px solid white; border-radius: 99px;">
+                <div class="icon white" id="arrow-left"></div>
+            </a>
+            <div class="logo">LingoLab</div>
+        </div>
+        <div class="functions">
+            <div class="icon white" id="check"></div>
+            <div class="icon white" id="check"></div>
+            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+        </div>
+    </div>
+    <div class="project-header">
+        <div class="first-row">
+            <div class="name">
+                <div class="color"></div>New Project
+            </div>
+            <div class="features">
+                <div class="icon size40px" id="search"></div>
+                <select>
+                    <option>Private</option>
+                    <option>Protected</option>
+                    <option>Public</option>
+                </select>
+                <div class="icon size40px" id="more-horizontal"></div>
+            </div>
+        </div>
+        <div class="second-row">
+            <div class="tabber">
+                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
+                <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
+                <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
+                <a class="tab" id="inactive" href="{% url 'contribution' %}">Contribution</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div style="padding: 16px 100px; width: 100%; box-sizing: border-box;">
+        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
+        <div class=""
+            style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
+            <div class="task-header">
+                <div class="icon size40px" id="dataset"></div>
+                <div class="info">
+                    <div>DT#1240-2041</div>
+                </div>
+                <div class="file" style="margin-left: 24px">
+                    <span>from</span>
+                    <a href="#" style="text-decoration: none; color: var(--text-light);">rawdata.txt</a>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                <div class="level">Level 1</div>
+                <a class="edit-button" href="{% url 'translation_edit' %}">
+                    <div class="icon" id="edit"></div>
+                    <span>Edit</span>
+                </a>
+                <div style="border-right: 1px solid var(--neutral-light-gray); height: 24px;"></div>
+                <button class="icon" style="padding: 0px;">
+                    <div class="icon" id="more-horizontal"></div>
+                </button>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0px; width: 100%;">
+            <h1>Requirement</h1>
+            <span>Translate this given text into <span style="font-weight: bold">Korean</span>.</span>
+        </div>
+        <div class="dataset-content"
+            style="width: 100%; padding: 16px; border: 1px solid var(--neutral-dark); border-radius: 8px; box-sizing: border-box;">
+            <span style="font-family: Consolas">The sun gently kissed the horizon as it began its descent, casting a
+                warm golden glow
+                across the tranquil ocean. The waves lapped softly against the shore, creating a soothing
+                melody that harmonized with the gentle rustling of palm leaves. It was a serene evening,
+                painting the sky with hues of pink and orange, while nature's symphony embraced the
+                senses.</span>
+            <hr>
+            <span>해는 점차 내리며 지평선을 부드럽게 입맞추었다. 평온한 바다에 따뜻한 황금빛 빛줄기를 퍼뜨렸다. 파도는 부드럽게 해변에 닿아 살랑거리며, 야자수 잎의 가벼운
+                소리와 어울려 달콤한 선율을 만들어냈다. 고요한 저녁이었다. 하늘을 분홍과 주황빛으로 물들이며 자연의 교향곡이 감각을 감싸았다.</span>
+        </div>
+    </div>
+    </div>
+
+    <div class="project-content" style="padding: 0px 100px">
+        <div class="left-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Discuss</h1>
+                    <div class="num">8</div>
+                </div>
+            </div>
+            <div class="comment-section">
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">LBC Phat</a>
+                            <div>&middot;</div>
+                            <div class="time">2 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>Guys I think</span>
+                            <span class="code">medical imaging</span>
+                            <span>should be labeled as 'application'.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-container">
+                    <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                    <div class="comment">
+                        <div class="info">
+                            <a class="contributor" href="#">pstung</a>
+                            <div>&middot;</div>
+                            <div class="time">3 hours ago</div>
+                        </div>
+
+                        <div class="content">
+                            <span>This text gives off weird lexical patterns that I cannot fathom to understanding the
+                                meaning of the whole datapack.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-section">
+            <div class="theader">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <h1>Recent Contributions</h1>
+                </div>
+            </div>
+            <div class="contribution-container">
+                <div class="contribution">
+                    <div class="icon" id="label"></div>
+                    <div class="content">
+                        <a class="contributor">LBC Phat</a>
+                        <span>has labeled the whole data as</span>
+                        <span class="paragraph label alt">computer science</span>
+                        <span>&middot;</span>
+                        <span class="time">2 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <hr>
+        <div class="info">
+            <div>@ 2023 LingoTeam. All rights reserved.</div>
+            <div class="links">
+                <a href="#">Support</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="{{STATIC_URL}}js/collapsible.js"></script>
+    <script src="{{STATIC_URL}}js/upload.js"></script>
+</body>
+
+</html>

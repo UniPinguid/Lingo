@@ -54,6 +54,10 @@
     border-radius: 8px;
 }
 
+.dataset-container .edit-button:hover {
+    background-color: #55597c;
+}
+
 .dataset-container .body {
     display: flex;
     flex-direction: column;

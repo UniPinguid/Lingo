@@ -1,0 +1,13 @@
+.badge {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+}
+
+.badge#equivalent {
+    background-color: var(--accent-green);
+}
+
+.badge#not-equivalent {
+    background-color: var(--accent-red);
+}

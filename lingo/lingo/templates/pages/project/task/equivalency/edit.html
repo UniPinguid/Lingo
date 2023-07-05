@@ -12,6 +12,7 @@
     <link href="{{STATIC_URL}}css/components/dataset.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/comment.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/editor.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/select.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -61,7 +62,6 @@
 
     <!-- Content -->
     <div style="padding: 16px 100px; width: 100%; box-sizing: border-box;">
-        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
         <div class=""
             style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">
@@ -76,55 +76,63 @@
             </div>
         </div>
 
-        <h1>Category</h1>
-        <div class="label paragraph">computer science</div>
+        <h1>Are these two datasets equivalent?</h1>
+        <select class="select-box">
+            <option>Unknown</option>
+            <option>Equivalent</option>
+            <option>Not Equivalent</option>
+        </select>
+        <hr>
 
-        <ul id="labeledTextList"></ul>
-        <div class="editor-toolbar">
-            <button class="icon" style="padding: 0px;"><div class="icon" id="search"></div></button>
-            <button class="icon" style="padding: 0px;"><div class="icon" id="search"></div></button>
-            <div style="border-right: 2px solid var(--neutral-light-gray); height: 24px;"></div>
-            <button class="icon" id="labelButton" style="padding: 0px;" onclick="handleSelection()"><div class="icon" id="label"></div></button>
-        </div>
-        <div class="editor-container">
-            <div class="lines">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
+        <div style="display: flex; flex-direction: row; gap: 16px;">
+            <div class="dataset-content" style="width: 100%;">
+                In this vast universe, we are but tiny specks of dust floating through the cosmic expanse. Our
+                existence, like a flicker of light, is fleeting and insignificant in the grand scheme of things.
+                The
+                immense scale of space and time dwarfs our individual lives, reminding us of our humble place in
+                the
+                cosmos. Yet, within this insignificance lies the beauty of our existence—a chance to experience
+                and
+                appreciate the wonders of the universe, to connect with one another, and to seek meaning amidst
+                the
+                vastness.
             </div>
-            <div id="editor">
-                <textarea
-                    id="editor-textarea">Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines to interpret and understand visual information from the world around them. Using advanced algorithms and deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data to recognize patterns, objects, and even people. This technology has a wide range of applications, from self-driving cars and facial recognition software to medical imaging and quality control in manufacturing. As computer vision technology continues to evolve and improve, it has the potential to revolutionize a variety of industries and change the way we interact with the world around us.</textarea>
-                <div id="listText"></div>
-            </div>
-        </div>
-        <textarea placeholder="Describe what you changed" id="change"></textarea>
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center;">
-                <input type="checkbox" id="revise">
-                <label for="revise">Pending revise/review</label>
-            </div>
-            <div style="display: flex; gap: 16px;">
-                <button class="button-small" id="ghost">Cancel</button>
-                <button class="button-small" type="submit">Save</button>
+            <div class="dataset-content" style="width: 100%;">
+                Within the vastness of the universe, our presence is minuscule, akin to tiny particles adrift in
+                the
+                cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that
+                quickly
+                fades away. When faced with the enormity of space and the passage of time, our significance
+                pales in
+                comparison. However, it is within this very insignificance that the true magnificence of our
+                existence lies—the opportunity to witness and cherish the marvels of the cosmos, to forge
+                connections with fellow beings, and to search for purpose amidst the boundless expanse.
             </div>
         </div>
+    <textarea placeholder="Describe reasons for your change" id="change"></textarea>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <input type="checkbox" id="revise">
+            <label for="revise">Pending revise/review</label>
+        </div>
+        <div style="display: flex; gap: 16px;">
+            <a href="{% url 'dataset_equivalency' %}" style="text-decoration: none;"><button class="button-small" id="ghost">Cancel</button></a>
+            <button class="button-small" type="submit">Save</button>
+        </div>
+    </div>
 
-        <div class="footer">
-            <hr>
-            <div class="info">
-                <div>@ 2023 LingoTeam. All rights reserved.</div>
-                <div class="links">
-                    <a href="#">Support</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">About</a>
-                </div>
+    <div class="footer">
+        <hr>
+        <div class="info">
+            <div>@ 2023 LingoTeam. All rights reserved.</div>
+            <div class="links">
+                <a href="#">Support</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
             </div>
         </div>
+    </div>
     </div>
     </div>
 

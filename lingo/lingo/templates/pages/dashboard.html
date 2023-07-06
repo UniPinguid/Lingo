@@ -8,6 +8,7 @@
     <link href="static/css/components/format.css" rel="stylesheet" />
     <link href="static/css/components/popup.css" rel="stylesheet" />
     <link href="static/css/components/radio.css" rel="stylesheet" />
+    <link href="static/css/components/suggestion.css" rel="stylesheet" />
     <link href="static/css/icon.css" rel="stylesheet" />
     <link href="static/css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -89,8 +90,8 @@
                         <input class="search" placeholder="Search">
                         <div class="icon" id="search"></div>
                     </div>
-                    <div class="icon" id="check"></div>
-                    <div class="icon" id="check"></div>
+                    <div class="icon" id="globe"></div>
+                    <div class="icon" id="bell"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                 </div>
             </div>
@@ -101,26 +102,26 @@
                         <div class="graph">
                             <h2>My Projects</h2>
                             <div style="display: flex;flex-direction: row; gap: 16px">
-                                <div class="stat">4</div>
+                                <div class="stat" style="color: var(--primary)">4</div>
                                 <div class="change">+2<br>last month</div>
                             </div>
-                            <div class="chart">Insert Chart.js code</div>
+                            <div class="chart"><img src="{{STATIC_URL}}images/chart 1.svg" style="width: 100%;"></div>
                         </div>
                         <div class="graph">
                             <h2>Community Projects</h2>
                             <div style="display: flex;flex-direction: row; gap: 16px">
-                                <div class="stat">4</div>
+                                <div class="stat" style="color: var(--accent-purple)">4</div>
                                 <div class="change">+2<br>last month</div>
                             </div>
-                            <div class="chart">Insert Chart.js code</div>
+                            <div class="chart"><img src="{{STATIC_URL}}images/chart 2.svg"  style="width: 100%;"></div>
                         </div>
                         <div class="graph">
                             <h2>Total Score</h2>
                             <div style="display: flex;flex-direction: row; gap: 16px">
-                                <div class="stat">4</div>
-                                <div class="change">+2<br>last month</div>
+                                <div class="stat" style="color: var(--complete)">424</div>
+                                <div class="change">+242<br>today</div>
                             </div>
-                            <div class="chart">Insert Chart.js code</div>
+                            <div class="chart"><img src="{{STATIC_URL}}images/chart 3.svg"  style="width: 100%;"></div>
                         </div>
                     </div>
                     <h1>Activity</h1>
@@ -580,7 +581,7 @@
                 <input class="input-field" type="text" name="project-tag" form="fm-create-project">
 
                 <label>Description</label>
-                <input class="input-field" type="text" style="height: 60px;" name="project-description" form="fm-create-project">
+                <textarea class="input-field" type="text" style="height: 60px;" name="project-description" form="fm-create-project"></textarea>
 
                 <label>Color</label>
                 <div>
@@ -618,9 +619,12 @@
                     </div>
                 </label>
                 <label>Assign Members</label>
-                <input class="input-field" type="text" name="project-member" form="fm-create-project">
-
-                <div class="participants">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px; position: relative; width: 100%;">
+                    <input class="input-field" id="search-bar" style="width: 80%; margin: 4px 0px;" type="text" name="project-member" form="fm-create-project" autocomplete="off">
+                    <div id="suggestionsDropdown" class="dropdown"></div>
+                    <button class="button-small">Add</button>
+                </div>
+                <div class="participants" style="margin: 8px 0px 0px 8px;">
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
@@ -637,6 +641,7 @@
     </div>
     <script src="static/js/collapsible.js"></script>
     <script src="static/js/popup.js"></script>
+    <script src="static/js/suggestion.js"></script>
     <script type="text/javascript">
         document.getElementById("fm-create-project").addEventListener("submit", function(event) {
         event.preventDefault(); // Ngăn chặn gửi form

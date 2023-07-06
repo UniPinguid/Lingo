@@ -11,6 +11,7 @@
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/pagination.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/popup.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/suggestion.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/task.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
@@ -354,9 +355,13 @@
                     name="task-description" form="fm-create-task"></textarea>
 
                 <label>Assign Members</label>
-                <input class="input-field" type="text" name="task-member" form="fm-create-task">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 16px; position: relative; width: 100%;">
+                    <input class="input-field" id="search-bar" style="width: 80%; margin: 4px 0px;" type="text" name="task-member" form="fm-create-task" autocomplete="off">
+                    <div id="suggestionsDropdown" class="dropdown"></div>
+                    <button class="button-small">Add</button>
+                </div>
 
-                <div class="participants">
+                <div class="participants" style="margin: 8px 0px 0px 8px;">
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
@@ -368,7 +373,7 @@
                 <label>Attached Dataset</label>
                 <div style="display: flex; flex-direction: row; gap: 16px; width: 100%;" id="uploadBox">
                     <input name="task-dataset" form="fm-create-task" class="input-field" type="text"
-                        placeholder="Search files..." style="width: 100%;">
+                        placeholder="Search files..." style="width: 100%; margin: 4px 0px;">
 
                     <label for="fileInputSmall">
                         <div class="icon size40px" id="upload"></div>
@@ -453,6 +458,7 @@
     </div>
     </div>
 
+    <script src="{{STATIC_URL}}js/suggestion.js"></script>
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
     <script src="{{STATIC_URL}}js/popup.js"></script>
 </body>

@@ -118,3 +118,11 @@
 .icon#label {
     background-image: url('/static/icons/label.svg');
 }
+
+.icon#globe {
+    background-image: url('/static/icons/globe.svg');
+}
+
+.icon#bell {
+    background-image: url('/static/icons/bell.svg');
+}

@@ -33,6 +33,7 @@ urlpatterns = [
     path('project/contribution', contribution, name='contribution'),
     path('project/dashboard',create_project,name='create_project'),
     path('labels',create_label,name='create_label'),
+    path('task',create_task,name='create_task'),
     # Task screens
     path('project/tasks?id=IDHERE', task_detail, name='task_detail'),
     path('project/tasks?id=IDHERE/IDDATASET', dataset_classification, name='dataset_classification'),
@@ -42,5 +43,7 @@ urlpatterns = [
     path('project/tasks?id=IDHERE/IDDATASETQA', dataset_qa, name='dataset_qa'),
     path('project/tasks?id=IDHERE/IDDATASETQA?edit=true', dataset_qa_edit, name='qa_edit'),
     path('project/tasks?id=IDHERE/IDDATASETTS', dataset_translation, name='dataset_translation'),
-    path('project/tasks?id=IDHERE/IDDATASETTS?edit=true', dataset_translation_edit, name='translation_edit')
+    path('project/tasks?id=IDHERE/IDDATASETS?edit=true', dataset_translation_edit, name='translation_edit'),
+    path('project/tasks/<int:task_id>/<int:dataset_id>?edit=true', display_dataset,name='display_dataset'),
+    path('translate',labeling_translate,name='labeling_translate')
 ]

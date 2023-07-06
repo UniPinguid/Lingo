@@ -75,27 +75,26 @@
                 </div>
             </div>
         </div>
-
+        <form id="fm-labeling-translate" action="{% url 'labeling_translate' %}" method="POST">{% csrf_token %}</form>
         <div style="display: flex; flex-direction: column; gap: 0px; width: 100%;">
             <h1>Requirement</h1>
-            <textarea id="change" style="cursor: no-drop" disabled>Translate this given text into Korean</textarea>
+            <!-- <textarea id="change" style="cursor: no-drop" disabled>Translate this given text into Korean</textarea> -->
+            <textarea id="change" style="cursor: no-drop" disabled form="fm-labeling-translate">Translate this given text into {{ requirement }}</textarea>
+            <input type="hidden" value="{{requirement}}" id="labeling-requirement" name="labeling-requirement" form="fm-labeling-translate">
         </div>
         <h1>Given Dataset</h1>
         <div class="dataset-content"
             style="width: 100%; padding: 16px; border: 1px solid var(--neutral-dark); background-color: var(--neutral-white); color: var(--neutral-dark); border-radius: 8px; box-sizing: border-box;">
-            <span style="font-family: Consolas">The sun gently kissed the horizon as it began its descent, casting a
-                warm golden glow
-                across the tranquil ocean. The waves lapped softly against the shore, creating a soothing
-                melody that harmonized with the gentle rustling of palm leaves. It was a serene evening,
-                painting the sky with hues of pink and orange, while nature's symphony embraced the
-                senses.</span>
+                <span style="font-family: Consolas" form="fm-labeling-translate">{{ content }}</span>
+                <input id="labeling-content" name="labeling-content" type="hidden" form="fm-labeling-translate" value="{{content}}">
         </div>
         <h1>Your input here</h1>
         <div class="editor-container" style="border-radius: 8px; margin-bottom: 16px;">
             <div id="editor">
                 <textarea style="border-radius: 8px;"
-                    id="editor-textarea">해는 점차 내리며 지평선을 부드럽게 입맞추었다. 평온한 바다에 따뜻한 황금빛 빛줄기를 퍼뜨렸다. 파도는 부드럽게 해변에 닿아 살랑거리며, 야자수 잎의 가벼운 소리와 어울려 달콤한 선율을 만들어냈다. 고요한 저녁이었다. 하늘을 분홍과 주황빛으로 물들이며 자연의 교향곡이 감각을 감싸았다.</textarea>
+                    id="editor-textarea" form="fm-labeling-translate" name="editor-textarea"></textarea>
                 <div id="listText" style="border-radius: 8px;"></div>
+                <input type="hidden" value="{{task_id}}" id="labeling-translate-taskid" name="labeling-translate-taskid" form="fm-labeling-translate">
             </div>
         </div>
 
@@ -109,7 +108,7 @@
             <div style="display: flex; gap: 16px;">
                 <a href="{% url 'dataset_translation' %}" style="text-decoration: none;"><button class="button-small"
                         id="ghost">Cancel</button></a>
-                <button class="button-small" type="submit">Save</button>
+                <button class="button-small" type="submit" form="fm-labeling-translate">Save</button>
             </div>
         </div>
 
@@ -127,7 +126,28 @@
         </div>
     </div>
     </div>
-
+    <script type="text/javascript">
+        document.getElementById("fm-labeling-translate").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var formData = new FormData(this);
+        fetch(this.action, {
+        method: "POST",
+        body: formData
+        })
+        .then(function(response) {
+            if (!response.ok) {
+            throw new Error("Lỗi: " + response.status);
+            }
+            return response.json();
+        })
+        .then(function(data) {
+        alert(data.message);
+        })
+        .catch(function(error) {
+        console.error("Lỗi:", error);
+        });
+        });
+    </script>
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
     <script src="{{STATIC_URL}}js/upload.js"></script>
     <script src="{{STATIC_URL}}js/editor.js"></script>

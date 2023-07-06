@@ -338,7 +338,7 @@
             </button>
         </div>
         <hr>
-        <form id="fm-create-task" method="POST" action="{% url 'create_project' %}">{% csrf_token %}</form>
+        <form id="fm-create-task" method="POST" action="{% url 'create_task' %}">{% csrf_token %}</form>
         <div style="display: flex; flex-direction: row; gap: 32px;">
             <!-- Left -->
             <div style="display: flex; flex-direction: column; width: 100%;">
@@ -455,6 +455,28 @@
 
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
     <script src="{{STATIC_URL}}js/popup.js"></script>
+    <script type="text/javascript">
+        document.getElementById("fm-create-task").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var formData = new FormData(this);
+        fetch(this.action, {
+        method: "POST",
+        body: formData
+        })
+        .then(function(response) {
+            if (!response.ok) {
+            throw new Error("Lỗi: " + response.status);
+            }
+            return response.json();
+        })
+        .then(function(data) {
+        alert(data.message);
+        })
+        .catch(function(error) {
+        console.error("Lỗi:", error);
+        });
+        });
+    </script>
 </body>
 
 </html>

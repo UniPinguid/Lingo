@@ -3,10 +3,11 @@ from django.http import HttpResponse, JsonResponse
 from .models.project import Project
 from .models.label import Label
 from .models.task import Task
+from .models.user import CusUser
 from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-
+from django.conf import settings
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -32,6 +33,8 @@ def signup(request):
             # user.set_password(password)
             # user.phone = phone
             user.save()
+            cuser = CusUser(phone, "1")
+            cuser.addUser()
             return redirect(signin)
     else:
         return render(request, 'pages/signup.html')
@@ -110,7 +113,9 @@ def create_project(request):
         description_value = request.POST.get('project-description')
         # color = request.POST.get('project_des')
         visibility_value = request.POST.get('visibility')
-        member_value = request.POST.get('project-member')
+        member_value = []
+        member_value.extend(request.POST.get('project-member'))
+        member_value.append(request.user.username)
         obj = Project(projectname=project_name_value,tags=tags_value,description=description_value,visibility=visibility_value,member=member_value)
         res = obj.insertProject()
         if(res == 1):
@@ -148,6 +153,7 @@ def create_task(request):
         category_value = request.POST.get('task-category')
         description_value = request.POST.get('task-description')
         member_value = request.POST.get('task-member')
+        
         obj = Task(title=title_value,category=category_value,description=description_value,member=member_value,date=datetime.now().date(),project_id=1)
         res = obj.insertTask()
         if(res == 1):

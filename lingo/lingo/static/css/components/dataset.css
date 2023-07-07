@@ -13,7 +13,7 @@
     margin: 0px;
 
     border-bottom: 1px solid var(--neutral-light-gray);
-    
+
     background: none;
 }
 
@@ -72,6 +72,12 @@
     line-height: 150%;
     color: var(--text-default);
     font-size: 16px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
 }
 
 .dataset-container .body hr {
@@ -99,8 +105,7 @@
     gap: 4px;
 }
 
-.dataset-container .body .contributor :nth-child(1)
-{
+.dataset-container .body .contributor :nth-child(1) {
     display: flex;
 
     align-items: center;

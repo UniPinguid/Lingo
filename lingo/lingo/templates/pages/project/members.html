@@ -6,6 +6,8 @@
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/select.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -50,10 +52,141 @@
             </div>
         </div>
     </div>
-    <div class="project-content">
-        <div class="left-section">
+    <div class="project-content" style="gap: 120px;">
+        <div class="left-section" style="width: 30%;">
+            <h1>Administrators</h1>
+            <div style="color: var(--text-light);">Administrator members will be the one that have full control over the
+                platform, including adding and
+                removing members, creating and deleting projects, and managing the workspace. </div>
+            <div style="display: flex; flex-direction: row; gap: 16px; align-items: center; margin: 12px 0px;">
+                <div id="num-selected-1" style="font-weight: bold;">0 Selected</div>
+                <select class="select-box" style="margin: 0px;">
+                    <option>(action)</option>
+                    <option>Block</option>
+                    <option>Delete</option>
+                </select>
+                <button class="button-small">Proceed</button>
+            </div>
         </div>
-        <div class="right-section">
+        <div class="right-section" style="width: 70%;">
+            <table style="margin: 0px" id="member-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="all-member-checkbox"></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date Added</th>
+                        <th>Last Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">LBC. Phat</a>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">LBC. Phat</a>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="project-content" style="gap: 120px; margin-top: 32px;">
+        <div class="left-section" style="width: 30%;">
+            <h1>Members</h1>
+            <div style="color: var(--text-light);">Members are able to do tasks whether assigned or not assigned to.
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 16px; align-items: center; margin: 12px 0px;">
+                <div id="num-selected-2" style="font-weight: bold;">0 Selected</div>
+                <select class="select-box" style="margin: 0px;">
+                    <option>(action)</option>
+                    <option>Block</option>
+                    <option>Delete</option>
+                </select>
+                <button class="button-small">Proceed</button>
+            </div>
+        </div>
+        <div class="right-section" style="width: 70%;">
+            <table style="margin: 0px" id="member-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="all-member-checkbox"></th>
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>Email</th>
+                        <th>Date Added</th>
+                        <th>Last Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">LBC. Phat</a><span
+                                style="color: var(--text-light); font-weight: normal;">(You)</span>
+                        </td>
+                        <td>
+                            <div class="level">Level 1</div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">pstung</a>
+                        </td>
+                        <td>
+                            <div class="level">Level 2</div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">ltngan</a>
+                        </td>
+                        <td>
+                            <div class="level">Level 2</div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                class="contributor" href="#">nhkhoi</a>
+                        </td>
+                        <td>
+                            <div class="level">Level 2</div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td>June 29th, 2023</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -74,6 +207,7 @@
     </div>
 
     <script src="{{STATIC_URL}}js/collapsible.js"></script>
+    <script src="{{STATIC_URL}}js/table.js"></script>
     <script src="{{STATIC_URL}}js/upload.js"></script>
 </body>
 

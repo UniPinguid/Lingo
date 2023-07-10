@@ -1,7 +1,6 @@
 import json
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
-from lingo.settings import USERNAME
 from .models.project import Project
 from .models.label import Label
 from .models.task import Dataset, Task
@@ -128,7 +127,11 @@ def dataset_qa(request):
     return render(request, 'pages/project/task/qa/dataset.html')
 
 def dataset_qa_edit(request):
-    return render(request, 'pages/project/task/qa/edit.html')
+    if(request.method == 'POST'):
+
+        return 0
+    else:
+        return render(request, 'pages/project/task/qa/edit.html')
 
 def dataset_translation(request):
     return render(request, 'pages/project/task/translation/dataset.html')
@@ -191,27 +194,16 @@ def create_task(request):
         else:
             return JsonResponse({"message":"Tạo task thất bại."})
         
-<<<<<<< HEAD
-def dataset_qa(request, task_id):
-    task = Task.objects.get(id=task_id)
-    return render(request, 'pages/project/task/equivalency/dataset.html', {'task': task})
-=======
-# def Cuslogin(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
-#             return redirect('dashboard')  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
-#         else:
-#             # Đăng nhập thất bại, thông báo lỗi hoặc hiển thị lại form đăng nhập với thông báo lỗi
-#             error_message = "Invalid username or password."
-#             return render(request, 'signin', {'error_message': error_message})
-#     else:
-#         # Hiển thị form đăng nhập
-#         return render(request, 'signin')
+def dataset_qa(request):
+    if (request.method == "GET"):
+        try:
+            task = Task.objects.filter(id=request.GET.get('task_id'))
+        except NameError:
+            task = None 
+        return render(request, 'pages/project/task/qa/dataset.html', {'task': task})
+    elif(request.method == "POST"):
+        return 0
+
 
 def display_dataset(request, task_id, dataset_id):
     task_id = int(task_id)
@@ -249,4 +241,3 @@ def labeling_translate(request):
 
 
 
->>>>>>> 322226be129fe75eb8b42138a247240c3c221632

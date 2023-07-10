@@ -135,6 +135,7 @@ hr {
 .functions {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     gap: 24px;
 }
@@ -161,7 +162,7 @@ hr {
 .search-bar .icon {
     position: absolute;
     left: 8px;
-    bottom: 8px;
+    bottom: 4px;
 }
 
 /* Body content */
@@ -445,6 +446,10 @@ h1 {
     color: var(--text-default);
 }
 
+.projects-container .project .name:hover {
+    text-decoration: underline;
+}
+
 .projects-container .project .category {
     font-weight: 500;
     font-size: 15px;
@@ -584,6 +589,10 @@ h1 {
     color: var(--text-default);
 }
 
+.task .header .title .project-name:hover {
+    text-decoration: underline;
+}
+
 .task .header .title .task-name {
     text-decoration: none;
 
@@ -592,6 +601,11 @@ h1 {
 
     color: var(--text-default);
 }
+
+.task .header .title .task-name:hover {
+    text-decoration: underline;
+}
+
 
 .tasks-container .task .category {
     font-weight: 500;

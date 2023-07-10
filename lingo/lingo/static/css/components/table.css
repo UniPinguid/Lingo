@@ -38,3 +38,73 @@ tr td:last-child {
     justify-content: flex-end;
     gap: 16px;
 }
+
+table#member-list {
+    border-radius: 8px;
+    border: 1px solid var(--neutral-dark);
+
+    border-collapse: separate;
+}
+
+table#member-list thead tr th {
+    border-bottom: 1px solid var(--neutral-light-gray);
+}
+
+table#member-list td {
+    padding: 8px;
+}
+
+table#member-list td:nth-child(2)
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    font-weight: bold;
+}
+
+table#member-list td:last-child{
+    display: table-cell;
+}
+
+table#member-list td * {
+    display: inline-block;
+}
+
+input[type="checkbox"]#member-checkbox, input[type="checkbox"]#all-member-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background-lighter);
+    border-radius: 4px;
+    overflow: hidden;
+
+}
+
+input[type="checkbox"]#member-checkbox:hover, input[type="checkbox"]#all-member-checkbox:hover {
+    background-color: var(--neutral-light-gray); 
+}
+
+/* Style the checkbox when checked */
+input[type="checkbox"]#member-checkbox:checked, input[type="checkbox"]#all-member-checkbox:checked {
+    background-color: var(--primary);
+}
+
+input[type="checkbox"]#member-checkbox::after, input[type="checkbox"]#all-member-checkbox::after {
+    content: "✓";
+    padding: 0px 2px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--primary);
+    display: none;
+  }
+  
+  /* Show the checkmark icon when checkbox is checked */
+  input[type="checkbox"]#member-checkbox:checked::after, input[type="checkbox"]#all-member-checkbox:checked::after {
+    display: table-cell;
+  }

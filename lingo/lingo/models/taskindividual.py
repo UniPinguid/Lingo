@@ -6,7 +6,11 @@ from pymongo.errors import PyMongoError
 
 
 class TaskIndividual(models.Model):
+<<<<<<< HEAD
     id = models.CharField(max_length=10)
+=======
+    # id = models.CharField(max_length=10)
+>>>>>>> 322226be129fe75eb8b42138a247240c3c221632
     user = models.CharField(max_length=255)
     task = models.CharField(max_length=10)
     labeling = models.JSONField()

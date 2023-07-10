@@ -218,30 +218,40 @@
             </div>
             <div class="body">
                 <div style="display: flex; flex-direction: row; gap: 24px;">
-                    <div class="content"
+                    <div
                         style="width: 100%; padding: 16px; background-color: var(--neutral-white); border-radius: 8px;">
-                        In this vast universe, we are but tiny specks of dust floating through the cosmic expanse. Our
-                        existence, like a flicker of light, is fleeting and insignificant in the grand scheme of things.
-                        The
-                        immense scale of space and time dwarfs our individual lives, reminding us of our humble place in
-                        the
-                        cosmos. Yet, within this insignificance lies the beauty of our existence—a chance to experience
-                        and
-                        appreciate the wonders of the universe, to connect with one another, and to seek meaning amidst
-                        the
-                        vastness.
+                        <div class="content">
+                            In this vast universe, we are but tiny specks of dust floating through the cosmic expanse.
+                            Our
+                            existence, like a flicker of light, is fleeting and insignificant in the grand scheme of
+                            things.
+                            The
+                            immense scale of space and time dwarfs our individual lives, reminding us of our humble
+                            place in
+                            the
+                            cosmos. Yet, within this insignificance lies the beauty of our existence—a chance to
+                            experience
+                            and
+                            appreciate the wonders of the universe, to connect with one another, and to seek meaning
+                            amidst
+                            the
+                            vastness.
+                        </div>
                     </div>
-                    <div class="content"
+                    <div
                         style="width: 100%; padding: 16px; background-color: var(--neutral-white); border-radius: 8px;">
-                        Within the vastness of the universe, our presence is minuscule, akin to tiny particles adrift in
-                        the
-                        cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that
-                        quickly
-                        fades away. When faced with the enormity of space and the passage of time, our significance
-                        pales in
-                        comparison. However, it is within this very insignificance that the true magnificence of our
-                        existence lies—the opportunity to witness and cherish the marvels of the cosmos, to forge
-                        connections with fellow beings, and to search for purpose amidst the boundless expanse.
+                        <div class="content">
+                            Within the vastness of the universe, our presence is minuscule, akin to tiny particles
+                            adrift in
+                            the
+                            cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that
+                            quickly
+                            fades away. When faced with the enormity of space and the passage of time, our significance
+                            pales in
+                            comparison. However, it is within this very insignificance that the true magnificence of our
+                            existence lies—the opportunity to witness and cherish the marvels of the cosmos, to forge
+                            connections with fellow beings, and to search for purpose amidst the boundless expanse.
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -323,7 +333,7 @@
                         <a href="#">rawdata.txt</a>
                     </div>
                 </div>
-                <a class="edit-button" href="{% url 'translation_edit' %}">
+                <a class="edit-button" href="{% url 'display_dataset' task_id=1 dataset_id=1 %}">
                     <div class="icon white" id="edit"></div>
                     <div>Edit</div>
                     <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px; margin: 0px 4px;">
@@ -335,18 +345,20 @@
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     <div style="padding: 8px 8px 0px 8px;">
                         <span style="font-weight: bold">Requirement: </span>
-                        <span style="">Translate this given text into Korean.</span>
+                        <span>Translate this given text into Korean.</span>
                     </div>
-                    <div class="content"
+                    <div
                         style="width: 100%; padding: 16px; border: 1px solid var(--neutral-dark); border-radius: 8px; box-sizing: border-box;">
-                        <span style="font-family: Consolas">The sun gently kissed the horizon as it began its descent, casting a warm golden glow
+                        <div class="content">The sun gently kissed the horizon as it began its descent,
+                            casting a warm golden glow
                             across the tranquil ocean. The waves lapped softly against the shore, creating a soothing
                             melody that harmonized with the gentle rustling of palm leaves. It was a serene evening,
                             painting the sky with hues of pink and orange, while nature's symphony embraced the
-                            senses.</span>
+                            senses.</div>
                         <hr>
-                        <span>해는 점차 내리며 지평선을 부드럽게 입맞추었다. 평온한 바다에 따뜻한 황금빛 빛줄기를 퍼뜨렸다. 파도는 부드럽게 해변에 닿아 살랑거리며, 야자수 잎의 가벼운
-                            소리와 어울려 달콤한 선율을 만들어냈다. 고요한 저녁이었다. 하늘을 분홍과 주황빛으로 물들이며 자연의 교향곡이 감각을 감싸았다.</span>
+                        <div class="content">해는 점차 내리며 지평선을 부드럽게 입맞추었다. 평온한 바다에 따뜻한 황금빛 빛줄기를 퍼뜨렸다. 파도는 부드럽게 해변에 닿아
+                            살랑거리며, 야자수 잎의 가벼운
+                            소리와 어울려 달콤한 선율을 만들어냈다. 고요한 저녁이었다. 하늘을 분홍과 주황빛으로 물들이며 자연의 교향곡이 감각을 감싸았다.</div>
                     </div>
                 </div>
                 <hr>

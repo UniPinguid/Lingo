@@ -1,8 +1,10 @@
+import json
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
+from lingo.settings import USERNAME
 from .models.project import Project
 from .models.label import Label
-from .models.task import Task
+from .models.task import Dataset, Task
 from .models.user import CusUser
 from .models.taskindividual import TaskIndividual
 from datetime import datetime
@@ -189,6 +191,62 @@ def create_task(request):
         else:
             return JsonResponse({"message":"Tạo task thất bại."})
         
+<<<<<<< HEAD
 def dataset_qa(request, task_id):
     task = Task.objects.get(id=task_id)
     return render(request, 'pages/project/task/equivalency/dataset.html', {'task': task})
+=======
+# def Cuslogin(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
+#             return redirect('dashboard')  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
+#         else:
+#             # Đăng nhập thất bại, thông báo lỗi hoặc hiển thị lại form đăng nhập với thông báo lỗi
+#             error_message = "Invalid username or password."
+#             return render(request, 'signin', {'error_message': error_message})
+#     else:
+#         # Hiển thị form đăng nhập
+#         return render(request, 'signin')
+
+def display_dataset(request, task_id, dataset_id):
+    task_id = int(task_id)
+    dataset_id = int(dataset_id)
+    task = Task.objects.get(taskid=task_id)
+    datasets = task.datasets
+    for dataset in datasets:
+        if (dataset['datasetid']==dataset_id):
+            content = dataset['content']
+            requirement = dataset['requirement']
+            
+
+    return render(request, 'pages/project/task/translation/edit.html', {'content': content, 'requirement': requirement, 'task_id':task_id})
+
+def labeling_translate(request):
+    if (request.method=='POST'):
+        requirement_value = request.POST.get('labeling-requirement')
+        content_value = request.POST.get('labeling-content')
+        label_value = request.POST.get('editor-textarea')
+        task_value = request.POST.get('labeling-translate-taskid')
+        task_individual = TaskIndividual.objects.filter(user=USERNAME,task=task_value).first()
+        if (task_individual is None):
+            task_individual = TaskIndividual(user=USERNAME,task=task_value,labeling=[])
+        label = {"Dataset":content_value, "Requirement":requirement_value, "Label":label_value}
+        task_individual.labeling.append(label)
+        task_individual.revise = False
+        task_individual.done = True
+        task_individual.time = datetime.now()
+        task_individual.save()
+        return JsonResponse({"message":"Gán nhãn dịch thành công."})
+        
+        
+
+
+
+
+
+>>>>>>> 322226be129fe75eb8b42138a247240c3c221632

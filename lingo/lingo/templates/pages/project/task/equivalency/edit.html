@@ -75,9 +75,11 @@
                 </div>
             </div>
         </div>
-
+        <form action="{{% url 'dataset_equivalency_edit' %}}" method="post">
+            
+        </form>
         <h1>Are these two datasets equivalent?</h1>
-        <select class="select-box">
+        <select class="select-box" name="label">
             <option>Unknown</option>
             <option>Equivalent</option>
             <option>Not Equivalent</option>
@@ -85,7 +87,7 @@
         <hr>
 
         <div style="display: flex; flex-direction: row; gap: 16px;">
-            <div class="dataset-content" style="width: 100%;">
+            <div class="dataset-content" style="width: 100%;" name="datapiece1">
                 In this vast universe, we are but tiny specks of dust floating through the cosmic expanse. Our
                 existence, like a flicker of light, is fleeting and insignificant in the grand scheme of things.
                 The
@@ -97,7 +99,7 @@
                 the
                 vastness.
             </div>
-            <div class="dataset-content" style="width: 100%;">
+            <div class="dataset-content" style="width: 100%;" name="datapiece2">
                 Within the vastness of the universe, our presence is minuscule, akin to tiny particles adrift in
                 the
                 cosmic vastness. We are mere fleeting beings, our lives comparable to a fleeting spark that

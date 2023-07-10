@@ -155,5 +155,3 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ] 
 
-
-USERNAME = "tung3"

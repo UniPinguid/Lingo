@@ -4,6 +4,7 @@ from .models.project import Project
 from .models.label import Label
 from .models.task import Task
 from .models.user import CusUser
+from .models.taskindividual import TaskIndividual
 from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -33,8 +34,8 @@ def signup(request):
             # user.set_password(password)
             # user.phone = phone
             user.save()
-            cuser = CusUser(phone, "1")
-            cuser.addUser()
+            #cuser = CusUser(phone, "1")
+            #cuser.addUser()
             return redirect(signin)
     else:
         return render(request, 'pages/signup.html')
@@ -47,6 +48,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            request.session['username'] = username
             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
             return redirect(dashboard)  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
         else:
@@ -92,7 +94,33 @@ def dataset_equivalency(request):
     return render(request, 'pages/project/task/equivalency/dataset.html')
 
 def dataset_equivalency_edit(request):
-    return render(request, 'pages/project/task/equivalency/edit.html')
+    if (request.method == 'POST'):
+        user = request.session.get('username')
+        task_id = request.POST['id']
+        dataset1 = request.POST['dataset1']
+        dataset2 = request.POST['dataset2']
+        label = request.POST['label']
+        revise = False
+
+        task_individual = TaskIndividual.objects.filter(user=user, task=task_id).first()
+        if task_individual is None:
+            # Tạo document mới nếu chưa tồn tại
+            task_individual = TaskIndividual(user=user, task=task_id, labeling=[])
+        # Thêm thông tin gán nhãn vào document
+        dataset_label = {"Data": [dataset1, dataset2], "label": label}
+        task_individual.labeling.append(dataset_label)
+        task_individual.revise = revise
+        task_individual.done = not revise
+
+        # Lưu document vào collection Task_Individual
+        task_individual.save()
+
+        # Chuyển hướng về trang danh sách dataset hoặc trang khác tùy ý
+        return redirect(task_detail)
+
+    else:
+        
+        return render(request, 'pages/project/task/equivalency/edit.html')
 
 def dataset_qa(request):
     return render(request, 'pages/project/task/qa/dataset.html')
@@ -161,19 +189,6 @@ def create_task(request):
         else:
             return JsonResponse({"message":"Tạo task thất bại."})
         
-# def Cuslogin(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
-#             return redirect('dashboard')  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
-#         else:
-#             # Đăng nhập thất bại, thông báo lỗi hoặc hiển thị lại form đăng nhập với thông báo lỗi
-#             error_message = "Invalid username or password."
-#             return render(request, 'signin', {'error_message': error_message})
-#     else:
-#         # Hiển thị form đăng nhập
-#         return render(request, 'signin')
+def dataset_qa(request, task_id):
+    task = Task.objects.get(id=task_id)
+    return render(request, 'pages/project/task/equivalency/dataset.html', {'task': task})

@@ -23,3 +23,4 @@ class Task(models.Model):
             return 0
         
         return 1
+    

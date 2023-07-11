@@ -10,7 +10,6 @@ from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.conf import settings
-from .settings import USERNAME
 from django.utils import timezone
 # Main screens
 def home(request):
@@ -96,12 +95,12 @@ def contribution(request):
     return render(request, 'pages/project/contribution.html')
 
 # Tasks screen
-def task_detail(request):
+def task_detail(request,taskid):
     request.session['taskid'] = request.GET.get('taskid')
-    task = Task.objects.get(taskid = request.session['taskid'])
+    task = Task.objects.get(taskid=taskid)
     datasets = task.datasets
     return render(request, 'pages/project/task/detail.html', {'project_id': request.session.get('projectid')
-                                                              , 'cate': task.category, 'datasets': datasets})
+                                                              , 'cate': task.category, 'datasets': datasets,'task_id':taskid})
 
 def dataset_classification(request):
     return render(request, 'pages/project/task/classification/dataset.html')
@@ -308,7 +307,7 @@ def dataset_qa(request):
 def display_dataset(request, task_id, dataset_id):
     task_id = int(task_id)
     dataset_id = int(dataset_id)
-    task = Task.objects.get(taskid=task_id)
+    task = Task.objects.filter(taskid=task_id).first()
     datasets = task.datasets
     for dataset in datasets:
         if (dataset['datasetid']==dataset_id):
@@ -316,7 +315,7 @@ def display_dataset(request, task_id, dataset_id):
             requirement = dataset['requirement']
             
 
-    return render(request, 'pages/project/task/translation/edit.html', {'content': content, 'requirement': requirement, 'task_id':task_id})
+    return render(request, 'pages/project/task/translation/edit.html', {'content': content, 'requirement': requirement, 'task_id':task_id,'project_id':request.session['projectid']})
 
 def labeling_translate(request):
     if (request.method=='POST'):

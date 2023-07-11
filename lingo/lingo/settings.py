@@ -102,10 +102,16 @@ WSGI_APPLICATION = 'lingo.wsgi.application'
 
 DATABASES = {
     'default': { 
-        'ENGINE':'djongo',
-        'NAME':'BTTH',
-        'CLIENT':{
-            'host':'mongodb://localhost:27017',},}}
+        'ENGINE': 'djongo',
+       'NAME': 'BTTH',
+       'CLIENT': {
+           'host': 'mongodb://57.128.165.116:30010',
+            'username': 'udpt',
+            'password': 'nhom5',
+            'authMechanism': 'SCRAM-SHA-1',
+        },
+    },
+}
 
 
 
@@ -154,5 +160,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ] 
-
-USERNAME = "TUNG3"

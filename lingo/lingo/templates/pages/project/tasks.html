@@ -139,7 +139,7 @@
                     <td style="width: 80px">
                         <div class="project-category" id="text-generation">{{task.category}}</div>
                     </td>
-                    <td style="width: 25%;"><a class="task" href="{% url 'task_detail' %}">{{task.title}}</a></td>
+                    <td style="width: 25%;"><a class="task" href="{% url 'task_detail' task.taskid %}">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                     <td>
                         <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>

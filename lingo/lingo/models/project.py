@@ -3,7 +3,7 @@ from djongo.models.fields import ArrayField
 from pymongo.errors import PyMongoError
 
 class Project(models.Model):
-    id_project= models.CharField(max_length=50)
+    id_project= models.IntegerField()
     projectname = models.CharField(max_length=100)
     tags = models.TextField(max_length=50)
     description = models.TextField()

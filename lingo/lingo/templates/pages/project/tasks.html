@@ -50,7 +50,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
@@ -434,9 +434,7 @@
         </div>
         <div class="action-buttons">
             <button class="button" id="ghost">Cancel</button>
-            <!-- <a href="{% url 'project'%}"> -->
             <button class="button" type="submit" form="fm-create-task">Done</button>
-            <!-- </a> -->
         </div>
 
         <script src="{{STATIC_URL}}js/upload.js"></script>

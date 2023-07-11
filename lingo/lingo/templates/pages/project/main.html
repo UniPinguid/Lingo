@@ -28,7 +28,8 @@
     <div class="project-header">
         <div class="first-row">
             <div class="name">
-                <div class="color"></div>New Project
+                <div class="color"></div>
+                {{ project.projectname }}
             </div>
             <div class="features">
                 <div class="icon size40px" id="search"></div>
@@ -63,39 +64,18 @@
             </div>
             <div class="project-info">
                 <div class="label">Tags</div>
-                <div class="tag">descriptive</div>
-                <div class="tag">sport</div>
+                {% for tag in project.tags %}
+                    <div class="tag">{{ tag }}</div>
+                {% endfor %}
             </div>
             <div class="project-info">
                 <div class="label">Visibility</div>
-                <div>Private</div>
+                <div>{{ project.visibility }}</div>
             </div>
             <div class="spacing"></div>
             <h1>Description</h1>
             <div class="description">
-                <div class="paragraph">
-                    The goal of this project is to label a dataset of unstructured text data using
-                    natural language processing (NLP) techniques. The dataset may include social media posts, news
-                    articles,
-                    reviews, or any other type of text data. The labels may include sentiment, topic, intent, or any
-                    other
-                    relevant classification.
-                </div>
-                <div class="paragraph">
-                    The project involves building an annotation tool that enables human annotators to label the dataset,
-                    and
-                    developing machine learning models that can learn from the labeled data to perform automatic
-                    labeling on
-                    new, unseen data.
-                </div>
-                <div class="paragraph">
-                    The project will involve using NLP libraries and tools, designing and implementing the annotation
-                    tool,
-                    and evaluating the performance of the machine learning models. The resulting labeled dataset can be
-                    used
-                    for various downstream applications, such as training chatbots, sentiment analysis, or topic
-                    modeling.
-                </div>
+                {{ project.description }}
             </div>
             <div class="spacing"></div>
             <h1>Activity</h1>

@@ -67,7 +67,7 @@
             <div class="task-header">
                 <div class="icon size40px" id="dataset"></div>
                 <div class="info">
-                    <div>DT#1240-2041</div>
+                    <div>{{dataset_id }}</div>
                 </div>
                 <div class="file" style="margin-left: 24px">
                     <span>from</span>
@@ -76,35 +76,41 @@
             </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px;">
-            <h1 style="margin: 0px;">Question</h1>
-            <div class="dataset-content" style="width: 100%; box-sizing: border-box; background-color: var(--neutral-white); color: var(--neutral-dark)">
-                What is the average lifespan of a housefly?
-            </div>
-            <h1  style="margin: 16px 0px 0px 0px;">Answer</h1>
-            <div class="editor-container" style="border-radius: 8px;">
-                <div id="editor">
-                    <textarea style="border-radius: 8px;"
-                        id="editor-textarea">The average lifespan of a housefly is approximately 28 days.</textarea>
-                    <div id="listText" style="border-radius: 8px;"></div>
+        <form action="{% url 'qa_edit' dataset_id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="dataset_id" id="dataset_id" value="{{dataset_id}}">
+            <input type="hidden" name="ques" id="ques" value="{{ques}}">
+            <input type="hidden" name="taskid" id="taskid" value="{{task_id}}">
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px;">
+                <h1 style="margin: 0px;">Question</h1>
+                <div class="dataset-content" style="width: 100%; box-sizing: border-box; background-color: var(--neutral-white); color: var(--neutral-dark)">
+                    {{ ques }}
+                </div>
+                <h1  style="margin: 16px 0px 0px 0px;">Answer</h1>
+                <div class="editor-container" style="border-radius: 8px;">
+                    <div id="editor">
+                        <textarea style="border-radius: 8px;"
+                            id="editor-textarea" name="ans"></textarea>
+                        <div id="listText" style="border-radius: 8px;"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <hr>
-        <textarea placeholder="Describe your change here or provide adequate sources" id="change"></textarea>
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center;">
-                <input type="checkbox" id="revise">
-                <label for="revise">Pending revise/review</label>
+    
+            <hr>
+            <textarea placeholder="Describe your change here or provide adequate sources" id="change" name="ans"></textarea>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="revise">
+                    <label for="revise">Pending revise/review</label>
+                </div>
+                <div style="display: flex; gap: 16px;">
+                    <a href="{% url 'dataset_qa' %}" style="text-decoration: none;"><button class="button-small"
+                            id="ghost">Cancel</button></a>
+                    <button class="button-small" type="submit">Save</button>
+                </div>
             </div>
-            <div style="display: flex; gap: 16px;">
-                <a href="{% url 'dataset_qa' %}" style="text-decoration: none;"><button class="button-small"
-                        id="ghost">Cancel</button></a>
-                <button class="button-small" type="submit">Save</button>
-                <form action="{% url 'dataset_qa_edit'%}" method="post"></form>
-            </div>
-        </div>
+        </form>
+        
 
         <div class="footer">
             <hr>

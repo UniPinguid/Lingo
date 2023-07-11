@@ -67,7 +67,7 @@
             <div class="task-header">
                 <div class="icon size40px" id="dataset"></div>
                 <div class="info">
-                    <div>DT#1240-2041</div>
+                    <div> {{ datasetid }} </div>
                 </div>
                 <div class="file" style="margin-left: 24px">
                     <span>from</span>
@@ -76,7 +76,7 @@
             </div>
             <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                 <div class="level">Level 1</div>
-                <a class="edit-button" href="{% url 'qa_edit' %}">
+                <a class="edit-button" href="{% url 'qa_edit' datasetid %}">
                     <div class="icon" id="edit"></div>
                     <span>Edit</span>
                 </a>
@@ -90,11 +90,11 @@
         <div style="display: flex; flex-direction: column; gap: 0px; width: 100%;">
             <h1 style="margin-bottom: 0px;">Question</h1>
             <div class="dataset-content" style="width: 100%; background-color: var(--neutral-white); color: var(--neutral-dark)">
-                What is the average lifespan of a housefly?
+                {{ ques }}
             </div>
             <h1 style="margin: 32px 0px 0px 0px;">Answer</h1>
             <div class="dataset-content" style="width: 100%;">
-                The average lifespan of a housefly is approximately 28 days.
+                {{ ans }}
             </div>
         </div>
     </div>

@@ -29,14 +29,12 @@
             </div>
             <div class="content">
                 <div class="group-items">
-                    <div class="item">
-                        <div class="project-color"></div>
-                        <a class="project-name" href="{% url 'project' %}">Project 1</a>
-                    </div>
-                    <div class="item">
-                        <div class="project-color"></div>
-                        <a class="project-name" href="{% url 'project' %}">Project 2</a>
-                    </div>
+                    {% for project in projects %}
+                        <div class="item">
+                            <div class="project-color"></div>
+                            <a class="project-name" href="{% url 'project' project.id_project  %}"> {{ project.projectname }}</a>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -209,11 +207,12 @@
             </div>
             <h1>Recent Projects</h1>
             <div class="projects-container">
+                {% for project in projects %}
                 <div class="project">
                     <div class="header">
                         <div class="title">
-                            <a class="name" href="/pages/projects/#">Book Content Based</a>
-                            <div class="category">Categorization</div>
+                            <a class="name" href="% url 'project' project.id_project %">{{ project.projectname }}</a>
+                            <div class="category">{{ project.tags }}</div>
                         </div>
                         <div class="participants">
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
@@ -222,9 +221,8 @@
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                         </div>
                     </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
+                    <div class="description">
+                        {{ description }}
                     </div>
                     <hr>
                     <div class="stats">
@@ -234,131 +232,8 @@
                         <div class="time">1 day ago</div>
                     </div>
                 </div>
-                <div class="project">
-                    <div class="header">
-                        <div class="title">
-                            <a class="name" href="/pages/projects/#">Book Content Based</a>
-                            <div class="category">Categorization</div>
-                        </div>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
-                    </div>
-                    <hr>
-                    <div class="stats">
-                        <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
-                        </div>
-                        <div class="time">1 day ago</div>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="header">
-                        <div class="title">
-                            <a class="name" href="{% url 'project' %}">Book Content Based</a>
-                            <div class="category">Categorization</div>
-                        </div>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
-                    </div>
-                    <hr>
-                    <div class="stats">
-                        <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
-                        </div>
-                        <div class="time">1 day ago</div>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="header">
-                        <div class="title">
-                            <a class="name" href="{% url 'project' %}">Book Content Based</a>
-                            <div class="category">Categorization</div>
-                        </div>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
-                    </div>
-                    <hr>
-                    <div class="stats">
-                        <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
-                        </div>
-                        <div class="time">1 day ago</div>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="header">
-                        <div class="title">
-                            <a class="name" href="{% url 'project' %}">Book Content Based</a>
-                            <div class="category">Categorization</div>
-                        </div>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
-                    </div>
-                    <hr>
-                    <div class="stats">
-                        <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
-                        </div>
-                        <div class="time">1 day ago</div>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="header">
-                        <div class="title">
-                            <a class="name" href="/pages/projects/#">Book Content Based</a>
-                            <div class="category">Categorization</div>
-                        </div>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </div>
-                    <div class="description">Aims to categorize paragraphs based on their content and context. Using
-                        advanced algorithms and machine learning techniques, the system is able to analyze the text and
-                        identify patterns that can be used to categorize paragraphs into different topics or themes.
-                    </div>
-                    <hr>
-                    <div class="stats">
-                        <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
-                        </div>
-                        <div class="time">1 day ago</div>
-                    </div>
-                </div>
+                
+                {% endfor %}
             </div>
             <br>
             <h1>Tasks</h1>
@@ -634,9 +509,8 @@
         </div>
         <div class="action-buttons">
             <button class="button" id="ghost">Cancel</button>
-            <!-- <a href="{% url 'project'%}"> -->
-                <button class="button" type="submit" form="fm-create-project">Done</button>
-            <!-- </a> -->
+            <button class="button" type="submit" form="fm-create-project">Done</button>
+            
         </div>
     </div>
     <script src="static/js/collapsible.js"></script>

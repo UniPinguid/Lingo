@@ -10,6 +10,7 @@ from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.conf import settings
+from .settings import USERNAME
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -50,6 +51,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             request.session['username'] = username
+            USERNAME = username
             # Đăng nhập thành công, chuyển hướng đến trang dashboard hoặc trang chính của ứng dụng của bạn
             return redirect(dashboard)  # Thay 'dashboard' bằng tên URL của trang dashboard của bạn
         else:
@@ -62,18 +64,26 @@ def signin(request):
     
 
 def dashboard(request):
-    return render(request, 'pages/dashboard.html')
+    try:
+        projects = Project.objects.filter(member__icontains=request.user.username)
+    except MemoryError:
+        projects = None
+        return 0
+
+    return render(request, 'pages/dashboard.html', { 'projects': projects })
 
 # Project subscreens
 
-def project(request):
-    return render(request, 'pages/project/main.html')
+def project(request, project_id):
+    request.session['projectid'] = project_id
+    temp = Project.objects.get(id_project = int(project_id))
+    return render(request, 'pages/project/main.html', {'project': temp})
 
 def members(request):
     return render(request, 'pages/project/members.html')
 
 def tasks(request):
-    return render(request, 'pages/project/tasks.html')
+    return render(request, 'pages/project/tasks.html', {'project_id': request.session.get('projectid')})
 
 def labels(request):
     return render(request, 'pages/project/labels.html')
@@ -83,6 +93,7 @@ def contribution(request):
 
 # Tasks screen
 def task_detail(request):
+    request.session['taskid'] = request.GET.get('taskid')
     return render(request, 'pages/project/task/detail.html')
 
 def dataset_classification(request):
@@ -92,23 +103,26 @@ def dataset_classification_edit(request):
     return render(request, 'pages/project/task/classification/edit.html')
 
 def dataset_equivalency(request):
+    request.session['datasetid'] = request.GET.get('datasetid')
     return render(request, 'pages/project/task/equivalency/dataset.html')
 
 def dataset_equivalency_edit(request):
     if (request.method == 'POST'):
         user = request.session.get('username')
-        task_id = request.POST['id']
+        user = request.user.username
+        task_id = request.POST['task_id']
         dataset1 = request.POST['dataset1']
         dataset2 = request.POST['dataset2']
         label = request.POST['label']
+        dataset_id = request.POST['dataset_id']
         revise = False
 
         task_individual = TaskIndividual.objects.filter(user=user, task=task_id).first()
         if task_individual is None:
             # Tạo document mới nếu chưa tồn tại
-            task_individual = TaskIndividual(user=user, task=task_id, labeling=[])
+            task_individual = TaskIndividual(user=request.user.username, task=task_id, labeling=[])
         # Thêm thông tin gán nhãn vào document
-        dataset_label = {"Data": [dataset1, dataset2], "label": label}
+        dataset_label = {"datasetid":dataset_id, "Data": [dataset1, dataset2], "label": label}
         task_individual.labeling.append(dataset_label)
         task_individual.revise = revise
         task_individual.done = not revise
@@ -119,19 +133,75 @@ def dataset_equivalency_edit(request):
         # Chuyển hướng về trang danh sách dataset hoặc trang khác tùy ý
         return redirect(task_detail)
 
-    else:
+    elif(request.method == 'GET'):
+        task_id = request.session.get('taskid')
+        dataset_id = request.session.get('datasetid')
+        task = Task.objects.get(taskid=task_id)
+        datasets = task.datasets
+        dataset1 = "System Error"
+        dataset2 = "System Error"
+        for dataset in datasets:
+            if (dataset['datasetid'] == dataset_id):
+                dataset1 = dataset['content'][0]
+                dataset2 = dataset['content'][1]
+                return render(request, 'pages/project/task/equivalency/edit.html'
+                      , {"dataset_id": dataset_id, "task_id": task_id, "dataset1": dataset1,
+                         "dataset2": dataset2})
         
-        return render(request, 'pages/project/task/equivalency/edit.html')
 
 def dataset_qa(request):
     return render(request, 'pages/project/task/qa/dataset.html')
 
-def dataset_qa_edit(request):
-    if(request.method == 'POST'):
+def dataset_qa_edit(request, datasetid):
+    if(request.method == "GET"):
+        task_id = request.session.get('taskid')
+        dataset_id = dataset_id
+        task = Task.objects.get(taskid=task_id)
+        datasets = task.datasets
+        ques = "System Error"
+        for dataset in datasets:
+            if (dataset['datasetid'] == dataset_id):
+                ques = dataset['content']
+        
+        return render(request, 'pages/project/task/qa/edit.html', {'dataset_id': dataset_id, "ques": ques, 'task_id': task_id})
+    elif (request.method == "POST"):
+        ques = request.POST.get('ques')
+        ans = request.POST.get('ans')
+        task_value = request.session.get('taskid')
+        dataset_id = datasetid
+        task_individual = TaskIndividual.objects.filter(user=request.user.username,task=task_value).first()
+        if (task_individual is None):
+            task_individual = TaskIndividual(user=request.user.username,task=task_value,labeling=[])
+        label = {"dataset_id": dataset_id, "Dataset":ques, "Requirement": "Answer the Question", "Label":ans}
+        task_individual.labeling.append(label)
+        task_individual.revise = False
+        task_individual.done = True
+        task_individual.time = datetime.now()
+        task_individual.save()
+        return JsonResponse({"message":"Gán nhãn dịch thành công."})
+        
 
-        return 0
-    else:
-        return render(request, 'pages/project/task/qa/edit.html')
+# def dataset_qa_edit_save(request):
+#     if(request.method == 'POST'):
+#         ques = request.POST.get('ques')
+#         ans = request.POST.get('ans')
+#         task_value = request.POST.get('taskid')
+#         dataset_id = request.POST.get('dataset_id')
+#         task_individual = TaskIndividual.objects.filter(user=USERNAME,task=task_value).first()
+#         if (task_individual is None):
+#             task_individual = TaskIndividual(user=USERNAME,task=task_value,labeling=[])
+#         label = {"dataset_id": dataset_id, "Dataset":ques, "Requirement": "Answer the Question", "Label":ans}
+#         task_individual.labeling.append(label)
+#         task_individual.revise = False
+#         task_individual.done = True
+#         task_individual.time = datetime.now()
+#         task_individual.save()
+#         return JsonResponse({"message":"Gán nhãn dịch thành công."})
+    
+    
+
+
+
 
 def dataset_translation(request):
     return render(request, 'pages/project/task/translation/dataset.html')
@@ -224,9 +294,9 @@ def labeling_translate(request):
         content_value = request.POST.get('labeling-content')
         label_value = request.POST.get('editor-textarea')
         task_value = request.POST.get('labeling-translate-taskid')
-        task_individual = TaskIndividual.objects.filter(user=USERNAME,task=task_value).first()
+        task_individual = TaskIndividual.objects.filter(user=request.user.username,task=task_value).first()
         if (task_individual is None):
-            task_individual = TaskIndividual(user=USERNAME,task=task_value,labeling=[])
+            task_individual = TaskIndividual(user=request.user.username,task=task_value,labeling=[])
         label = {"Dataset":content_value, "Requirement":requirement_value, "Label":label_value}
         task_individual.labeling.append(label)
         task_individual.revise = False

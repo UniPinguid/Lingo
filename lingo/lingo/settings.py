@@ -104,14 +104,13 @@ DATABASES = {
     'default': { 
         'ENGINE': 'djongo',
        'NAME': 'BTTH',
-       'CLIENT': {
+
            'host': 'mongodb://57.128.165.116:30010',
             'username': 'udpt',
             'password': 'nhom5',
             'authMechanism': 'SCRAM-SHA-1',
         },
     },
-}
 
 
 

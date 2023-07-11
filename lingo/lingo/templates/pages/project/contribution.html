@@ -6,6 +6,7 @@
     <link href="{{STATIC_URL}}css/project.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/button.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/graph.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
@@ -20,8 +21,8 @@
             <div class="logo">LingoLab</div>
         </div>
         <div class="functions">
-            <div class="icon white" id="check"></div>
-            <div class="icon white" id="check"></div>
+            <div class="icon white" id="globe"></div>
+            <div class="icon white" id="bell"></div>
             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
         </div>
     </div>
@@ -42,7 +43,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url '' %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="inactive" href="{% url 'tasks' %}">Tasks</a>
@@ -51,12 +52,174 @@
         </div>
     </div>
     <div class="project-content">
-        <div class="left-section">
+        <div class="left-section" style="width: 80%">
+            <div style="position: relative; padding: 8px 24px; border: 1px solid var(--neutral-dark); border-radius: 8px;">
+                <h1>Total Dataset Labeled</h1>
+                <div style="margin-bottom: 16px; font-weight: 800; font-size: 36px;">640</div>
+                <div class="graph-container">
+                    <div class="line" style="height: 60px;">100</div>
+                    <div class="line" style="height: 60px;">50</div>
+                    <div class="line last">
+                        <div>0</div>
+                        <div>Jan</div>
+                        <div>Feb</div>
+                        <div>Mar</div>
+                        <div>Apr</div>
+                        <div>May</div>
+                        <div>Jun</div>
+                        <div>Jul</div>
+                        <div>Aug</div>
+                        <div>Sep</div>
+                        <div>Oct</div>
+                        <div>Nov</div>
+                        <div>Dec</div>
+                    </div>
+                    <div class="graph">test</div>
+                </div>
+                
+                <select style="position: absolute; right: 24px; top: 24px; padding: 8px; border-radius: 8px;">
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                    <option>2020</option>
+                </select>
+            </div>
         </div>
-        <div class="right-section">
+        <div class="right-section" style="flex: 1">
+            <div style="padding: 8px 24px; border: 1px solid var(--neutral-dark); border-radius: 8px;">
+                <h1>Weekly Contributions</h1>
+                <img src="{{STATIC_URL}}images/weekly contributions.svg" height="236px">
+            </div>
         </div>
     </div>
-
+    <div class="project-content" style="flex-direction: column;">
+        <h1>Team Contributions</h1>
+        <div class="contribution-container">
+            <div class="card">
+                <div class="graph-container">
+                    <div style="display: flex; flex-direction: row; align-items:center; gap: 8px; margin-bottom: 8px;">
+                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png" style="width:40px"></div>
+                        <div style="display: flex; flex-direction: column; gap: 4px">
+                            <a class="contributor" href="#">LBCPhat</a>
+                            <div style="font-size: 90%; color: var(--text-light)">72 contributions</div>
+                        </div>
+                    </div>
+                    <div class="line" style="height:50px">100</div>
+                    <div class="line" style="height:50px">50</div>
+                    <div class="line last">
+                        <div>0</div>
+                        <div style="width: 90%; display: flex; justify-content: space-between;">
+                            <div>Jan</div>
+                            <div>Jun</div>
+                            <div>Dec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="graph-container">
+                    <div style="display: flex; flex-direction: row; align-items:center; gap: 8px; margin-bottom: 8px;">
+                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png" style="width:40px"></div>
+                        <div style="display: flex; flex-direction: column; gap: 4px">
+                            <a class="contributor" href="#">nhkhoi</a>
+                            <div style="font-size: 90%; color: var(--text-light)">72 contributions</div>
+                        </div>
+                    </div>
+                    <div class="line" style="height:50px">100</div>
+                    <div class="line" style="height:50px">50</div>
+                    <div class="line last">
+                        <div>0</div>
+                        <div style="width: 90%; display: flex; justify-content: space-between;">
+                            <div>Jan</div>
+                            <div>Jun</div>
+                            <div>Dec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="graph-container">
+                    <div style="display: flex; flex-direction: row; align-items:center; gap: 8px; margin-bottom: 8px;">
+                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png" style="width:40px"></div>
+                        <div style="display: flex; flex-direction: column; gap: 4px">
+                            <a class="contributor" href="#">ltngan</a>
+                            <div style="font-size: 90%; color: var(--text-light)">72 contributions</div>
+                        </div>
+                    </div>
+                    <div class="line" style="height:50px">100</div>
+                    <div class="line" style="height:50px">50</div>
+                    <div class="line last">
+                        <div>0</div>
+                        <div style="width: 90%; display: flex; justify-content: space-between;">
+                            <div>Jan</div>
+                            <div>Jun</div>
+                            <div>Dec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="graph-container">
+                    <div style="display: flex; flex-direction: row; align-items:center; gap: 8px; margin-bottom: 8px;">
+                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png" style="width:40px"></div>
+                        <div style="display: flex; flex-direction: column; gap: 4px">
+                            <a class="contributor" href="#">pstung</a>
+                            <div style="font-size: 90%; color: var(--text-light)">72 contributions</div>
+                        </div>
+                    </div>
+                    <div class="line" style="height:50px">100</div>
+                    <div class="line" style="height:50px">50</div>
+                    <div class="line last">
+                        <div>0</div>
+                        <div style="width: 90%; display: flex; justify-content: space-between;">
+                            <div>Jan</div>
+                            <div>Jun</div>
+                            <div>Dec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="project-content" style="flex-direction: column;">
+        <div>
+            <h1>Top Contributors</h1>
+            <h2>March 26th, 2023 - April 26th, 2023</h2>
+        </div>
+        <div class="graph-container" id="vertical">
+            <div style="padding-left: 200px;"></div>
+            <div class="line">0 </div>
+            <div class="line">50 </div>
+            <div class="line">100 </div>
+            <div class="line">150 </div>
+            <div class="line last">200 </div>
+            <div class="contributor-container">
+                <div class="contributor">
+                    <div class="avatar" style="overflow:visible;"><img src="{{STATIC_URL}}images/sample avatar.png" style="width: 40px;"></div>
+                    <a class="contributor" href="#" style="max-width: 112px;">LBCPhat</a>
+                    <div class="bar" style="width: 90%;"></div>
+                    <div class="value">184</div>
+                </div>
+                <div class="contributor">
+                    <div class="avatar" style="overflow:visible;"><img src="{{STATIC_URL}}images/sample avatar.png" style="width: 40px;"></div>
+                    <a class="contributor" href="#" style="max-width: 112px;">ltngan</a>
+                    <div class="bar" style="width: 70%; background-color: #88B1FF"></div>
+                    <div class="value">170</div>
+                </div>
+                <div class="contributor">
+                    <div class="avatar" style="overflow:visible;"><img src="{{STATIC_URL}}images/sample avatar.png" style="width: 40px;"></div>
+                    <a class="contributor" href="#" style="max-width: 112px;">nhkhoi</a>
+                    <div class="bar" style="width: 50%; background-color: #BADEFF;"></div>
+                    <div class="value">120</div>
+                </div>
+                <div class="contributor">
+                    <div class="avatar" style="overflow:visible;"><img src="{{STATIC_URL}}images/sample avatar.png" style="width: 40px;"></div>
+                    <a class="contributor" href="#" style="max-width: 112px;">pstung</a>
+                    <div class="bar" style="width: 30%; background-color: var(--neutral-white);"></div>
+                    <div class="value">72</div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer">
         <hr>

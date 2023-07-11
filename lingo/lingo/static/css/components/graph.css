@@ -1,0 +1,95 @@
+.graph-container {
+    position: relative;
+}
+
+.graph-container#vertical {
+    display: flex;
+    flex-direction: row;
+}
+
+.graph-container .line {
+    width: 100%;
+    margin: 4px 0px;
+    padding-top: 8px;
+    color: var(--text-light);
+    border-top: 1px solid var(--neutral-light-gray)
+}
+
+.graph-container#vertical .line {
+    height: 300px;
+
+    border: none;
+    border-left: 1px solid var(--neutral-light-gray);
+    padding-left: 8px;
+
+    display: flex;
+    align-items: flex-end;
+
+    font-size: 90%;
+}
+
+.graph-container#vertical .line.last {
+    width: 24px;
+}
+
+.graph-container#vertical .contributor-container {
+    width: 100%;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.graph-container#vertical .contributor-container .contributor {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.contributor .bar {
+    height: 56px;
+    border-radius: 0px 16px 16px 0px;
+    background: var(--primary);
+}
+
+.contributor .bar:hover {
+    filter: brightness(85%);
+
+    cursor: help;
+}
+
+.contributor .bar:hover .value {
+    font-weight: bold;
+}
+
+.contributor .value {
+    font-size: 110%; color: var(--text-light);
+}
+
+.graph-container .line.last {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.graph-container .graph {
+    position: absolute;
+
+    left: 0px;
+    bottom: 24px;
+}
+
+.graph-container .vertical {
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+}

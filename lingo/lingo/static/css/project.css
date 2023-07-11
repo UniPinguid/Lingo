@@ -545,7 +545,7 @@ button.tab.active:hover {
 
 .progression-total :first-child {
     font-size: 28px;
-    
+
     color: var(--complete);
     font-weight: 800;
 }
@@ -603,6 +603,22 @@ button.tab.active:hover {
 
 .legend :nth-child(3) {
     color: var(--text-light);
+}
+
+/* Contribution cards */
+.contribution-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.contribution-container .card {
+    flex: 0;
+    flex-basis: 32.33%;
+    padding: 8px 24px;
+    box-sizing: border-box;
+    border: 1px solid var(--neutral-dark);
+    border-radius: 8px;
 }
 
 

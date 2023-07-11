@@ -75,9 +75,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'equivalency_edit' %}" method="post">
-            <input type="hidden" name="task_id" id="task_id" value="{{ task_id }}">
-            <input type="hidden" name="dataset_id" id="dataset_id" value="{{ dataset_id }}">
+        <form action="{% url 'equivalency_edit' dataset_id %}" method="post">
             <input type="hidden" name="dataset1" id="dataset1" value="{{ dataset1 }}">
             <input type="hidden" name="dataset2" id="dataset2" value="{{ dataset2 }}">
         </form>

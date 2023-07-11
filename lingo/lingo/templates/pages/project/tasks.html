@@ -146,12 +146,7 @@
                     </td>
                     <td>
                         <div class="participants">
-                            {% for contributor in task.contributors %}
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <!-- <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div> -->
-                            {% endfor %}
+                            
                         </div>
                     </td>
                     <td>
@@ -165,141 +160,7 @@
                     </td>
                 </tr>
                 {% endfor %}
-                <tr>
-                    <td>
-                        <div class="project-category" id="text-classification">Text Classification</div>
-                    </td>
-                    <td><a class="task" href="{% url 'task_detail' %}">Task 2 name</a></td>
-                    <td>02/02/2022</td>
-                    <td>
-                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                    </td>
-                    <td>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="progress" style="border: none; padding: 0px">
-                            <div class="bar">
-                                <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="project-category" id="sequence-labeling">Sequence Labeling</div>
-                    </td>
-                    <td><a class="task" href="{% url 'task_detail' %}">Task 3 name</a></td>
-                    <td>03/03/2023</td>
-                    <td>
-                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                    </td>
-                    <td>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="progress" style="border: none; padding: 0px">
-                            <div class="bar">
-                                <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 80px">
-                        <div class="project-category" id="text-generation">Text Generation</div>
-                    </td>
-                    <td style="width: 25%;"><a class="task" href="{% url 'task_detail' %}">Task 1 name</a></td>
-                    <td>01/01/2021</td>
-                    <td>
-                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                    </td>
-                    <td>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="progress" style="border: none; padding: 0px">
-                            <div class="bar">
-                                <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="project-category" id="text-classification">Text Classification</div>
-                    </td>
-                    <td><a class="task" href="{% url 'task_detail' %}">Task 2 name</a></td>
-                    <td>02/02/2022</td>
-                    <td>
-                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                    </td>
-                    <td>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="progress" style="border: none; padding: 0px">
-                            <div class="bar">
-                                <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="project-category" id="sequence-labeling">Sequence Labeling</div>
-                    </td>
-                    <td><a class="task" href="{% url 'task_detail' %}">Task 3 name</a></td>
-                    <td>03/03/2023</td>
-                    <td>
-                        <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                    </td>
-                    <td>
-                        <div class="participants">
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="progress" style="border: none; padding: 0px">
-                            <div class="bar">
-                                <div style="background-color: var(--primary); width: 50%; border-radius: 99px"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><button class="action" id="edit">Edit</button><button class="action" id="delete">Delete</button>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
         <div class="pagination">

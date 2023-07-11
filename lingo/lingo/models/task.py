@@ -19,7 +19,7 @@ class Task(models.Model):
     assignee = models.ForeignKey(User, on_delete=models.CASCADE)
     contributors = models.ManyToManyField(User, related_name='contributed_tasks')
     progression = models.IntegerField(default=0)
-    project_id = models.CharField(max_length=100)
+    project_id = models.IntegerField(max_length=100)
     description = models.TextField()
     member = models.TextField()
     datasets = models.JSONField(default=list)

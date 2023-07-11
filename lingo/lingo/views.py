@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.conf import settings
 from .settings import USERNAME
+from django.utils import timezone
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -83,7 +84,10 @@ def members(request):
     return render(request, 'pages/project/members.html')
 
 def tasks(request):
-    return render(request, 'pages/project/tasks.html', {'project_id': request.session.get('projectid')})
+    projectid = request.session.get('projectid')
+    tasks = Task.objects.filter(project_id = projectid)
+
+    return render(request, 'pages/project/tasks.html', {'project_id': projectid, 'tasks':tasks})
 
 def labels(request):
     return render(request, 'pages/project/labels.html')
@@ -94,7 +98,10 @@ def contribution(request):
 # Tasks screen
 def task_detail(request):
     request.session['taskid'] = request.GET.get('taskid')
-    return render(request, 'pages/project/task/detail.html')
+    task = Task.objects.get(taskid = request.session['taskid'])
+    datasets = task.datasets
+    return render(request, 'pages/project/task/detail.html', {'project_id': request.session.get('projectid')
+                                                              , 'cate': task.category, 'datasets': datasets})
 
 def dataset_classification(request):
     return render(request, 'pages/project/task/classification/dataset.html')
@@ -102,19 +109,24 @@ def dataset_classification(request):
 def dataset_classification_edit(request):
     return render(request, 'pages/project/task/classification/edit.html')
 
-def dataset_equivalency(request):
+def dataset_equivalency(request, datasetid):
     request.session['datasetid'] = request.GET.get('datasetid')
-    return render(request, 'pages/project/task/equivalency/dataset.html')
+    dataset_id = int(datasetid)
+    t = Task.objects.get(request.session.get('taskid'))
+    datasets = t.datasets
+    for dataset in datasets:
+        if (dataset['datasetid'] == dataset_id):
+            return render(request, 'pages/project/task/equivalency/dataset.html', {'dataset': dataset})
+    
 
-def dataset_equivalency_edit(request):
+def dataset_equivalency_edit(request, datasetid):
     if (request.method == 'POST'):
-        user = request.session.get('username')
         user = request.user.username
-        task_id = request.POST['task_id']
+        task_id = request.session.get('taskid')
         dataset1 = request.POST['dataset1']
         dataset2 = request.POST['dataset2']
         label = request.POST['label']
-        dataset_id = request.POST['dataset_id']
+        dataset_id = int(datasetid)
         revise = False
 
         task_individual = TaskIndividual.objects.filter(user=user, task=task_id).first()
@@ -135,7 +147,7 @@ def dataset_equivalency_edit(request):
 
     elif(request.method == 'GET'):
         task_id = request.session.get('taskid')
-        dataset_id = request.session.get('datasetid')
+        dataset_id = int(datasetid)
         task = Task.objects.get(taskid=task_id)
         datasets = task.datasets
         dataset1 = "System Error"
@@ -209,6 +221,24 @@ def dataset_translation(request):
 def dataset_translation_edit(request):
     return render(request, 'pages/project/task/translation/edit.html')
 
+def upload_dataset(request):
+    if(request.method == "POST"):
+        file = request.FILES['dataset']
+        file_content = file.read().decode("utf-8")
+        project_id = request.session.get('projectid')
+        project1 = Project.objects.get(project_id = project_id)
+        dataset = {
+            "Tên hiển thị": file.name,
+            "content": file_content,
+            "time": timezone.now()
+        }
+
+        project1.datasets.append(dataset)
+        project1.save()
+        return JsonResponse({"message": "Import thành công"})
+
+        
+
 def create_project(request):
     if (request.method=='POST'):
         project_name_value = request.POST.get('project-name')
@@ -256,7 +286,7 @@ def create_task(request):
         category_value = request.POST.get('task-category')
         description_value = request.POST.get('task-description')
         member_value = request.POST.get('task-member')
-        
+        project_id = request.session.get('projectid')
         obj = Task(title=title_value,category=category_value,description=description_value,member=member_value,date=datetime.now().date(),project_id=1)
         res = obj.insertTask()
         if(res == 1):

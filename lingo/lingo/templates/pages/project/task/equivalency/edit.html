@@ -75,12 +75,13 @@
                 </div>
             </div>
         </div>
-        <form action="{% url 'equivalency_edit' dataset_id %}" method="post">
+        <form action="{% url 'equivalency_edit' dataset_id %}" method="post" id="EquiForm">
+            {% csrf_token %}
             <input type="hidden" name="dataset1" id="dataset1" value="{{ dataset1 }}">
             <input type="hidden" name="dataset2" id="dataset2" value="{{ dataset2 }}">
         </form>
         <h1>Are these two datasets equivalent?</h1>
-        <select class="select-box" name="label">
+        <select class="select-box" name="label" form="EquiForm">
             <option>Unknown</option>
             <option>Equivalent</option>
             <option>Not Equivalent</option>
@@ -103,7 +104,7 @@
         </div>
         <div style="display: flex; gap: 16px;">
             <a href="{% url 'equivalency_edit' dataset_id %}" style="text-decoration: none;"><button class="button-small" id="ghost">Cancel</button></a>
-            <button class="button-small" type="submit">Save</button>
+            <button class="button-small" type="submit" form="EquiForm">Save</button>
         </div>
     </div>
 

@@ -77,7 +77,7 @@ def dashboard(request):
 
 def project(request, project_id):
     request.session['projectid'] = project_id
-    temp = Project.objects.get(id_project = int(project_id))
+    temp = Project.objects.filter(id_project = int(project_id)).first()
     return render(request, 'pages/project/main.html', {'project': temp})
 
 def members(request):
@@ -158,8 +158,8 @@ def dataset_equivalency_edit(request, datasetid):
         dataset2 = "System Error"
         for dataset in datasets:
             if (dataset['datasetid'] == dataset_id):
-                dataset1 = dataset['content'][0]
-                dataset2 = dataset['content'][1]
+                dataset1 = dataset['content']
+                dataset2 = dataset['content1']
                 return render(request, 'pages/project/task/equivalency/edit.html'
                       , {"dataset_id": dataset_id, "task_id": task_id, "dataset1": dataset1,
                          "dataset2": dataset2, "project_id": request.session.get('projectid')})
@@ -228,20 +228,53 @@ def dataset_translation_edit(request):
 def upload_dataset(request):
     if(request.method == "POST"):
         file = request.FILES['dataset']
-        file_content = file.read().decode("utf-8")
+        # Đọc nội dung của file
+        file_content = file.read().decode('utf-8').splitlines()
+
+        # Xử lý nội dung file
+        if len(file_content) >= 2:
+            file_type = file_content[0]  # Loại file
+            dataset = file_content[1]  # Dữ liệu dataset
+
+            # Tạo dictionary để lưu trữ thông tin dataset
+            dataset_info = {
+                "file_type": file_type,
+                "dataset": dataset
+            }
+
+            # Xử lý nội dung file cho từng loại file
+            if file_type == "Text Classification" or file_type == "Entity" or file_type == "Equivalency_Question":
+                # Cập nhật dataset cho loại file Text Classification, Entity, Equivalency_Question
+                dataset_info["requirement"] = ""
+                if len(file_content) >= 3:
+                    dataset_info["requirement"] = file_content[2]
+
+            elif file_type == "Translation":
+                # Cập nhật dataset cho loại file Translation
+                dataset_info["requirement"] = ""
+                dataset_info["content"] = ""
+                if len(file_content) >= 3:
+                    dataset_info["requirement"] = file_content[2]
+                if len(file_content) >= 4:
+                    dataset_info["content"] = file_content[3]
+
+            elif file_type == "QA_Label" or file_type == "Equivalency":
+                # Cập nhật dataset cho loại file QA_Label, Equivalency
+                dataset_info["content"] = ""
+                dataset_info["content1"] = ""
+                if len(file_content) >= 3:
+                    dataset_info["content"] = file_content[2]
+                if len(file_content) >= 4:
+                    dataset_info["content1"] = file_content[3]
+
+
         project_id = request.session.get('projectid')
-        project1 = Project.objects.get(id_project = project_id)
-        current_time = timezone.now()
-        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-        dataset = {
-            "Name": file.name,
-            "content": file_content,
-            "time": formatted_time
-        }
+        project1 = Project.objects.filter(id_project = project_id).first()
         if (project1.datasets is None):
             project1.datasets = []
-        project1.datasets.append(dataset)
-        project1.save()
+        project1.datasets.append(dataset_info)
+        # project1.save()
+        Project.objects.filter(id_project=project_id).update(datasets=project1.datasets) 
         return JsonResponse({"message": "Import thành công"})
 
         

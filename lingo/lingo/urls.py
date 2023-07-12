@@ -51,6 +51,7 @@ urlpatterns = [
     path('project/tasks?id=IDHERE/IDDATASETS?edit=true', dataset_translation_edit, name='translation_edit'),
     path('project/tasks/<int:task_id>/<int:dataset_id>?edit=true', display_dataset,name='display_dataset'),
     path('translate',labeling_translate,name='labeling_translate'),
+    path('get_datasets/', get_datasets, name='get_datasets'),
 
     #Favicon
     path(r'^favicon\.ico$', favicon_view)

@@ -410,6 +410,11 @@ def labeling_translate(request):
         task_individual.save()
         return JsonResponse({"message":"Gán nhãn dịch thành công."})
         
+def get_datasets(request):
+    category = request.GET.get('category')
+    datasets = Dataset.objects.filter(category=category).values('datasetid', 'content')
+    return JsonResponse(list(datasets), safe=False)
+
         
 
 

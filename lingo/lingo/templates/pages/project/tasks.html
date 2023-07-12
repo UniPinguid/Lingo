@@ -345,6 +345,28 @@
         console.error("Lỗi:", error);
         });
         });
+
+        document.getElementById('task-category').addEventListener('change', function() {
+    var category = this.value;
+
+    // Gửi yêu cầu AJAX để lấy danh sách dataset theo category
+    fetch('/get_datasets/?category=' + category)
+        .then(response => response.json())
+        .then(data => {
+            // Cập nhật danh sách dataset
+            var selectElement = document.getElementById('dataset-select');
+            selectElement.innerHTML = ''; // Xóa danh sách cũ
+
+            // Thêm các tùy chọn mới vào danh sách
+            data.forEach(dataset => {
+                var option = document.createElement('option');
+                option.value = dataset.datasetid;
+                option.innerText = dataset.content;
+                selectElement.appendChild(option);
+            });
+        });
+});
+
     </script>
 </body>
 

@@ -5,6 +5,7 @@
     <link href="static/css/signup.css" rel="stylesheet" />
     <link href="static/css/icon.css" rel="stylesheet" />
     <link href="static/css/root.css" rel="stylesheet" />
+    <link href="static/css/components/button.css" rel="stylesheet" />
     <title>Lingo</title>
 </head>
 
@@ -41,10 +42,10 @@
                 <div class="icon" id="github"></div>
             </a>
         </div>
-        <div id="continue-button">
-            <button type="submit" class="icon white size64px" id="arrow-right"></button>
+        <button id="continue-button" class="button" type="submit" style="padding-left: 16px;">
+            <div class="icon white size64px" id="arrow-right"></div>
             
-        </div>
+        </button>
         <div style="display: flex; flex-direction: row; gap: 8px">
             <div style="color: var(--text-light)">Already have an account?</div>
             <a href="{% url 'signin' %}">Sign In</a>

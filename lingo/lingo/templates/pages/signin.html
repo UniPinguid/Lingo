@@ -42,13 +42,12 @@
                     <div class="icon" id="github"></div>
                 </a>
             </div>
-            <div id="continue-button">
-                
-                <button type="submit" class="icon white size64px" id="arrow-right"></button>
-            </div>
+            <button id="continue-button" type="submit">
+                <div class="icon white size64px" id="arrow-right"></div>
+            </button>
             <div style="display: flex; flex-direction: row; gap: 8px">
                 <div>Don't have an account?</div>
-                <a href="/pages/signup.html">Sign Up</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
             </div>
         </form>
     </div>

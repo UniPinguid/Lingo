@@ -14,6 +14,7 @@ from django.utils import timezone
 from django.db.models import Max
 import json
 from random import *
+from pymongo import MongoClient
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -291,7 +292,30 @@ def upload_dataset(request):
         return JsonResponse({"Message": "Success"})
 
         
+def get_matching_usernames(request):
+    if request.method == 'POST':
+        search_text = request.POST.get('search_text', '')
 
+        # Connect to MongoDB
+        client = MongoClient('mongodb://udpt:nhom5@57.128.165.116:30010/')
+        db = client['BTTH']
+        collection = db['auth_user']
+        # Fetch matching usernames
+        matching_usernames = collection.distinct('username', {'username': {'$regex': search_text, '$options': 'i'}})
+
+        return JsonResponse(matching_usernames, safe=False)
+def process_project_members(request):
+    if request.method == 'POST':
+        project_member_list = request.POST.get('project_member_list')
+        if project_member_list:
+            # Process the project_member_list in your Python code
+            project_member_list = json.loads(project_member_list)
+            # Perform desired operations with the project_member_list
+
+            return JsonResponse({'message': 'Project members processed successfully.'})
+        else:
+            return JsonResponse({'message': 'Invalid project member list.'}, status=400)
+        
 def create_project(request):
     if (request.method=='POST'):
         project_name_value = request.POST.get('project-name')
@@ -300,7 +324,7 @@ def create_project(request):
         # color = request.POST.get('project_des')
         visibility_value = request.POST.get('visibility')
         member_value = []
-        member_value.extend(request.POST.get('project-member'))
+        member_value.extend(request.POST.get('project-member-list').split(','))
         member_value.append(request.user.username)
         max_projectid = Project.objects.aggregate(Max('id_project'))['id_project__max']
         if (max_projectid is None):
@@ -319,7 +343,7 @@ def create_project(request):
         else:
             return JsonResponse({"message": "Tạo project thất bại."})
         
-
+    
 def create_label(request):
     if (request.method=='POST'):
         label_name_value = request.POST.get('label-name')

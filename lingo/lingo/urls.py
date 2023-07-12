@@ -38,6 +38,8 @@ urlpatterns = [
     path('project/main',upload_dataset,name='upload_dataset'),
     path('labels',create_label,name='create_label'),
     path('task',create_task,name='create_task'),
+    path('get_matching_usernames/', get_matching_usernames, name='get_matching_usernames'),
+    path('/process_project_members/', process_project_members, name='process_project_member'),
     # Task screens
     path('project/tasks/<int:taskid>', task_detail, name='task_detail'),
     path('project/tasks/class/<int:taskid>', dataset_classification, name='dataset_classification'),

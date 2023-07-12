@@ -4,14 +4,17 @@
 <head>
     <link href="static/css/signup.css" rel="stylesheet" />
     <link href="static/css/components/button.css" rel="stylesheet" />
+    <link href="static/css/components/logo.css" rel="stylesheet" />
     <link href="static/css/icon.css" rel="stylesheet" />
     <link href="static/css/root.css" rel="stylesheet" />
     <title>Lingo</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
 <body>
     <div class="background"></div>
-    <a class="logo" href="{% url '' %}">Lingo</a>
+    <div><a class="logo" id="full-alt" href="{% url '' %}"></a></div>
     <div>
         <form class="form" method="post" action="{% url 'signin' %}">
             {% csrf_token %}

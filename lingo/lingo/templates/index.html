@@ -4,14 +4,17 @@
 <head>
     <link href="static/css/landing_page.css" rel="stylesheet" />
     <link href="static/css/components/button.css" rel="stylesheet" />
+    <link href="static/css/components/logo.css" rel="stylesheet" />
     <link href="static/css/icon.css" rel="stylesheet" />
     <link href="static/css/root.css" rel="stylesheet" />
     <title>Lingo</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
 <body>
     <div class="header">
-        <div>Lingo</div>
+        <div class="logo" id="full"></div>
         <div class="group_items">
             <a class="item" href="#">Overview</a>
             <a class="item" href="#">Features</a>

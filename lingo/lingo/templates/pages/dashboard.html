@@ -9,15 +9,18 @@
     <link href="static/css/components/popup.css" rel="stylesheet" />
     <link href="static/css/components/radio.css" rel="stylesheet" />
     <link href="static/css/components/suggestion.css" rel="stylesheet" />
+    <link href="static/css/components/logo.css" rel="stylesheet" />
     <link href="static/css/icon.css" rel="stylesheet" />
     <link href="static/css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
 <body>
     <div class="page-layout">
         <div class="sidebar">
-            <div>LingoLab</div>
+            <div style="padding: 8px;"><div class="logo" id="lab" ></div></div>
             <button class="button" id="popupButton">
                 <div class="icon white size40px" id="plus"></div>Create Project
             </button>
@@ -32,7 +35,7 @@
                     {% for project in projects %}
                         <div class="item">
                             <div class="project-color"></div>
-                            <a class="project-name" href="{% url 'project' project.id_project  %}"> {{ project.projectname }}</a>
+                            <a class="project-name" href="{% url 'project' project.id_project %}"> {{ project.projectname }}</a>
                         </div>
                     {% endfor %}
                 </div>

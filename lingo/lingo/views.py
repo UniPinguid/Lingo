@@ -110,13 +110,56 @@ def task_detail(request,taskid):
     return render(request, 'pages/project/task/detail.html', {'project_id': request.session.get('projectid')
                                                               , 'cate': task.category, 'datasets': datasets,'task_id':taskid})
 
-def dataset_classification(request, taskid):
-    return render(request, 'pages/project/task/classification/dataset.html',
-                  {"project_id": request.session.get("projectid"),
-                   "taskid": taskid})
+def dataset_classification(request, datasetid):
+    request.session['datasetid'] = int(datasetid)
+    dataset_id = int(datasetid)
+    t = Task.objects.get(taskid=request.session.get('taskid'))
+    datasets = t.datasets
+    for dataset in datasets:
+        if (dataset['datasetid'] == dataset_id):
+            return render(request, 'pages/project/task/classification/dataset.html',
+                {"project_id": request.session.get("projectid"),
+                "dataset_id": dataset_id, "taskid": request.session.get('taskid'),
+                "content": dataset['content']})
 
-def dataset_classification_edit(request):
-    return render(request, 'pages/project/task/classification/edit.html')
+def dataset_classification_edit(request, datasetid):
+    if (request.method == "POST"):
+        dataset_id = int(datasetid)
+        task_id = request.session.get('taskid')
+        content = request.POST.get('content')
+        label = request.POST.get('label')
+        user = request.session.get('username')
+        revise = False
+
+
+        task_individual = TaskIndividual.objects.filter(user=user, task=task_id).first()
+        if task_individual is None:
+            # Tạo document mới nếu chưa tồn tại
+            task_individual = TaskIndividual(user=request.user.username, task=task_id, labeling=[])
+        # Thêm thông tin gán nhãn vào document
+        dataset_label = {"datasetid":dataset_id, "Data": content, "label": label}
+        task_individual.labeling.append(dataset_label)
+        task_individual.revise = revise
+        task_individual.done = not revise
+
+        # Lưu document vào collection Task_Individual
+        task_individual.save()
+
+        # Chuyển hướng về trang danh sách dataset hoặc trang khác tùy ý
+        return JsonResponse({"Message": "Gán nhãn thành công."})
+    elif (request.method == "GET"):
+        projectid = request.session.get('projectid')
+        datasetid = int(datasetid)
+        task = Task.objects.get(taskid=request.session.get('taskid'))
+        labels = Label.objects.filter(project_id=projectid)
+        datasets = task.datasets
+        content = "System Error"
+        for dataset in datasets:
+            if (dataset['datasetid'] == datasetid):
+                content = dataset['content']
+        return render(request, 'pages/project/task/classification/edit.html',
+                      {"project_id":projectid, "labels":labels, "content": content,
+                       "datasetid": datasetid})
 
 def dataset_equivalency(request, datasetid):
     request.session['datasetid'] = int(datasetid)

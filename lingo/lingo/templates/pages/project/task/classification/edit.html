@@ -53,7 +53,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href=" url 'project' ">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
@@ -69,7 +69,7 @@
             <div class="task-header">
                 <div class="icon size40px" id="dataset"></div>
                 <div class="info">
-                    <div>DT#1240-2041</div>
+                    <div>{{ datasetid }}</div>
                 </div>
                 <div class="file" style="margin-left: 24px">
                     <span>from</span>
@@ -79,9 +79,16 @@
         </div>
 
         <h1>Category</h1>
+        <select class="select-box" name="label" form="classForm">
+        {% for label in labels %}
+            <option>{{ label.labelname }}</option>
+        {% endfor %}
+        </select>
         <div class="label paragraph">computer science</div>
 
-        <ul id="labeledTextList"></ul>
+        <ul id="labeledTextList">
+            
+        </ul>
         <div class="editor-toolbar">
             <button class="icon" style="padding: 0px;">
                 <div class="icon" id="search"></div>
@@ -105,11 +112,16 @@
             </div>
             <div id="editor">
                 <textarea
-                    id="editor-textarea">Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines to interpret and understand visual information from the world around them. Using advanced algorithms and deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data to recognize patterns, objects, and even people. This technology has a wide range of applications, from self-driving cars and facial recognition software to medical imaging and quality control in manufacturing. As computer vision technology continues to evolve and improve, it has the potential to revolutionize a variety of industries and change the way we interact with the world around us.</textarea>
+                    id="editor-textarea">{{ content }}</textarea>
                 <div id="listText"></div>
             </div>
         </div>
         <textarea placeholder="Describe what you changed" id="change"></textarea>
+        <form action="{% url 'classification_edit' datasetid %}" method="post" id="classForm">
+            {% csrf_token %}
+            <input type="hidden" name="content" id="content" value="{{ content }}" form="classForm">
+
+        </form>
         <div style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center;">
                 <input type="checkbox" id="revise">

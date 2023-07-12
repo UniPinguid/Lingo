@@ -40,8 +40,8 @@ urlpatterns = [
     path('task',create_task,name='create_task'),
     # Task screens
     path('project/tasks/<int:taskid>', task_detail, name='task_detail'),
-    path('project/tasks/class/<int:taskid>', dataset_classification, name='dataset_classification'),
-    path('project/tasks?id=IDHERE/IDDATASET?edit=true', dataset_classification_edit, name='classification_edit'),
+    path('project/tasks/class/<int:datasetid>', dataset_classification, name='dataset_classification'),
+    path('project/tasks/class/edit/<int:datasetid>', dataset_classification_edit, name='classification_edit'),
     path('project/tasks/equal/<int:datasetid>', dataset_equivalency, name='dataset_equivalency'),
     path('project/tasks/equal/edit/<int:datasetid>', dataset_equivalency_edit, name='equivalency_edit'),
     path('project/tasks/qa/<int:datasetid>', dataset_qa, name='dataset_qa'),

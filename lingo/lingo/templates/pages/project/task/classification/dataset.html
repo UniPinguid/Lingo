@@ -71,7 +71,7 @@
             <div class="task-header">
                 <div class="icon size40px" id="dataset"></div>
                 <div class="info">
-                    <div>DT#1240-2041</div>
+                    <div>{{ dataset_id }}</div>
                 </div>
                 <div class="file" style="margin-left: 24px">
                     <span>from</span>
@@ -80,7 +80,7 @@
             </div>
             <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                 <div class="level">Level 1</div>
-                <a class="edit-button" href="{% url 'classification_edit' %}">
+                <a class="edit-button" href="{% url 'classification_edit' dataset_id %}">
                     <div class="icon" id="edit"></div>
                     <span>Edit</span>
                 </a>
@@ -95,13 +95,7 @@
         <div class="label paragraph">computer science</div>
 
         <div class="dataset-content">
-            Computer vision is a field of artificial intelligence and computer science that focuses on enabling machines
-            to interpret and understand visual information from the world around them. Using advanced algorithms and
-            deep learning techniques, computer vision systems can analyze images, videos, and other forms of visual data
-            to recognize patterns, objects, and even people. This technology has a wide range of applications, from
-            self-driving cars and facial recognition software to medical imaging and quality control in manufacturing.
-            As computer vision technology continues to evolve and improve, it has the potential to revolutionize a
-            variety of industries and change the way we interact with the world around us.
+            {{ content }}
         </div>
     </div>
 

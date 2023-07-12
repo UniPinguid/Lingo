@@ -320,6 +320,56 @@
 
         {% endfor %}
         {% endif %}
+
+        <!-- Classification -->
+        {% if cate == "Text Classification" or cate == "Entity"%}
+        {% for dataset in datasets %}
+            <div class="dataset-container">
+                <div class="header">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+                        <div class="id">
+                            <div class="icon" id="dataset"></div><a
+                                href="{% url 'dataset_classification' dataset.datasetid %}">{{ dataset.datasetid }}</a>
+                        </div>
+                        <div class="level">Level 1</div>
+                        <div class="file">
+                            <span>from</span>
+                            <a href="#">rawdata.txt</a>
+                        </div>
+                    </div>
+                    <a class="edit-button" href="{% url 'classification_edit' dataset.datasetid %}">
+                        <div class="icon white" id="edit"></div>
+                        <div>Edit</div>
+                        <div style="border-right: 2px solid var(--neutral-light-gray); height: 32px; margin: 0px 4px;">
+                        </div>
+                        <div class="icon white size24px" id="expand"></div>
+                    </a>
+                </div>
+                <div class="body">
+                    <div class="paragraph label">computer science</div>
+                    <div class="content">
+                        {{ dataset.content }}
+                    </div>
+                    <hr>
+                    <div class="recent-contributors">
+                        <div>Recent Contributors:</div>
+                        <div class="contributor">
+                            <a href="#">
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">ltngan</a>
+                            </a>
+                            <div>&middot;</div>
+                            <div>2 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contributors">
+    
+                </div>
+            </div>
+        {% endfor %}
+
+        {% endif %}        
         <div class="pagination">
             <div class="list-pages">
                 <button>

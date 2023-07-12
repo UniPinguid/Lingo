@@ -23,7 +23,7 @@
             </button>
             <div class="collapsible">
                 My Project
-                <button class="toggle" onclick="toggleCollapsible()">
+                <button class="toggle">
                     <div class="icon" id="expand"></div>
                 </button>
             </div>
@@ -32,7 +32,7 @@
                     {% for project in projects %}
                         <div class="item">
                             <div class="project-color"></div>
-                            <a class="project-name" href="{% url 'project' project.id_project  %}"> {{ project.projectname }}</a>
+                            <a class="project-name" href=" url 'project' project.id_project  "> {{ project.projectname }}</a>
                         </div>
                     {% endfor %}
                 </div>
@@ -40,26 +40,26 @@
 
             <div class="collapsible">
                 Toolbox
-                <button class="toggle" onclick="toggleCollapsible()">
+                <button class="toggle">
                     <div class="icon" id="expand"></div>
                 </button>
             </div>
             <div class="content">
                 <div class="group-items">
                     <div class="item">
-                        <div class="icon" id="search"></div>
+                        <div class="icon light" id="categorization"></div>
                         <a class="project-name" href="#">Categorization</a>
                     </div>
                     <div class="item">
-                        <div class="icon" id="search"></div>
+                        <div class="icon light" id="qa"></div>
                         <a class="project-name" href="#">Questions & Answers</a>
                     </div>
                     <div class="item">
-                        <div class="icon" id="search"></div>
+                        <div class="icon light" id="translation"></div>
                         <a class="project-name" href="#">Translation</a>
                     </div>
                     <div class="item">
-                        <div class="icon" id="search"></div>
+                        <div class="icon light" id="equivalency"></div>
                         <a class="project-name" href="#">Equivalency</a>
                     </div>
                 </div>
@@ -67,15 +67,15 @@
             <hr />
             <div class="group-items">
                 <div class="item">
-                    <div class="icon" id="search"></div>
+                    <div class="icon light" id="moon"></div>
                     <a class="project-name" href="#">Dark Mode</a>
                 </div>
                 <div class="item">
-                    <div class="icon" id="search"></div>
+                    <div class="icon light" id="cog"></div>
                     <a class="project-name" href="#">Settings</a>
                 </div>
                 <div class="item">
-                    <div class="icon" id="search"></div>
+                    <div class="icon light" id="logout"></div>
                     <a class="project-name" href="{% url '' %}">Log Out</a>
                 </div>
             </div>
@@ -126,19 +126,19 @@
                     <div class="activity-container">
                         <h2>April 20th, 2023</h2>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
                         </div>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
                         </div>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
@@ -146,19 +146,19 @@
 
                         <h2>April 19th, 2023</h2>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
                         </div>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
                         </div>
                         <div class="activity">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="label"></div>
                             <div class="time">8:45</div>
                             <div class="instance">You invited pstung, nhkhoi, ltngan to Novelty Accuracy as a
                                 contributor.</div>
@@ -196,7 +196,7 @@
                     <div class="task-deadline">
                         <h3>Upcoming Task Deadline</h3>
                         <div class="deadline">
-                            <div class="icon" id="search"></div>
+                            <div class="icon" id="task"></div>
                             <div class="content">Task <a class="task" href="#">Label Animal Species</a> on <a
                                     class="project" href="#">Pokémon Species Recognition</a> needs to be done before
                                 07:24.
@@ -227,7 +227,7 @@
                     <hr>
                     <div class="stats">
                         <div class="tasks">
-                            <div class="icon light" id="search"></div>4/27
+                            <div class="icon light" id="task-complete"></div>4/27
                         </div>
                         <div class="time">1 day ago</div>
                     </div>
@@ -240,24 +240,24 @@
             <div class="tasks-stats">
                 <div class="stat-card">
                     <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
-                        <div class="icon light" id="search"></div>
+                        <div class="icon light" id="task"></div>
                         <div class="stat-name">Pending Tasks</div>
                     </div>
-                    <div class="num-box">7</div>
+                    <div class="num-box">22</div>
                 </div>
                 <div class="stat-card">
                     <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
-                        <div class="icon light" id="search"></div>
+                        <div class="icon light" id="task"></div>
                         <div class="stat-name">On-Going Tasks</div>
                     </div>
-                    <div class="num-box">7</div>
+                    <div class="num-box" style="background-color: var(--fill-primary); color: var(--primary)">12</div>
                 </div>
                 <div class="stat-card">
                     <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
-                        <div class="icon light" id="search"></div>
+                        <div class="icon light" id="task-complete"></div>
                         <div class="stat-name">Completed Tasks</div>
                     </div>
-                    <div class="num-box">7</div>
+                    <div class="num-box" style="background-color: var(--accent-background-green); color: var(--accent-green)">7</div>
                 </div>
             </div>
             <div class="tasks-container">
@@ -267,7 +267,7 @@
                             <a class="project-name" href="#">Neural Activation</a>
                             <div>/</div>
                             <div style="display: flex; align-items: center">
-                                <div class="icon" id="search"></div>
+                                <div class="icon" id="task"></div>
                                 <a class="task-name" href="#">#PMD-123925</a>
                             </div>
                         </div>
@@ -307,7 +307,7 @@
                             <a class="project-name" href="#">Neural Activation</a>
                             <div>/</div>
                             <div style="display: flex; align-items: center">
-                                <div class="icon" id="search"></div>
+                                <div class="icon" id="task"></div>
                                 <a class="task-name" href="#">#PMD-123925</a>
                             </div>
                         </div>
@@ -347,7 +347,7 @@
                             <a class="project-name" href="#">Neural Activation</a>
                             <div>/</div>
                             <div style="display: flex; align-items: center">
-                                <div class="icon" id="search"></div>
+                                <div class="icon" id="task"></div>
                                 <a class="task-name" href="#">#PMD-123925</a>
                             </div>
                         </div>
@@ -387,7 +387,7 @@
                             <a class="project-name" href="#">Neural Activation</a>
                             <div>/</div>
                             <div style="display: flex; align-items: center">
-                                <div class="icon" id="search"></div>
+                                <div class="icon" id="task"></div>
                                 <a class="task-name" href="#">#PMD-123925</a>
                             </div>
                         </div>

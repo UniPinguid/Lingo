@@ -76,9 +76,46 @@ body {
     cursor: pointer;
 }
 
-.content {
-    display: none;
-}
+#expand {
+    transition: transform 0.1s ease-in-out; /* Add transition property */
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg); /* Apply rotation */
+  }
+  
+
+  .collapsible {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .collapsible .toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .collapsible .toggle .icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .collapsible.active .toggle .icon {
+    transform: rotate(180deg);
+  }
+  
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+    opacity: 0;
+    margin: -16px 0px;
+  }
+  
+  
 
 .group-items {
     display: flex;
@@ -106,9 +143,13 @@ body {
     background-color: red;
 }
 
-.project-name {
+a.project-name {
     text-decoration: none;
     color: var(--text-light);
+}
+
+a.project-name:hover {
+    text-decoration: underline;
 }
 
 hr {

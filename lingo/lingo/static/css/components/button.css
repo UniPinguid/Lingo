@@ -151,6 +151,25 @@ button.action#delete {
     color: var(--accent-red);
 }
 
+button.action#delete:hover {
+    filter: brightness(60%);
+}
+
+button.action#dark {
+    background-color: var(--background-dark);
+    color: white;
+}
+
+button.action#complete {
+    border: none;
+    background-color: var(--complete);
+    color: white;
+}
+
+button.action:hover {
+    filter: brightness(90%);
+}
+
 .edit-button {
     display: flex;
     flex-direction: row;

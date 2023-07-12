@@ -273,7 +273,7 @@
             <div class="header">
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                     <div class="id">
-                        <div class="icon" id="dataset"></div><a href="{% url 'dataset_qa'%}">{{ dataset.datasetid }}</a>
+                        <div class="icon" id="dataset"></div><a href="{% url 'dataset_qa' dataset.datasetid %}">{{ dataset.datasetid }}</a>
                     </div>
                     <div class="level">Level 1</div>
                     <div class="file">

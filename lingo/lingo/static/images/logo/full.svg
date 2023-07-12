@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492.06 141.91">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b49bc;
+      }
+
+      .cls-2 {
+        fill: #2468ff;
+      }
+
+      .cls-3 {
+        fill: #3d3f44;
+        font-family: Rubik-Bold, Rubik;
+        font-size: 102.51px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <rect class="cls-1" x="41.63" y="21.62" width="124.12" height="72.25" rx="28.2" ry="28.2" transform="translate(-10.46 90.23) rotate(-45)"/>
+        <rect class="cls-2" x="-4.31" y="21.62" width="124.12" height="72.25" rx="28.2" ry="28.2" transform="translate(-23.92 57.74) rotate(-45)"/>
+        <circle class="cls-1" cx="98.31" cy="40.52" r="6.67"/>
+      </g>
+      <text class="cls-3" transform="translate(208.32 94.14)"><tspan x="0" y="0">Lingo</tspan></text>
+    </g>
+  </g>
+</svg>

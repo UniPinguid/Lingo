@@ -8,9 +8,12 @@
     <link href="{{STATIC_URL}}css/components/format.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/table.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/components/select.css" rel="stylesheet" />
+    <link href="{{STATIC_URL}}css/components/logo.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/icon.css" rel="stylesheet" />
     <link href="{{STATIC_URL}}css/root.css" rel="stylesheet" />
     <title>Dashboard | LingoLab</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
 <body>
@@ -19,7 +22,7 @@
             <a href="{% url 'dashboard' %}" style="border: 1px solid white; border-radius: 99px;">
                 <div class="icon white" id="arrow-left"></div>
             </a>
-            <div class="logo">LingoLab</div>
+            <div class="logo" id="lab-alt"></div>
         </div>
         <div class="functions">
             <div class="icon white" id="globe"></div>

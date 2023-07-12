@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from lingo.views import *
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,5 +50,8 @@ urlpatterns = [
     path('project/tasks?id=IDHERE/IDDATASETTS', dataset_translation, name='dataset_translation'),
     path('project/tasks?id=IDHERE/IDDATASETS?edit=true', dataset_translation_edit, name='translation_edit'),
     path('project/tasks/<int:task_id>/<int:dataset_id>?edit=true', display_dataset,name='display_dataset'),
-    path('translate',labeling_translate,name='labeling_translate')
+    path('translate',labeling_translate,name='labeling_translate'),
+
+    #Favicon
+    path(r'^favicon\.ico$', favicon_view)
 ]

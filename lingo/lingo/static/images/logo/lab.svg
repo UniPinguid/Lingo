@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 627.57 134.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b49bc;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #2468ff;
+      }
+
+      .cls-4 {
+        fill: #3d3f44;
+        font-size: 102.51px;
+      }
+
+      .cls-5 {
+        font-family: Rubik-Bold, Rubik;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+
+      .cls-6 {
+        font-family: Rubik-Regular, Rubik;
+        font-variation-settings: 'wght' 400;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-4" transform="translate(168.53 87.13)"><tspan class="cls-5" x="0" y="0">Lingo</tspan><tspan class="cls-6" x="283.75" y="0">Lab</tspan></text>
+      <g>
+        <path class="cls-1" d="M31.79,105.38h56.04c7.43,0,13.45-6.02,13.45-13.45V55.83c0-7.43-6.02-13.45-13.45-13.45H31.79c-3.53,0-6.92,1.39-9.43,3.86L4.01,64.3c-5.35,5.27-5.35,13.9,0,19.17l18.34,18.05c2.52,2.48,5.9,3.86,9.43,3.86Z"/>
+        <path class="cls-3" d="M93.77,64.38H37.73c-7.43,0-13.45-6.02-13.45-13.45V14.83c0-7.43,6.02-13.45,13.45-13.45h56.04c3.53,0,6.92,1.39,9.43,3.86l18.34,18.05c5.35,5.27,5.35,13.9,0,19.17l-18.34,18.05c-2.52,2.48-5.9,3.86-9.43,3.86Z"/>
+        <circle class="cls-2" cx="97.28" cy="32.38" r="7"/>
+      </g>
+    </g>
+  </g>
+</svg>

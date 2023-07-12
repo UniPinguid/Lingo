@@ -498,9 +498,10 @@
                 </label>
                 <label>Assign Members</label>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 16px; position: relative; width: 100%;">
+                    <input class="input-field" id="member-bar" style="width: 80%; margin: 4px 0px;" type="text" name="project-member-list" form="fm-create-project" autocomplete="off">
                     <input class="input-field" id="search-bar" style="width: 80%; margin: 4px 0px;" type="text" name="project-member" form="fm-create-project" autocomplete="off">
                     <div id="suggestionsDropdown" class="dropdown"></div>
-                    <button class="button-small">Add</button>
+                    <button class="button-small" id="add-button">Add</button>
                 </div>
                 <div class="participants" style="margin: 8px 0px 0px 8px;">
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
@@ -508,6 +509,65 @@
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                     <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
                 </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Get the CSRF token from the HTML template
+  var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
+  var projectMemberList = [];  // List to store project members
+
+  $('#add-button').on('click', function() {
+    var projectMember = $('#search-bar').val();
+    if (projectMember.trim() !== '') {
+      var currentMembers = $('#member-bar').val();
+      var updatedMembers = currentMembers ? currentMembers + ', ' + projectMember : projectMember;
+      $('#member-bar').val(updatedMembers);
+      $('#search-bar').val('');
+    }
+  });
+  $('#search-bar').on('input', function() {
+    var inputText = $(this).val();
+    if (inputText.length >= 3) {  // Send request only if the input has at least 3 characters
+      $.ajax({
+        url: '/get_matching_usernames/',
+        method: 'POST',
+        data: {
+          'search_text': inputText
+        },
+        headers: {
+          'X-CSRFToken': csrfToken  // Include the CSRF token in the request headers
+        },
+        success: function(response) {
+          var dropdown = $('#suggestionsDropdown');
+          dropdown.empty();  // Clear previous suggestions
+
+          if (response.length > 0) {
+            // Add each suggestion as a list item to the dropdown
+            $.each(response, function(index, item) {
+              dropdown.append('<div class="dropdown-item">' + item + '</div>');
+            });
+
+            // Show the dropdown
+            dropdown.show();
+          } else {
+            // Hide the dropdown if no suggestions found
+            dropdown.hide();
+          }
+        }
+      });
+    } else {
+      $('#suggestionsDropdown').hide();
+    }
+  });
+
+  // Handle the selection from the dropdown
+  $(document).on('click', '.dropdown-item', function() {
+    var selectedUsername = $(this).text();
+    $('#search-bar').val(selectedUsername);
+    $('#suggestionsDropdown').hide();
+  });
+});
+</script>
             </div>
         </div>
         <div class="action-buttons">

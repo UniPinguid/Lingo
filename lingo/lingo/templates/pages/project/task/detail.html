@@ -198,7 +198,7 @@
         {% endfor %}
         {% endif %}
         <!-- Equivalency -->
-        {% if cate == "Equivalency" %}
+        {% if cate == "Equivalency" or cate == "QA_Label"%}
         {% for dataset in datasets %}
         <div class="dataset-container">
             <div class="header">
@@ -213,7 +213,12 @@
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 24px">
+                    {% if cate == "Equivalency" %}
                     <div class="badge" id="equivalent">equivalent</div>
+                    {% endif %}
+                    {% if cate == "QA_Label" %}
+                    <div class="badge" id="equivalent">QA Labeling</div>
+                    {% endif %}
                     <a class="edit-button" href="{% url 'equivalency_edit' dataset.datasetid %}">
                         <div class="icon white" id="edit"></div>
                         <div>Edit</div>

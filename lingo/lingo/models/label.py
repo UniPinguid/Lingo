@@ -5,7 +5,7 @@ class Label(models.Model):
     labelname = models.CharField(max_length=100)
     description = models.TextField()
     color = models.CharField(max_length=20)
-
+    project_id = models.IntegerField()
 
     def __init__(self, project_id, *args, **kwargs):
         super(Label, self).__init__(*args, **kwargs)

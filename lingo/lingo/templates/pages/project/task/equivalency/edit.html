@@ -80,6 +80,7 @@
             <input type="hidden" name="dataset1" id="dataset1" value="{{ dataset1 }}">
             <input type="hidden" name="dataset2" id="dataset2" value="{{ dataset2 }}">
         </form>
+        {% if cate == "Equivalency" %}
         <h1>Are these two datasets equivalent?</h1>
         <select class="select-box" name="label" form="EquiForm">
             <option>Unknown</option>
@@ -87,7 +88,16 @@
             <option>Not Equivalent</option>
         </select>
         <hr>
-
+        {% endif %}
+        {% if cate == "QA_Label" %}
+        <h1>Are these two datasets relative?</h1>
+        <select class="select-box" name="label" form="EquiForm">
+            <option>Unknown</option>
+            <option>Relative</option>
+            <option>Not Relative</option>
+        </select>
+        <hr>
+        {% endif %}
         <div style="display: flex; flex-direction: row; gap: 16px;">
             <div class="dataset-content" style="width: 100%;" name="datapiece1">
                 {{ dataset1 }}

@@ -50,7 +50,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="active" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="inactive" href="{% url 'tasks' %}">Tasks</a>
@@ -364,6 +364,7 @@
             })
             .then(function(data) {
             alert(data.message);
+            window.location.href = 'labels'
             })
             .catch(function(error) {
             // console.error("Lỗi:", error);

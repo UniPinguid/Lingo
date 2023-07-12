@@ -51,7 +51,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
@@ -62,7 +62,7 @@
 
     <!-- Content -->
     <div style="padding: 16px 100px">
-        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
+        <a href="{% url 'task_detail' taskid %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
         <div class=""
             style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">

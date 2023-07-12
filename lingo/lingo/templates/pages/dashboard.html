@@ -211,7 +211,7 @@
                 <div class="project">
                     <div class="header">
                         <div class="title">
-                            <a class="name" href="% url 'project' project.id_project %">{{ project.projectname }}</a>
+                            <a class="name" href="{% url 'project' project.id_project  %}">{{ project.projectname }}</a>
                             <div class="category">{{ project.tags }}</div>
                         </div>
                         <div class="participants">
@@ -222,7 +222,7 @@
                         </div>
                     </div>
                     <div class="description">
-                        {{ description }}
+                        {{ project.description }}
                     </div>
                     <hr>
                     <div class="stats">
@@ -539,7 +539,7 @@
         .then(function(data) {
     // Xử lý dữ liệu JSON trả về từ server
         alert(data.message);
-        window.location.href = '/project'; // In ra thông báo từ server
+        window.location.href = 'dashboard'; // In ra thông báo từ server
         })
         .catch(function(error) {
         console.error("Lỗi:", error);

@@ -12,6 +12,8 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils import timezone
 from django.db.models import Max
+import json
+from random import *
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -90,7 +92,10 @@ def tasks(request):
     return render(request, 'pages/project/tasks.html', {'project_id': projectid, 'tasks':tasks})
 
 def labels(request):
-    return render(request, 'pages/project/labels.html')
+    projectid = request.session.get('projectid')
+    labels = Label.objects.filter(project_id=projectid)
+    return render(request, 'pages/project/labels.html', {"project_id": projectid,
+                                                         "labels": labels})
 
 def contribution(request):
     return render(request, 'pages/project/contribution.html')
@@ -100,11 +105,15 @@ def task_detail(request,taskid):
     request.session['taskid'] = int(taskid)
     task = Task.objects.get(taskid=taskid)
     datasets = task.datasets
+
+    request.session['cate'] = task.category
     return render(request, 'pages/project/task/detail.html', {'project_id': request.session.get('projectid')
                                                               , 'cate': task.category, 'datasets': datasets,'task_id':taskid})
 
-def dataset_classification(request):
-    return render(request, 'pages/project/task/classification/dataset.html')
+def dataset_classification(request, taskid):
+    return render(request, 'pages/project/task/classification/dataset.html',
+                  {"project_id": request.session.get("projectid"),
+                   "taskid": taskid})
 
 def dataset_classification_edit(request):
     return render(request, 'pages/project/task/classification/edit.html')
@@ -162,7 +171,8 @@ def dataset_equivalency_edit(request, datasetid):
                 dataset2 = dataset['content1']
                 return render(request, 'pages/project/task/equivalency/edit.html'
                       , {"dataset_id": dataset_id, "task_id": task_id, "dataset1": dataset1,
-                         "dataset2": dataset2, "project_id": request.session.get('projectid')})
+                         "dataset2": dataset2, "project_id": request.session.get('projectid'),
+                         "cate": request.session.get('cate')})
         
 
 # def dataset_qa(request):
@@ -234,38 +244,41 @@ def upload_dataset(request):
         # Xử lý nội dung file
         if len(file_content) >= 2:
             file_type = file_content[0]  # Loại file
-            dataset = file_content[1]  # Dữ liệu dataset
+            #dataset = file_content[1]  # Dữ liệu dataset
 
             # Tạo dictionary để lưu trữ thông tin dataset
             dataset_info = {
                 "file_type": file_type,
-                "dataset": dataset
+                #"dataset": dataset
             }
 
             # Xử lý nội dung file cho từng loại file
             if file_type == "Text Classification" or file_type == "Entity" or file_type == "Equivalency_Question":
                 # Cập nhật dataset cho loại file Text Classification, Entity, Equivalency_Question
-                dataset_info["requirement"] = ""
+                #dataset_info["requirement"] = ""
                 if len(file_content) >= 3:
-                    dataset_info["requirement"] = file_content[2]
+                    dataset_info["requirement"] = file_content[1]
+                    dataset_info["content"] = file_content[2]
+                else:
+                    dataset_info["content"] = file_content[1]
 
             elif file_type == "Translation":
                 # Cập nhật dataset cho loại file Translation
                 dataset_info["requirement"] = ""
                 dataset_info["content"] = ""
                 if len(file_content) >= 3:
-                    dataset_info["requirement"] = file_content[2]
+                    dataset_info["requirement"] = file_content[1]
                 if len(file_content) >= 4:
-                    dataset_info["content"] = file_content[3]
+                    dataset_info["content"] = file_content[2]
 
             elif file_type == "QA_Label" or file_type == "Equivalency":
                 # Cập nhật dataset cho loại file QA_Label, Equivalency
                 dataset_info["content"] = ""
                 dataset_info["content1"] = ""
                 if len(file_content) >= 3:
-                    dataset_info["content"] = file_content[2]
+                    dataset_info["content"] = file_content[1]
                 if len(file_content) >= 4:
-                    dataset_info["content1"] = file_content[3]
+                    dataset_info["content1"] = file_content[2]
 
 
         project_id = request.session.get('projectid')
@@ -275,7 +288,7 @@ def upload_dataset(request):
         project1.datasets.append(dataset_info)
         # project1.save()
         Project.objects.filter(id_project=project_id).update(datasets=project1.datasets) 
-        return JsonResponse({"message": "Import thành công"})
+        return JsonResponse({"Message": "Success"})
 
         
 
@@ -289,23 +302,32 @@ def create_project(request):
         member_value = []
         member_value.extend(request.POST.get('project-member'))
         member_value.append(request.user.username)
-        max_projectid = Project.objects.aggregate(Max('id_project'))['idproject__max']
-        project_id = int(max_projectid) + 1
+        max_projectid = Project.objects.aggregate(Max('id_project'))['id_project__max']
+        if (max_projectid is None):
+            project_id = 1
+        else:
+            project_id = max_projectid + 1
+
+        
+        #project_id = randint(1000,5000)
         obj = Project(projectname=project_name_value,tags=tags_value,
                       description=description_value,visibility=visibility_value,
-                      member=member_value, project_id= project_id)
+                       id_project= project_id, member=member_value)
         res = obj.insertProject()
-        if(res == 1):
-            return redirect(dashboard)
+        if (res == 1):
+            return JsonResponse({"message": "Tạo project thành công."})
         else:
-            return JsonResponse({"message":"Tạo project thất bại."})
+            return JsonResponse({"message": "Tạo project thất bại."})
+        
 
 def create_label(request):
     if (request.method=='POST'):
         label_name_value = request.POST.get('label-name')
         description_value = request.POST.get('label-description')
         color_value = request.POST.get('label-color')
-        obj = Label(labelname=label_name_value,description=description_value,color=color_value)
+        obj = Label(labelname=label_name_value,description=description_value,color=color_value
+                    ,project_id=request.session.get('projectid'))
+        
         try:
             obj.save()
             return JsonResponse({"message": "Tạo label thành công."})

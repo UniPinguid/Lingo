@@ -35,7 +35,7 @@ function handleFileInputChange(inputElement) {
             "</div>" +
             "<div style='width:50%'></div>" +
             "<div style='display: flex; align-items: center; float:right;'>" +
-            "<button class='button-small' id='uploadButton'>Upload</button>" +
+            "<button class='button-small' type='submit' form='uploadForm' id='uploadButton'>Upload</button>" +
             "<button class='icon' id='closeButton'><div class='icon size32px' id='close'></div></button>" +
             "</div></div>";
 

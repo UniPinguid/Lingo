@@ -51,7 +51,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
@@ -102,7 +102,7 @@
             <label for="revise">Pending revise/review</label>
         </div>
         <div style="display: flex; gap: 16px;">
-            <a href="{% url 'dataset_equivalency' %}" style="text-decoration: none;"><button class="button-small" id="ghost">Cancel</button></a>
+            <a href="{% url 'equivalency_edit' dataset_id %}" style="text-decoration: none;"><button class="button-small" id="ghost">Cancel</button></a>
             <button class="button-small" type="submit">Save</button>
         </div>
     </div>

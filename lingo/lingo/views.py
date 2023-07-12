@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils import timezone
+from django.db.models import Max
 # Main screens
 def home(request):
     return render(request, 'index.html')
@@ -96,7 +97,7 @@ def contribution(request):
 
 # Tasks screen
 def task_detail(request,taskid):
-    request.session['taskid'] = request.GET.get('taskid')
+    request.session['taskid'] = int(taskid)
     task = Task.objects.get(taskid=taskid)
     datasets = task.datasets
     return render(request, 'pages/project/task/detail.html', {'project_id': request.session.get('projectid')
@@ -109,13 +110,17 @@ def dataset_classification_edit(request):
     return render(request, 'pages/project/task/classification/edit.html')
 
 def dataset_equivalency(request, datasetid):
-    request.session['datasetid'] = request.GET.get('datasetid')
+    request.session['datasetid'] = int(datasetid)
     dataset_id = int(datasetid)
-    t = Task.objects.get(request.session.get('taskid'))
+    t = Task.objects.get(taskid=request.session.get('taskid'))
     datasets = t.datasets
     for dataset in datasets:
         if (dataset['datasetid'] == dataset_id):
-            return render(request, 'pages/project/task/equivalency/dataset.html', {'dataset': dataset})
+            return render(request, 'pages/project/task/equivalency/dataset.html', {'dataset': dataset, 'project_id': request.session.get('projectid')
+                                                                                   , 'taskid':request.session.get('taskid')})
+        
+
+    return JsonResponse({"message": "nothing"})
     
 
 def dataset_equivalency_edit(request, datasetid):
@@ -142,7 +147,7 @@ def dataset_equivalency_edit(request, datasetid):
         task_individual.save()
 
         # Chuyển hướng về trang danh sách dataset hoặc trang khác tùy ý
-        return redirect(task_detail)
+        return JsonResponse({"Message": "Gán nhãn thành công."})
 
     elif(request.method == 'GET'):
         task_id = request.session.get('taskid')
@@ -157,11 +162,11 @@ def dataset_equivalency_edit(request, datasetid):
                 dataset2 = dataset['content'][1]
                 return render(request, 'pages/project/task/equivalency/edit.html'
                       , {"dataset_id": dataset_id, "task_id": task_id, "dataset1": dataset1,
-                         "dataset2": dataset2})
+                         "dataset2": dataset2, "project_id": request.session.get('projectid')})
         
 
-def dataset_qa(request):
-    return render(request, 'pages/project/task/qa/dataset.html')
+# def dataset_qa(request):
+#     return render(request, 'pages/project/task/qa/dataset.html')
 
 def dataset_qa_edit(request, datasetid):
     if(request.method == "GET"):
@@ -225,13 +230,16 @@ def upload_dataset(request):
         file = request.FILES['dataset']
         file_content = file.read().decode("utf-8")
         project_id = request.session.get('projectid')
-        project1 = Project.objects.get(project_id = project_id)
+        project1 = Project.objects.get(id_project = project_id)
+        current_time = timezone.now()
+        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
         dataset = {
-            "Tên hiển thị": file.name,
+            "Name": file.name,
             "content": file_content,
-            "time": timezone.now()
+            "time": formatted_time
         }
-
+        if (project1.datasets is None):
+            project1.datasets = []
         project1.datasets.append(dataset)
         project1.save()
         return JsonResponse({"message": "Import thành công"})
@@ -248,10 +256,14 @@ def create_project(request):
         member_value = []
         member_value.extend(request.POST.get('project-member'))
         member_value.append(request.user.username)
-        obj = Project(projectname=project_name_value,tags=tags_value,description=description_value,visibility=visibility_value,member=member_value)
+        max_projectid = Project.objects.aggregate(Max('id_project'))['idproject__max']
+        project_id = int(max_projectid) + 1
+        obj = Project(projectname=project_name_value,tags=tags_value,
+                      description=description_value,visibility=visibility_value,
+                      member=member_value, project_id= project_id)
         res = obj.insertProject()
         if(res == 1):
-            return JsonResponse({"message":"Tạo project thành công."})
+            return redirect(dashboard)
         else:
             return JsonResponse({"message":"Tạo project thất bại."})
 
@@ -285,21 +297,30 @@ def create_task(request):
         category_value = request.POST.get('task-category')
         description_value = request.POST.get('task-description')
         member_value = request.POST.get('task-member')
+        member_value += (request.user.username)
         project_id = request.session.get('projectid')
-        obj = Task(title=title_value,category=category_value,description=description_value,member=member_value,date=datetime.now().date(),project_id=1)
+        max_taskid = Task.objects.aggregate(Max('taskid'))['taskid__max']
+        
+        obj = Task(title=title_value,category=category_value,description=description_value
+                   ,member=member_value,date=datetime.now().date(),project_id=project_id
+                   , taskid = int(max_taskid) + 1)
         res = obj.insertTask()
         if(res == 1):
             return JsonResponse({"message":"Tạo task thành công."})
         else:
             return JsonResponse({"message":"Tạo task thất bại."})
         
-def dataset_qa(request):
+def dataset_qa(request, datasetid):
     if (request.method == "GET"):
         try:
-            task = Task.objects.filter(id=request.GET.get('task_id'))
+            task = Task.objects.filter(id=request.session.get('taskid')).first()
+            datasets = task.datasets
+            for dataset in datasets:
+                if (dataset['datasetid'] == int(datasetid)):
+                    return render(request, 'pages/project/task/qa/dataset.html', {'dataset': dataset})
         except NameError:
             task = None 
-        return render(request, 'pages/project/task/qa/dataset.html', {'task': task})
+        
     elif(request.method == "POST"):
         return 0
 

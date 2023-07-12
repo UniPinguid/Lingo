@@ -50,7 +50,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href="{% url 'project' project_id %}">Main</a>
                 <a class="tab" id="inactive" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="active" href="{% url 'tasks' %}">Tasks</a>
@@ -61,7 +61,7 @@
 
     <!-- Content -->
     <div style="padding: 16px 100px">
-        <a href="{% url 'task_detail' %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
+        <a href="{% url 'task_detail' taskid %}" style="color: var(--primary); text-decoration: none;">&larr; Back to task</a>
         <div class=""
             style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 16px 0px;">
             <div class="task-header">
@@ -76,7 +76,7 @@
             </div>
             <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
                 <div class="level">Level 1</div>
-                <a class="edit-button" href="{% url 'equivalency_edit' %}">
+                <a class="edit-button" href="{% url 'equivalency_edit' dataset.datasetid %}">
                     <div class="icon" id="edit"></div>
                     <span>Edit</span>
                 </a>
@@ -91,10 +91,10 @@
 
         <div style="display: flex; flex-direction: row; gap: 16px;">
             <div class="dataset-content" style="width: 100%;">
-                {{ dataset.content[0] }}
+                {{ dataset.content }}
             </div>
             <div class="dataset-content" style="width: 100%;">
-                {{ dataset.content[1] }}
+                {{ dataset.content1 }}
             </div>
         </div>
     </div>

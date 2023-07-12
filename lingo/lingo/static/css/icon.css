@@ -103,6 +103,10 @@
     background-image: url('/static/icons/task.svg');
 }
 
+.icon#task-complete {
+    background-image: url('/static/icons/task complete.svg');
+}
+
 .icon#dataset {
     background-image: url('/static/icons/dataset.svg');
 }
@@ -125,4 +129,32 @@
 
 .icon#bell {
     background-image: url('/static/icons/bell.svg');
+}
+
+.icon#categorization {
+    background-image: url('/static/icons/categorization.svg');
+}
+
+.icon#qa {
+    background-image: url('/static/icons/qa.svg');
+}
+
+.icon#translation {
+    background-image: url('/static/icons/translation.svg');
+}
+
+.icon#equivalency {
+    background-image: url('/static/icons/equivalency.svg');
+}
+
+.icon#moon {
+    background-image: url('/static/icons/moon.svg');
+}
+
+.icon#cog {
+    background-image: url('/static/icons/cog.svg');
+}
+
+.icon#logout {
+    background-image: url('/static/icons/logout.svg');
 }

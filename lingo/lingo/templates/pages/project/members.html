@@ -22,8 +22,8 @@
             <div class="logo">LingoLab</div>
         </div>
         <div class="functions">
-            <div class="icon white" id="check"></div>
-            <div class="icon white" id="check"></div>
+            <div class="icon white" id="globe"></div>
+            <div class="icon white" id="bell"></div>
             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
         </div>
     </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="second-row">
             <div class="tabber">
-                <a class="tab" id="inactive" href="{% url 'project' %}">Main</a>
+                <a class="tab" id="inactive" href=" url 'project' ">Main</a>
                 <a class="tab" id="active" href="{% url 'members' %}">Members</a>
                 <a class="tab" id="inactive" href="{% url 'labels' %}">Labels</a>
                 <a class="tab" id="inactive" href="{% url 'tasks' %}">Tasks</a>
@@ -83,8 +83,10 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
-                                class="contributor" href="#">LBC. Phat</a>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                    class="contributor" href="#">LBC. Phat</a>
+                            </div>
                         </td>
                         <td>example@email.com</td>
                         <td>July 23rd, 2022</td>
@@ -93,8 +95,10 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
-                                class="contributor" href="#">LBC. Phat</a>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                    class="contributor" href="#">LBC. Phat</a>
+                            </div>
                         </td>
                         <td>example@email.com</td>
                         <td>July 23rd, 2022</td>
@@ -135,9 +139,11 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
-                                class="contributor" href="#">LBC. Phat</a><span
-                                style="color: var(--text-light); font-weight: normal;">(You)</span>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                    class="contributor" href="#">LBC. Phat</a><span
+                                    style="color: var(--text-light); font-weight: normal;">(You)</span>
+                            </div>
                         </td>
                         <td>
                             <div class="level">Level 1</div>
@@ -149,8 +155,10 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
+                            <div>
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
                                 class="contributor" href="#">pstung</a>
+                            </div>
                         </td>
                         <td>
                             <div class="level">Level 2</div>
@@ -162,8 +170,10 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
+                            <div>
                             <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
                                 class="contributor" href="#">ltngan</a>
+                            </div>
                         </td>
                         <td>
                             <div class="level">Level 2</div>
@@ -175,8 +185,10 @@
                     <tr>
                         <td><input type="checkbox" id="member-checkbox"></td>
                         <td>
-                            <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
-                                class="contributor" href="#">nhkhoi</a>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div><a
+                                    class="contributor" href="#">nhkhoi</a>
+                            </div>
                         </td>
                         <td>
                             <div class="level">Level 2</div>
@@ -184,6 +196,146 @@
                         <td>example@email.com</td>
                         <td>July 23rd, 2022</td>
                         <td>June 29th, 2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="project-content" style="gap: 120px; margin-top: 32px;">
+        <div class="left-section" style="width: 30%;">
+            <h1>Pending Invite</h1>
+            <div style="color: var(--text-light);">Members to be a part of the project.
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 16px; align-items: center; margin: 12px 0px;">
+                <div id="num-selected-3" style="font-weight: bold;">0 Selected</div>
+                <select class="select-box" style="margin: 0px;">
+                    <option>(action)</option>
+                    <option>Resend</option>
+                    <option>Revoke</option>
+                </select>
+                <button class="button-small">Proceed</button>
+            </div>
+        </div>
+        <div class="right-section" style="width: 70%;">
+            <table style="margin: 0px" id="member-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="all-member-checkbox"></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date Sent</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">nguyenthithap</a>
+                            </div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <button class="action" id="dark" style="font-size: 14px; padding: 8px 16px;">Resend
+                                Invite</button>
+                            <button class="action" id="delete" style="font-size: 14px; padding: 8px 16px;">Revoke Invite</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">vothisau</a>
+                            </div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <button class="action" id="dark" style="font-size: 14px; padding: 8px 16px;">Resend
+                                Invite</button>
+                            <button class="action" id="delete" style="font-size: 14px; padding: 8px 16px;">Revoke Invite</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">bemehbus</a>
+                            </div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <button class="action" id="dark" style="font-size: 14px; padding: 8px 16px;">Resend
+                                Invite</button>
+                            <button class="action" id="delete" style="font-size: 14px; padding: 8px 16px;">Revoke Invite</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="project-content" style="gap: 120px; margin-top: 32px;">
+        <div class="left-section" style="width: 30%;">
+            <h1>Requests</h1>
+            <div style="color: var(--text-light);">Incoming join requests of the project.
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 16px; align-items: center; margin: 12px 0px;">
+                <div id="num-selected-4" style="font-weight: bold;">0 Selected</div>
+                <select class="select-box" style="margin: 0px;">
+                    <option>(action)</option>
+                    <option>Accept</option>
+                    <option>Deny</option>
+                </select>
+                <button class="button-small">Proceed</button>
+            </div>
+        </div>
+        <div class="right-section" style="width: 70%;">
+            <table style="margin: 0px" id="member-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="all-member-checkbox"></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date Requested</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">abcdef</a>
+                            </div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <button class="action" id="complete" style="font-size: 14px; padding: 8px 16px;">Accept</button>
+                            <button class="action" id="delete" style="font-size: 14px; padding: 8px 16px;">Deny</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="member-checkbox"></td>
+                        <td>
+                            <div>
+                                <div class="avatar"><img src="{{STATIC_URL}}images/sample avatar.png"></div>
+                                <a class="contributor" href="#">Mr. Brown</a>
+                            </div>
+                        </td>
+                        <td>example@email.com</td>
+                        <td>July 23rd, 2022</td>
+                        <td style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <button class="action" id="complete" style="font-size: 14px; padding: 8px 16px;">Accept</button>
+                            <button class="action" id="delete" style="font-size: 14px; padding: 8px 16px;">Deny</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
